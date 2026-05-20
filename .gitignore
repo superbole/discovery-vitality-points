@@ -7,10 +7,15 @@ developer_key.der
 # Personal activity/GPS data
 *.fit
 
-# Build output
+# Build output — compiler-generated artifacts (may embed local file paths as debug symbols)
 bin/*.prg
 bin/*.iq
 bin/*.debug.xml
+bin/external-mir/
+bin/internal-mir/
+bin/mir/
+bin/gen/
+bin/debug/
 temp/
 
 # OS & editor
