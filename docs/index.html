@@ -734,7 +734,8 @@
       </tr>
       <tr>
         <td><div class="setting-name">Point change alerts</div><div class="default">Default: On</div></td>
-        <td>Shows a full-screen overlay message when your points tier changes (e.g. "300 points!"). Requires Activity Alerts to be enabled for this data field in your device settings.</td>
+        <td>Shows a full-screen overlay message when your points tier changes (e.g. "300 points!").
+          <strong>Requires device-side setup:</strong> go to your activity profile settings on the device, open <em>Alerts</em>, add a new alert, choose <em>Connect IQ</em>, and select this data field. Without this step the overlay will not appear. (Note: the simulator never shows these overlays regardless of settings — they are a hardware feature only.)</td>
       </tr>
     </tbody>
   </table>
@@ -899,7 +900,7 @@
   <div class="callout warn">
     <div class="callout-title">Important</div>
     <p style="margin-bottom:8px;">This data field <strong>estimates</strong> Discovery Vitality fitness points using Discovery's published HR-zone and time-band rules. Official Vitality points are awarded by Discovery after your activity syncs to their platform, and the final tally may differ.</p>
-    <p style="margin-bottom:8px;">Common reasons for differences: HR data that doesn't transfer cleanly to Discovery's platform from Garmin Connect or Strava; activities that use HR from a chest strap vs. optical sensor; or minor rule changes by Discovery.</p>
+    <p style="margin-bottom:8px;">Common reasons for differences: HR data that doesn't transfer cleanly to Discovery's platform from Garmin Connect or Strava; activities that use HR from a chest strap vs. optical sensor; the age setting in this data field not matching the age Discovery has on record for you; or minor rule changes by Discovery.</p>
     <p style="margin-bottom:0;">This app is <strong>not affiliated with or endorsed by Discovery or Garmin.</strong></p>
   </div>
 </section>
