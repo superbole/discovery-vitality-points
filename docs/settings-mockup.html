@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Vitality Points — Settings &amp; Simulator</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: -apple-system, 'Roboto', sans-serif;
+  font-size: 14px;
+  background: #1a1a2e;
+  color: #eee;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+/* ── Top bar ── */
+.topbar {
+  background: #111;
+  border-bottom: 1px solid #333;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-shrink: 0;
+}
+.topbar h1 { font-size: 15px; font-weight: 600; color: #fff; }
+.topbar .subtitle { font-size: 12px; color: #888; }
+.topbar a { color: #E91E8C; font-size: 12px; text-decoration: none; margin-left: auto; }
+.topbar a:hover { text-decoration: underline; }
+
+/* ── Two-panel layout ── */
+.panels {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* ── Left: Settings panel ── */
+.settings-panel {
+  width: 340px;
+  flex-shrink: 0;
+  background: #f2f2f7;
+  color: #000;
+  overflow-y: auto;
+  border-right: 1px solid #333;
+}
+.settings-panel::-webkit-scrollbar { width: 6px; }
+.settings-panel::-webkit-scrollbar-track { background: #e0e0e0; }
+.settings-panel::-webkit-scrollbar-thumb { background: #bbb; border-radius: 3px; }
+
+.sec-hdr {
+  font-size: 11px; font-weight: 700; color: #6e6e73;
+  text-transform: uppercase; letter-spacing: 0.5px;
+  padding: 14px 14px 5px;
+}
+.group {
+  background: #fff;
+  border-radius: 10px;
+  margin: 0 10px 4px;
+  overflow: hidden;
+}
+.row {
+  display: flex; align-items: center;
+  padding: 9px 14px;
+  border-bottom: 1px solid #f0f0f0;
+  min-height: 40px; gap: 8px;
+}
+.row:last-child { border-bottom: none; }
+.row-lbl { flex: 1; font-size: 13px; color: #000; line-height: 1.3; }
+.row-lbl small { display: block; font-size: 11px; color: #8e8e93; margin-top: 1px; }
+.hint-row {
+  background: #f9f9f9;
+  padding: 6px 14px 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+.hint-row:last-child { border-bottom: none; }
+.hint-lbl { font-size: 10px; font-weight: 700; color: #8e8e93; text-transform: uppercase; letter-spacing: 0.4px; margin-bottom: 1px; }
+.hint-txt { font-size: 11px; color: #8e8e93; line-height: 1.5; }
+.amber-hint {
+  background: #fff8e1; border-left: 3px solid #e8a020;
+  padding: 7px 14px; margin: 0;
+  font-size: 11px; color: #7a5800; line-height: 1.5;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+/* Toggle */
+.tog { position: relative; width: 44px; height: 26px; flex-shrink: 0; cursor: pointer; }
+.tog input { opacity: 0; width: 0; height: 0; }
+.tog-track { position: absolute; inset: 0; border-radius: 26px; background: #e5e5ea; transition: background 0.2s; }
+.tog input:checked + .tog-track { background: #34c759; }
+.tog-thumb { position: absolute; top: 2px; left: 2px; width: 22px; height: 22px; border-radius: 50%; background: #fff; box-shadow: 0 1px 4px rgba(0,0,0,.3); transition: left 0.2s; pointer-events: none; }
+.tog input:checked ~ .tog-thumb { left: 20px; }
+
+/* Select */
+.sel-wrap { position: relative; display: flex; align-items: center; }
+.sel-wrap select {
+  appearance: none; background: transparent; border: none;
+  font-size: 13px; color: #8e8e93; padding-right: 16px;
+  cursor: pointer; text-align: right; max-width: 140px;
+}
+.sel-wrap::after { content: '›'; position: absolute; right: 0; font-size: 16px; color: #c7c7cc; pointer-events: none; }
+
+/* ── Right: Simulator panel ── */
+.sim-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #12111a;
+}
+
+/* Device controls row */
+.device-bar {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 16px;
+  background: #1e1d2b;
+  border-bottom: 1px solid #333;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.device-bar label { font-size: 12px; color: #aaa; }
+.device-bar select {
+  background: #2a2940; border: 1px solid #444; color: #eee;
+  border-radius: 6px; padding: 5px 10px; font-size: 13px; cursor: pointer;
+}
+.device-bar select:hover { border-color: #E91E8C; }
+.layout-badge {
+  margin-left: auto; font-size: 11px; font-weight: 700;
+  color: #E91E8C; background: rgba(233,30,140,0.12);
+  padding: 3px 10px; border-radius: 12px; letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Canvas area */
+.canvas-area {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 16px;
+}
+#deviceCanvas {
+  image-rendering: pixelated;
+  border-radius: 4px;
+}
+
+/* Activity sliders */
+.sliders-bar {
+  background: #1e1d2b;
+  border-top: 1px solid #333;
+  padding: 10px 16px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px 20px;
+  flex-shrink: 0;
+}
+.slider-group { display: flex; flex-direction: column; gap: 3px; }
+.slider-group label { font-size: 11px; color: #aaa; }
+.slider-group .val { font-size: 13px; font-weight: 600; color: #fff; }
+.slider-group input[type=range] {
+  width: 100%; accent-color: #E91E8C;
+  height: 4px; cursor: pointer;
+}
+
+@media (max-width: 700px) {
+  .panels { flex-direction: column; overflow: auto; }
+  .settings-panel { width: 100%; height: auto; overflow: visible; border-right: none; border-bottom: 1px solid #333; }
+  body { height: auto; overflow: auto; }
+  .sliders-bar { grid-template-columns: repeat(2, 1fr); }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div>
+    <div class="topbar h1" style="font-size:15px;font-weight:600;color:#fff">Discovery Vitality Points</div>
+    <div class="subtitle">Settings &amp; Live Device Simulator</div>
+  </div>
+  <a href="index.html">← User Manual</a>
+  <span style="font-size:11px;color:#666;margin-left:8px;">Settings panel is a simulator tool — layout differs from the actual Garmin Connect app.</span>
+</div>
+
+<div class="panels">
+
+  <!-- ══════════════════ LEFT: SETTINGS ══════════════════ -->
+  <div class="settings-panel">
+
+    <div class="sec-hdr">About</div>
+    <div class="group">
+      <div class="hint-row">
+        <div class="hint-lbl">About these points</div>
+        <div class="hint-txt">Estimates Discovery Vitality-style points from your Garmin activity. Official points may differ. Not affiliated with Discovery or Garmin.</div>
+      </div>
+    </div>
+
+    <div class="sec-hdr">Display</div>
+    <div class="group">
+      <div class="row">
+        <span class="row-lbl">Primary Display</span>
+        <div class="sel-wrap">
+          <select id="s_primaryMetric">
+            <option value="0" selected>Points</option>
+            <option value="1">Average HR</option>
+            <option value="2">Current HR</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Compact left value</span>
+        <div class="sel-wrap">
+          <select id="s_compactMain">
+            <option value="0" selected>Current HR</option>
+            <option value="1">Average HR</option>
+            <option value="2">Points</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Compact right value</span>
+        <div class="sel-wrap">
+          <select id="s_compactSecondary">
+            <option value="0">Current HR</option>
+            <option value="1" selected>Average HR</option>
+            <option value="2">Points</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Show Zone Label</span>
+        <label class="tog"><input type="checkbox" id="s_showZone" checked><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+      <div class="row">
+        <span class="row-lbl">HR Axis Labels</span>
+        <div class="sel-wrap">
+          <select id="s_hrAxisLabels">
+            <option value="0">Off</option>
+            <option value="1">Values (bpm)</option>
+            <option value="2" selected>Names (V/M/L/E)</option>
+            <option value="3">Both</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Points number glow</span>
+        <label class="tog"><input type="checkbox" id="s_pointsHighlighted" checked><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Crosshair</span>
+        <div class="sel-wrap">
+          <select id="s_crosshairColor">
+            <option value="0">Off</option>
+            <option value="1">Black</option>
+            <option value="2" selected>White</option>
+            <option value="3">Red</option>
+            <option value="4">Blue</option>
+            <option value="5">Yellow</option>
+            <option value="6">Green</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="sec-hdr">Tier Colours</div>
+    <div class="group" id="tierColorGroup">
+      <!-- generated by JS -->
+    </div>
+
+    <div class="sec-hdr">Age &amp; Athlete Type</div>
+    <div class="group">
+      <div class="row">
+        <span class="row-lbl">Age Source</span>
+        <div class="sel-wrap">
+          <select id="s_ageSource">
+            <option value="0" selected>User Profile</option>
+            <option value="1">Manual</option>
+          </select>
+        </div>
+      </div>
+      <div class="amber-hint">Birth date below is used when Age Source = Manual, or as fallback if your Garmin profile has no DOB. <strong>Default 1 Jan 1980 — please set before first activity.</strong></div>
+      <div class="row">
+        <span class="row-lbl">Birth Year</span>
+        <div class="sel-wrap"><select id="s_birthYear"></select></div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Birth Month</span>
+        <div class="sel-wrap">
+          <select id="s_birthMonth">
+            <option value="1" selected>January</option><option value="2">February</option>
+            <option value="3">March</option><option value="4">April</option>
+            <option value="5">May</option><option value="6">June</option>
+            <option value="7">July</option><option value="8">August</option>
+            <option value="9">September</option><option value="10">October</option>
+            <option value="11">November</option><option value="12">December</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Birth Day</span>
+        <div class="sel-wrap"><select id="s_birthDay"></select></div>
+      </div>
+      <div class="hint-row">
+        <div class="hint-lbl">Age check</div>
+        <div class="hint-txt">Age is calculated from today's date — increments on your birthday automatically.</div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Endurance Athlete<small>Registration required via Discovery Vitality</small></span>
+        <label class="tog"><input type="checkbox" id="s_isEndurance"><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+    </div>
+
+    <div class="sec-hdr">Guidance</div>
+    <div class="group">
+      <div class="row">
+        <span class="row-lbl">Guidance Mode</span>
+        <div class="sel-wrap">
+          <select id="s_guidanceMode">
+            <option value="0" selected>Next Tier</option>
+            <option value="1">Target Points</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Target Points</span>
+        <div class="sel-wrap">
+          <select id="s_targetPoints">
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="300" selected>300</option>
+            <option value="450">450 (Endurance)</option>
+            <option value="600">600 (Endurance)</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Show HR Guidance</span>
+        <label class="tog"><input type="checkbox" id="s_showHrGuidance" checked><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Show Tier Headroom</span>
+        <label class="tog"><input type="checkbox" id="s_showTierHeadroom"><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+    </div>
+
+    <div class="sec-hdr">Alerts</div>
+    <div class="group">
+      <div class="row">
+        <span class="row-lbl">Point change tones</span>
+        <label class="tog"><input type="checkbox" id="s_soundAlerts" checked><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+      <div class="row">
+        <span class="row-lbl">Point change alerts</span>
+        <label class="tog"><input type="checkbox" id="s_dataFieldAlerts" checked><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+    </div>
+
+    <div class="sec-hdr">Developer</div>
+    <div class="group">
+      <div class="row">
+        <span class="row-lbl">Validation Mode</span>
+        <label class="tog"><input type="checkbox" id="s_validationMode"><div class="tog-track"></div><div class="tog-thumb"></div></label>
+      </div>
+    </div>
+    <div style="height:12px"></div>
+
+  </div><!-- /settings-panel -->
+
+  <!-- ══════════════════ RIGHT: SIMULATOR ══════════════════ -->
+  <div class="sim-panel">
+
+    <div class="device-bar">
+      <label>Device</label>
+      <select id="d_device">
+        <option value="edge840">Edge 840</option>
+        <option value="edge530">Edge 530</option>
+        <option value="fr745">Forerunner 745</option>
+        <option value="fr955">Forerunner 955</option>
+        <option value="fr265">Forerunner 265</option>
+        <option value="venu3">Venu 3</option>
+        <option value="fenix7">Fenix 7</option>
+      </select>
+      <label>Field layout</label>
+      <select id="d_fieldLayout">
+        <option value="1" selected>1 field (full screen)</option>
+        <option value="2">2 fields</option>
+        <option value="3">3 fields</option>
+        <option value="4">4 fields</option>
+      </select>
+      <div class="layout-badge" id="layoutBadge">CHART-RECT</div>
+    </div>
+
+    <div class="canvas-area">
+      <canvas id="deviceCanvas"></canvas>
+    </div>
+
+    <div class="sliders-bar">
+      <div class="slider-group">
+        <label>Elapsed Time</label>
+        <div class="val"><span id="v_minutes">45</span> min</div>
+        <input type="range" id="sl_minutes" min="0" max="180" value="45">
+      </div>
+      <div class="slider-group">
+        <label>Average HR</label>
+        <div class="val"><span id="v_avgHr">148</span> bpm</div>
+        <input type="range" id="sl_avgHr" min="40" max="200" value="148">
+      </div>
+      <div class="slider-group">
+        <label>Current HR</label>
+        <div class="val"><span id="v_currentHr">152</span> bpm</div>
+        <input type="range" id="sl_currentHr" min="40" max="200" value="152">
+      </div>
+      <div class="slider-group">
+        <label>Age (simulator)</label>
+        <div class="val"><span id="v_age">35</span> yrs</div>
+        <input type="range" id="sl_age" min="18" max="90" value="35">
+      </div>
+    </div>
+
+  </div><!-- /sim-panel -->
+</div><!-- /panels -->
+
+<script>
+// ═══════════════════════════════════════════════════════════
+// MODULE 1: CONSTANTS
+// ═══════════════════════════════════════════════════════════
+const PALETTE = [
+  null,       // 0 = off
+  '#FFFF99',  // 1  Pale Yellow
+  '#FFD700',  // 2  Yellow
+  '#FFA500',  // 3  Amber
+  '#FF8C00',  // 4  Orange
+  '#FF4500',  // 5  Red-Orange
+  '#FF0000',  // 6  Red
+  '#FF7F7F',  // 7  Coral
+  '#90EE90',  // 8  Lt Green
+  '#008000',  // 9  Green
+  '#008080',  // 10 Teal
+  '#0000FF',  // 11 Blue
+  '#00FFFF',  // 12 Cyan
+  '#808080',  // 13 Gray
+  '#FCE4F1',  // 14 Pale Pink
+  '#F8BBD0',  // 15 Soft Pink
+  '#F48FB1',  // 16 Mid Pink
+  '#F06292',  // 17 Deep Pink
+  '#E91E8C',  // 18 Hot Pink
+  '#C2185B',  // 19 Crimson
+  '#880E4F',  // 20 Dark Crimson
+  '#424242',  // 21 Charcoal
+  '#BDBDBD',  // 22 Vitality Silver
+];
+
+const CROSSHAIR_COLORS = [null,'#000','#fff','#f00','#00f','#ff0','#0f0'];
+
+// Tier point values
+const TIERS = [0, 100, 200, 300, 450, 600];
+
+// ═══════════════════════════════════════════════════════════
+// MODULE 2: VITALITY CALC
+// ═══════════════════════════════════════════════════════════
+function calcThresholds(age) {
+  const maxHr = 220 - age;
+  return {
+    maxHr,
+    vigLow:   Math.ceil(0.80 * maxHr),
+    modLow:   Math.ceil(0.70 * maxHr),
+    lightLow: Math.ceil(0.60 * maxHr),
+  };
+}
+
+function calcZone(avgHr, t) {
+  if (!avgHr || avgHr < 30) return 'nohr';
+  if (avgHr >= t.vigLow)   return 'vigorous';
+  if (avgHr >= t.modLow)   return 'moderate';
+  if (avgHr >= t.lightLow) return 'light';
+  return 'below';
+}
+
+// Returns points earned given zone, elapsed minutes, endurance flag, age
+function calcPoints(zone, minutes, isEndurance, age) {
+  const senior = age >= 65;
+  if (zone === 'vigorous') {
+    if (isEndurance) {
+      if (minutes >= 120) return 600;
+      if (minutes >= 90)  return 450;
+      if (minutes >= 30)  return 300;
+      if (minutes >= 15)  return 100;
+    } else {
+      if (minutes >= 30)  return 300;
+      if (minutes >= 15)  return 100;
+    }
+  }
+  if (zone === 'moderate') {
+    if (senior) {
+      if (minutes >= 30)  return 300;
+      return 0;
+    }
+    if (isEndurance) {
+      if (minutes >= 120) return 600;
+      if (minutes >= 90)  return 450;
+      if (minutes >= 60)  return 300;
+      if (minutes >= 30)  return 200;
+      if (minutes >= 15)  return 100;
+    } else {
+      if (minutes >= 60)  return 300;
+      if (minutes >= 30)  return 200;
+      if (minutes >= 15)  return 100;
+    }
+  }
+  if (zone === 'light') {
+    if (isEndurance) {
+      if (minutes >= 180) return 600;
+      if (minutes >= 120) return 450;
+      if (minutes >= 90)  return 300;
+      if (minutes >= 60)  return 200;
+      if (minutes >= 30)  return 100;
+    } else {
+      if (minutes >= 90)  return 300;
+      if (minutes >= 60)  return 200;
+      if (minutes >= 30)  return 100;
+    }
+  }
+  return 0;
+}
+
+// Returns next tier threshold {points, minutesNeeded, hrNeeded}
+function calcGuidance(zone, minutes, avgHr, t, isEndurance, guidanceMode, targetPts, age) {
+  const current = calcPoints(zone, minutes, isEndurance, age);
+  const senior = age >= 65;
+
+  // Determine goal tier
+  let goal;
+  if (guidanceMode === 1) {
+    goal = targetPts;
+  } else {
+    // next tier above current
+    const idx = TIERS.indexOf(current);
+    const maxTier = isEndurance ? 600 : 300;
+    goal = TIERS.find((v, i) => i > idx && v <= maxTier) || null;
+  }
+  if (!goal) return { pipeText: '✓ Max tier', minutesText: '', hrText: '', headroomText: '' };
+  if (current >= goal) return { pipeText: '✓ ' + goal + ' pts', minutesText: '', hrText: '', headroomText: '' };
+
+  // Minutes needed: stay in current zone
+  let minsNeeded = null;
+  const checkZone = zone === 'nohr' || zone === 'below' ? null : zone;
+  if (checkZone) {
+    const thresholds = getZoneMinuteThresholds(checkZone, isEndurance, senior);
+    const entry = thresholds.find(e => e.pts >= goal && e.mins > minutes);
+    if (entry) minsNeeded = entry.mins - minutes;
+  }
+
+  // HR delta needed to reach next zone that earns goal faster
+  let hrDelta = null;
+  if (zone !== 'vigorous') {
+    const nextZone = zone === 'below' || zone === 'nohr' ? 'light'
+                   : zone === 'light' ? 'moderate' : 'vigorous';
+    const nextZoneLow = nextZone === 'vigorous' ? t.vigLow
+                      : nextZone === 'moderate'  ? t.modLow : t.lightLow;
+    hrDelta = nextZoneLow - Math.round(avgHr);
+    if (hrDelta <= 0) hrDelta = null;
+  }
+
+  // Headroom: bpm before dropping current tier
+  const headroomBpm = calcHeadroom(zone, current, t, isEndurance, age);
+
+  const parts = [];
+  if (minsNeeded !== null) parts.push(Math.ceil(minsNeeded) + 'm');
+  if (hrDelta !== null) parts.push('↑' + hrDelta + 'bpm');
+  const pipeText = parts.join(' | ') || '—';
+
+  return {
+    pipeText,
+    minutesText: minsNeeded !== null ? Math.ceil(minsNeeded) + 'm' : '',
+    hrText: hrDelta !== null ? '↑' + hrDelta + 'bpm' : '',
+    headroomText: headroomBpm !== null ? '↓' + headroomBpm + 'bpm' : '',
+  };
+}
+
+function calcHeadroom(zone, currentPts, t, isEndurance, age) {
+  if (currentPts <= 0) return null;
+  // How many bpm avg can drop before zone changes and tier drops
+  const senior = age >= 65;
+  if (zone === 'vigorous') {
+    return Math.round(t.vigLow - t.modLow) - 1; // bpm to Moderate
+  }
+  if (zone === 'moderate') {
+    return Math.round(t.modLow - t.lightLow) - 1;
+  }
+  if (zone === 'light') {
+    return Math.round(t.lightLow * 0.1); // rough headroom within light
+  }
+  return null;
+}
+
+function getZoneMinuteThresholds(zone, isEndurance, senior) {
+  if (zone === 'vigorous') {
+    const base = [{mins:15,pts:100},{mins:30,pts:300}];
+    return isEndurance ? [...base,{mins:90,pts:450},{mins:120,pts:600}] : base;
+  }
+  if (zone === 'moderate') {
+    if (senior) return [{mins:30,pts:300}];
+    const base = [{mins:15,pts:100},{mins:30,pts:200},{mins:60,pts:300}];
+    return isEndurance ? [...base,{mins:90,pts:450},{mins:120,pts:600}] : base;
+  }
+  if (zone === 'light') {
+    const base = [{mins:30,pts:100},{mins:60,pts:200},{mins:90,pts:300}];
+    return isEndurance ? [...base,{mins:120,pts:450},{mins:180,pts:600}] : base;
+  }
+  return [];
+}
+
+// ═══════════════════════════════════════════════════════════
+// MODULE 3: DEVICE PROFILES
+// ═══════════════════════════════════════════════════════════
+const DEVICES = {
+  edge840: { label:'Edge 840',       isRound:false, screen:{w:360,h:266},
+    slots:{1:{w:306,h:222},2:{w:150,h:222},3:{w:97,h:222},4:{w:97,h:107}} },
+  edge530: { label:'Edge 530',       isRound:false, screen:{w:246,h:205},
+    slots:{1:{w:200,h:175},2:{w:97,h:175},3:{w:64,h:175},4:{w:64,h:84}} },
+  fr745:   { label:'Forerunner 745', isRound:true,  screen:{w:240,h:240},
+    slots:{1:{w:240,h:240},2:{w:240,h:117},3:{w:116,h:117}} },
+  fr955:   { label:'Forerunner 955', isRound:true,  screen:{w:260,h:260},
+    slots:{1:{w:260,h:260},2:{w:260,h:127},3:{w:126,h:127}} },
+  fr265:   { label:'Forerunner 265', isRound:true,  screen:{w:416,h:416},
+    slots:{1:{w:416,h:416},2:{w:416,h:205},3:{w:204,h:205}} },
+  venu3:   { label:'Venu 3',         isRound:true,  screen:{w:416,h:416},
+    slots:{1:{w:416,h:416},2:{w:416,h:205},3:{w:204,h:205}} },
+  fenix7:  { label:'Fenix 7',        isRound:true,  screen:{w:260,h:260},
+    slots:{1:{w:260,h:260},2:{w:260,h:127},3:{w:126,h:127}} },
+};
+
+function getSlot(deviceId, layoutNum) {
+  const dev = DEVICES[deviceId];
+  const n = Math.min(layoutNum, Object.keys(dev.slots).length);
+  return dev.slots[n] || dev.slots[1];
+}
+
+function chooseLayout(slotW, slotH, isRound) {
+  if (!isRound && slotW >= 220 && slotH >= 150) return 'chart-rect';
+  if ( isRound && slotW >= 200 && slotH >= 150) return 'chart-round';
+  if (slotW >= 200 && slotH >= 100) return isRound ? 'standard-round' : 'standard';
+  if (slotW >= 130 && slotH >= 50)  return 'compact';
+  return 'tile';
+}
+
+// ═══════════════════════════════════════════════════════════
+// MODULE 4: RENDERER
+// ═══════════════════════════════════════════════════════════
+
+// Fonts — approximate Garmin font sizes on Canvas
+const F = {
+  numberHot:    'bold 36px monospace',
+  numberMedium: 'bold 26px monospace',
+  numberSmall:  'bold 20px monospace',
+  medium:       'bold 14px sans-serif',
+  small:        '12px sans-serif',
+  tiny:         '10px sans-serif',
+  xtiny:        '9px sans-serif',
+};
+
+function drawGlowText(ctx, text, x, y, font, color, haloColor, align='center', baseline='top') {
+  ctx.font = font;
+  ctx.textAlign = align;
+  ctx.textBaseline = baseline;
+  if (haloColor) {
+    ctx.fillStyle = haloColor;
+    for (const [dx,dy] of [[-2,0],[2,0],[0,-2],[0,2]]) {
+      ctx.fillText(text, x+dx, y+dy);
+    }
+  }
+  ctx.fillStyle = color;
+  ctx.fillText(text, x, y);
+}
+
+// Generate a plausible-looking HR history curve from 0..minutes
+// Deterministic (no random) so it doesn't jitter on every render
+function generateTrendSamples(minutes, avgHr, currentHr) {
+  const samples = [];
+  const n = Math.max(2, Math.ceil(minutes));
+  const startHr = Math.max(60, avgHr - 18);
+  for (let i = 0; i <= n; i++) {
+    const t = i / n;
+    // Ramp: low start, converges to avgHr by end
+    const ramp = avgHr - (avgHr - startHr) * Math.pow(1 - t, 1.6);
+    // Two sine waves for natural HR variation
+    const wave = 4 * Math.sin(t * 9.3 + 0.8) + 2.5 * Math.sin(t * 4.1 + 2.0);
+    // Deterministic "noise" using integer index
+    const noise = 2.5 * (Math.sin(i * 13.7) + Math.sin(i * 6.1)) / 2;
+    samples.push({ mins: i * (minutes / n), hr: ramp + wave + noise });
+  }
+  // Anchor last point to currentHr
+  if (samples.length > 0) samples[samples.length - 1].hr = currentHr;
+  return samples;
+}
+
+function drawTrendLine(ctx, samples, t, windowStart, maxMins, chartLeft, chartRight, chartTop, chartBottom) {
+  if (samples.length < 2) return;
+  ctx.save();
+  ctx.lineJoin = 'round';
+
+  const buildPath = () => {
+    ctx.beginPath();
+    let first = true;
+    for (const s of samples) {
+      if (s.mins < windowStart) { first = true; continue; }
+      const x = mapTimeToX(s.mins, windowStart, maxMins, chartLeft, chartRight);
+      const y = mapHrToY(s.hr, t, chartTop, chartBottom);
+      if (first) { ctx.moveTo(x, y); first = false; } else ctx.lineTo(x, y);
+    }
+  };
+
+  // White halo pass
+  ctx.strokeStyle = 'rgba(255,255,255,0.55)';
+  ctx.lineWidth = 3;
+  buildPath(); ctx.stroke();
+
+  // Red line
+  ctx.strokeStyle = '#f44';
+  ctx.lineWidth = 1.5;
+  buildPath(); ctx.stroke();
+
+  // Final-point dot
+  const last = samples[samples.length - 1];
+  if (last.mins >= windowStart) {
+    const fx = mapTimeToX(last.mins, windowStart, maxMins, chartLeft, chartRight);
+    const fy = mapHrToY(last.hr, t, chartTop, chartBottom);
+    ctx.fillStyle = '#fff'; ctx.beginPath(); ctx.arc(fx, fy, 3, 0, Math.PI * 2); ctx.fill();
+    ctx.fillStyle = '#f44'; ctx.beginPath(); ctx.arc(fx, fy, 2, 0, Math.PI * 2); ctx.fill();
+  }
+  ctx.restore();
+}
+
+function drawDashedLine(ctx, x1, y1, x2, y2, color, haloColor) {
+  ctx.save();
+  ctx.setLineDash([4, 4]);
+  ctx.lineWidth = 1;
+  if (haloColor) {
+    ctx.strokeStyle = haloColor;
+    ctx.lineWidth = 3;
+    ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+    ctx.lineWidth = 1;
+  }
+  ctx.strokeStyle = color;
+  ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.restore();
+}
+
+// Piecewise linear HR → Y mapping (4 equal zone bands)
+function mapHrToY(hr, t, top, bottom) {
+  const h = bottom - top;
+  const bandH = h / 4;
+  // bands from top: vigorous, moderate, light, below
+  if (hr >= t.vigLow) {
+    const frac = Math.min(1, (hr - t.vigLow) / (t.maxHr - t.vigLow));
+    return top + bandH * (1 - frac);
+  }
+  if (hr >= t.modLow) {
+    const frac = (hr - t.modLow) / (t.vigLow - t.modLow);
+    return top + bandH + bandH * (1 - frac);
+  }
+  if (hr >= t.lightLow) {
+    const frac = (hr - t.lightLow) / (t.modLow - t.lightLow);
+    return top + 2*bandH + bandH * (1 - frac);
+  }
+  const frac = Math.min(1, hr / t.lightLow);
+  return top + 3*bandH + bandH * (1 - frac);
+}
+
+function mapTimeToX(mins, windowStart, maxMins, left, right) {
+  const range = maxMins - windowStart;
+  if (range <= 0) return left;
+  return left + (mins - windowStart) / range * (right - left);
+}
+
+// Column thresholds
+function getColThresholds(isEndurance) {
+  return isEndurance ? [0,15,30,60,90,120,180] : [0,15,30,60,90];
+}
+
+// Points for a cell (zone row index 0=vig…3=below, col index)
+function cellPoints(rowIdx, colIdx, colThresholds, isEndurance, age) {
+  const zones = ['vigorous','moderate','light','below'];
+  const zone = zones[rowIdx];
+  const mins = colThresholds[colIdx + 1] || colThresholds[colThresholds.length - 1];
+  return calcPoints(zone, mins, isEndurance, age);
+}
+
+// Get cell fill colour
+function cellColor(pts, settings) {
+  const k = pts === 600 ? 600 : pts === 450 ? 450 : pts === 300 ? 300 : pts === 200 ? 200 : pts === 100 ? 100 : 0;
+  if (k === 0) return '#000';
+  const idx = settings.tierColor[k];
+  return PALETTE[idx] || '#111';
+}
+
+// Text colour that contrasts with a cell fill
+function contrastText(hexColor) {
+  if (!hexColor || hexColor === '#000') return '#444';
+  const r = parseInt(hexColor.slice(1,3),16);
+  const g = parseInt(hexColor.slice(3,5),16);
+  const b = parseInt(hexColor.slice(5,7),16);
+  const lum = 0.299*r + 0.587*g + 0.114*b;
+  return lum > 140 ? '#1a0a14' : '#fff';
+}
+
+function tierHaloColor(hexColor) {
+  const txt = contrastText(hexColor);
+  return txt === '#fff' ? '#880E4F' : '#fff';
+}
+
+// ── CHART-RECT renderer ──
+function renderChartRect(ctx, W, H, act, sett) {
+  const t = calcThresholds(act.age);
+  const zone = calcZone(act.avgHr, t);
+  const pts  = calcPoints(zone, act.minutes, sett.isEndurance, act.age);
+  const guid = calcGuidance(zone, act.minutes, act.avgHr, t, sett.isEndurance,
+                             sett.guidanceMode, sett.targetPoints, act.age);
+  const colT = getColThresholds(sett.isEndurance);
+  const nCols = colT.length - 1;
+
+  // Y-axis label space
+  const yLblW = sett.hrAxisLabels === 0 ? 8
+              : sett.hrAxisLabels === 1 ? 32
+              : sett.hrAxisLabels === 3 ? 44 : 20;
+
+  // Header row (current HR left, avg HR right)
+  const hdrH = 32;
+  ctx.font = F.numberMedium;
+  const hrStr = act.currentHr ? String(Math.round(act.currentHr)) : '--';
+  const avgStr = act.avgHr ? String(Math.round(act.avgHr)) : '--';
+
+  // ♥ + current HR
+  ctx.fillStyle = '#f44';
+  ctx.font = F.small;
+  ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  ctx.fillText('♥', yLblW + 2, hdrH/2);
+  ctx.fillStyle = '#fff';
+  ctx.font = F.numberMedium;
+  ctx.fillText(hrStr, yLblW + 14, hdrH/2);
+
+  // avg HR right
+  ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+  ctx.fillStyle = '#aaa';
+  ctx.font = F.small;
+  ctx.fillText('avg', W - 2, hdrH/2 - 6);
+  ctx.fillStyle = '#fff';
+  ctx.font = F.numberMedium;
+  ctx.fillText(avgStr, W - 2, hdrH/2 + 4);
+
+  // Guidance row
+  let guidH = 0;
+  if (guid.pipeText) {
+    guidH = 18;
+    ctx.fillStyle = '#ddd';
+    ctx.font = F.small;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.fillText(guid.pipeText, W/2, hdrH + guidH/2);
+  }
+
+  // Chart area
+  const chartTop = hdrH + guidH + 2;
+  const chartBottom = H - 14; // leave room for X labels
+  const chartLeft = yLblW;
+  const chartRight = W - 4;
+  const chartW = chartRight - chartLeft;
+  const chartH = chartBottom - chartTop;
+  const rowH = chartH / 4;
+
+  // Draw cells
+  for (let r = 0; r < 4; r++) {
+    for (let c = 0; c < nCols; c++) {
+      const x1 = chartLeft + c/nCols * chartW;
+      const x2 = chartLeft + (c+1)/nCols * chartW;
+      const y1 = chartTop + r * rowH;
+      const y2 = y1 + rowH;
+      const cPts = cellPoints(r, c, colT, sett.isEndurance, act.age);
+      const fill = cellColor(cPts, sett);
+      ctx.fillStyle = fill;
+      ctx.fillRect(x1, y1, x2-x1, y2-y1);
+    }
+  }
+
+  // Grid lines
+  ctx.strokeStyle = '#777';
+  ctx.lineWidth = 0.5;
+  ctx.setLineDash([]);
+  for (let r = 1; r < 4; r++) {
+    const y = chartTop + r * rowH;
+    ctx.beginPath(); ctx.moveTo(chartLeft, y); ctx.lineTo(chartRight, y); ctx.stroke();
+  }
+  for (let c = 1; c < nCols; c++) {
+    const x = chartLeft + c/nCols * chartW;
+    ctx.beginPath(); ctx.moveTo(x, chartTop); ctx.lineTo(x, chartBottom); ctx.stroke();
+  }
+
+  // X-axis labels (time thresholds)
+  ctx.fillStyle = '#aaa';
+  ctx.font = F.xtiny;
+  ctx.textBaseline = 'top';
+  for (let c = 1; c <= nCols; c++) {
+    const x = chartLeft + c/nCols * chartW;
+    const label = colT[c] >= 90 && !sett.isEndurance ? '90+' : colT[c] + 'm';
+    ctx.textAlign = 'right';
+    ctx.fillText(label, x - 1, chartBottom + 2);
+  }
+
+  // Y-axis labels
+  if (sett.hrAxisLabels > 0) {
+    const zoneNames = ['V','M','L','E'];
+    const zoneBpms = [t.vigLow, t.modLow, t.lightLow, 0];
+    ctx.fillStyle = '#aaa';
+    ctx.font = F.xtiny;
+    ctx.textAlign = 'right';
+    for (let r = 0; r < 4; r++) {
+      const y = chartTop + r * rowH + rowH/2;
+      ctx.textBaseline = 'middle';
+      if (sett.hrAxisLabels === 2 || sett.hrAxisLabels === 3) {
+        ctx.fillText(zoneNames[r], chartLeft - 2, y);
+      }
+      if (sett.hrAxisLabels === 1 || sett.hrAxisLabels === 3) {
+        if (zoneBpms[r] > 0) ctx.fillText(zoneBpms[r], chartLeft - 2, y + 7);
+      }
+    }
+  }
+
+  // Trend line
+  const maxMins = Math.max(colT[colT.length - 1], act.minutes + 5);
+  const trendSamples = generateTrendSamples(act.minutes, act.avgHr, act.currentHr);
+  drawTrendLine(ctx, trendSamples, t, 0, maxMins, chartLeft, chartRight, chartTop, chartBottom);
+
+  // Crosshair
+  const xhColor = CROSSHAIR_COLORS[sett.crosshairColor];
+  if (xhColor) {
+    const yAvg = mapHrToY(act.avgHr, t, chartTop, chartBottom);
+    const xTime = mapTimeToX(act.minutes, 0, Math.max(colT[colT.length-1], act.minutes+5), chartLeft, chartRight);
+    drawDashedLine(ctx, chartLeft, yAvg, chartRight, yAvg, xhColor, 'rgba(0,0,0,0.5)');
+    drawDashedLine(ctx, xTime, chartTop, xTime, chartBottom, xhColor, 'rgba(0,0,0,0.5)');
+  }
+
+  // Points number (centred in active cell)
+  const zoneRowIdx = zone === 'vigorous' ? 0 : zone === 'moderate' ? 1 : zone === 'light' ? 2 : 3;
+  const colIdx = Math.min(nCols - 1, colT.slice(1).filter(v => v <= act.minutes).length);
+  const cellCx = chartLeft + (colIdx + 0.5)/nCols * chartW;
+  const cellCy = chartTop + (zoneRowIdx + 0.5) * rowH;
+
+  const activeFill = cellColor(pts, sett);
+  const ptsTxt = pts > 0 ? String(pts) : '0';
+  const txtColor = contrastText(activeFill);
+  const halo = sett.pointsHighlighted ? tierHaloColor(activeFill) : null;
+  drawGlowText(ctx, ptsTxt, cellCx, cellCy, F.numberHot, txtColor, halo, 'center', 'middle');
+
+  // Validation overlay
+  if (sett.validationMode) {
+    const yAvg = mapHrToY(act.avgHr, t, chartTop, chartBottom);
+    ctx.strokeStyle = '#f00';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([]);
+    ctx.beginPath(); ctx.moveTo(chartLeft, yAvg); ctx.lineTo(chartRight, yAvg); ctx.stroke();
+    ctx.fillStyle = '#f00';
+    ctx.font = F.xtiny;
+    ctx.textAlign = 'left'; ctx.textBaseline = 'top';
+    ctx.fillText('VAL ' + Math.round(act.minutes) + 'm avg' + Math.round(act.avgHr) + ' ' + zone.slice(0,3).toUpperCase() + ' ' + pts + 'pts', chartLeft, chartTop + 2);
+  }
+}
+
+// ── CHART-ROUND renderer ──
+function renderChartRound(ctx, W, H, act, sett) {
+  const cx = W/2, cy = H/2, r = Math.min(cx, cy);
+  ctx.save();
+  ctx.beginPath();
+  ctx.arc(cx, cy, r, 0, Math.PI*2);
+  ctx.clip();
+  // Draw same as rect but inset
+  renderChartRect(ctx, W, H, act, sett);
+  ctx.restore();
+  // Circular border
+  ctx.strokeStyle = '#444';
+  ctx.lineWidth = 1;
+  ctx.beginPath(); ctx.arc(cx, cy, r-0.5, 0, Math.PI*2); ctx.stroke();
+}
+
+// ── STANDARD renderer ──
+function renderStandard(ctx, W, H, act, sett) {
+  const t = calcThresholds(act.age);
+  const zone = calcZone(act.avgHr, t);
+  const pts  = calcPoints(zone, act.minutes, sett.isEndurance, act.age);
+  const guid = calcGuidance(zone, act.minutes, act.avgHr, t, sett.isEndurance,
+                             sett.guidanceMode, sett.targetPoints, act.age);
+  const colT = getColThresholds(sett.isEndurance);
+  const nCols = colT.length - 1;
+
+  const hdrH = 26;
+
+  // Header: current HR | guidance | avg HR
+  ctx.fillStyle = '#f44'; ctx.font = F.small;
+  ctx.textAlign = 'left'; ctx.textBaseline = 'middle';
+  ctx.fillText('♥', 2, hdrH/2);
+  ctx.fillStyle = '#fff'; ctx.font = F.numberSmall;
+  ctx.fillText(String(Math.round(act.currentHr || 0)), 14, hdrH/2);
+
+  ctx.fillStyle = '#ccc'; ctx.font = F.tiny;
+  ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+  ctx.fillText(guid.pipeText || '—', W/2, hdrH/2);
+
+  ctx.fillStyle = '#aaa'; ctx.font = F.numberSmall;
+  ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+  ctx.fillText(String(Math.round(act.avgHr || 0)), W - 2, hdrH/2);
+
+  // 3-row zoomed matrix: 1/5 above, 3/5 centre, 1/5 below
+  const matTop = hdrH + 2;
+  const matH = H - matTop - 12;
+  const rowAboveH = matH * 0.15;
+  const rowCentreH = matH * 0.70;
+  const rowBelowH  = matH * 0.15;
+  const colCurW  = (W - 4) * 0.70;
+  const colNextW = (W - 4) * 0.30;
+  const chartLeft = 4;
+
+  const zoneRow = zone === 'vigorous' ? 0 : zone === 'moderate' ? 1 : zone === 'light' ? 2 : 3;
+  const colIdx  = Math.min(nCols - 1, colT.slice(1).filter(v => v <= act.minutes).length);
+
+  // Draw 3×2 cells
+  const rows = [zoneRow-1, zoneRow, zoneRow+1];
+  const rowHeights = [rowAboveH, rowCentreH, rowBelowH];
+  const cols = [colIdx, Math.min(colIdx+1, nCols-1)];
+  const colWidths = [colCurW, colNextW];
+  const zones4 = ['vigorous','moderate','light','below'];
+
+  let yCursor = matTop;
+  for (let ri = 0; ri < 3; ri++) {
+    const actualRow = rows[ri];
+    let xCursor = chartLeft;
+    for (let ci = 0; ci < 2; ci++) {
+      const actualCol = cols[ci];
+      if (actualRow >= 0 && actualRow < 4) {
+        const cPts = cellPoints(actualRow, actualCol, colT, sett.isEndurance, act.age);
+        ctx.fillStyle = cellColor(cPts, sett);
+        ctx.fillRect(xCursor, yCursor, colWidths[ci], rowHeights[ri]);
+      } else {
+        ctx.fillStyle = '#111';
+        ctx.fillRect(xCursor, yCursor, colWidths[ci], rowHeights[ri]);
+      }
+      xCursor += colWidths[ci];
+    }
+    yCursor += rowHeights[ri];
+  }
+
+  // Grid lines
+  ctx.strokeStyle = '#777'; ctx.lineWidth = 0.5;
+  const midY1 = matTop + rowAboveH;
+  const midY2 = matTop + rowAboveH + rowCentreH;
+  ctx.beginPath(); ctx.moveTo(chartLeft, midY1); ctx.lineTo(chartLeft+colCurW+colNextW, midY1); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(chartLeft, midY2); ctx.lineTo(chartLeft+colCurW+colNextW, midY2); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(chartLeft+colCurW, matTop); ctx.lineTo(chartLeft+colCurW, matTop+matH); ctx.stroke();
+
+  // Trend line (clipped to the current time column)
+  ctx.save();
+  ctx.beginPath();
+  ctx.rect(chartLeft, matTop, colCurW + colNextW, matH);
+  ctx.clip();
+  const stdMaxMins = colT[Math.min(colIdx + 2, colT.length - 1)] || act.minutes + 5;
+  const stdWindowStart = colT[Math.max(colIdx - 1, 0)];
+  const stdSamples = generateTrendSamples(act.minutes, act.avgHr, act.currentHr);
+  drawTrendLine(ctx, stdSamples, t, stdWindowStart, stdMaxMins, chartLeft, chartLeft + colCurW + colNextW, matTop, matTop + matH);
+  ctx.restore();
+
+  // Points text in centre cell
+  const activeFill = cellColor(pts, sett);
+  const txtColor = contrastText(activeFill);
+  const halo = sett.pointsHighlighted ? tierHaloColor(activeFill) : null;
+  const cx2 = chartLeft + colCurW/2;
+  const cy2 = matTop + rowAboveH + rowCentreH/2;
+  drawGlowText(ctx, String(pts || 0), cx2, cy2, F.numberMedium, txtColor, halo, 'center', 'middle');
+
+  // Zone label (left of centre row) if showZone
+  if (sett.showZone) {
+    const zoneLetters = ['V','M','L','E'];
+    ctx.fillStyle = '#aaa'; ctx.font = F.xtiny;
+    ctx.textAlign = 'right'; ctx.textBaseline = 'middle';
+    if (zoneRow >= 0 && zoneRow < 4)
+      ctx.fillText(zoneLetters[zoneRow], chartLeft - 1, cy2);
+  }
+
+  // X-axis label
+  ctx.fillStyle = '#aaa'; ctx.font = F.xtiny;
+  ctx.textAlign = 'right'; ctx.textBaseline = 'top';
+  const nextColThresh = colT[cols[1]+1];
+  if (nextColThresh !== undefined)
+    ctx.fillText(nextColThresh+'m', chartLeft + colCurW + colNextW - 1, matTop + matH + 1);
+}
+
+// ── COMPACT renderer ──
+function renderCompact(ctx, W, H, act, sett) {
+  const t = calcThresholds(act.age);
+  const zone = calcZone(act.avgHr, t);
+  const pts  = calcPoints(zone, act.minutes, sett.isEndurance, act.age);
+  const guid = calcGuidance(zone, act.minutes, act.avgHr, t, sett.isEndurance,
+                             sett.guidanceMode, sett.targetPoints, act.age);
+
+  // Background = tier colour
+  const bg = cellColor(pts, sett);
+  ctx.fillStyle = bg === '#000' ? '#1a1a1a' : bg;
+  ctx.fillRect(0, 0, W, H);
+
+  const txtColor = contrastText(bg === '#000' ? '#1a1a1a' : bg);
+  const guidH = 16;
+  const metricH = H - guidH;
+
+  const getMetricVal = (m) => {
+    if (m === 0) return String(Math.round(act.currentHr || 0));
+    if (m === 1) return String(Math.round(act.avgHr || 0));
+    return String(pts || 0);
+  };
+
+  const leftVal  = getMetricVal(sett.compactMain);
+  const rightVal = getMetricVal(sett.compactSecondary);
+
+  ctx.fillStyle = txtColor;
+  ctx.font = W < 130 ? F.numberSmall : F.numberMedium;
+  ctx.textBaseline = 'middle';
+  ctx.textAlign = 'left';
+  ctx.fillText(leftVal, 4, metricH/2);
+  ctx.textAlign = 'right';
+  ctx.fillText(rightVal, W - 4, metricH/2);
+
+  // Guidance
+  if (guid.pipeText && H >= 50) {
+    ctx.fillStyle = txtColor; ctx.globalAlpha = 0.7;
+    ctx.font = F.xtiny;
+    ctx.textAlign = 'center'; ctx.textBaseline = 'bottom';
+    ctx.fillText(W < 100 ? (guid.minutesText||'') + '/' + (guid.hrText||'') : guid.pipeText, W/2, H - 2);
+    ctx.globalAlpha = 1;
+  }
+}
+
+// ── TOP-LEVEL RENDER ──
+function render() {
+  const canvas = document.getElementById('deviceCanvas');
+  const dev = DEVICES[simState.device];
+  const slot = getSlot(simState.device, simState.fieldLayout);
+  const isRound = dev.isRound;
+  const layout = chooseLayout(slot.w, slot.h, isRound);
+
+  document.getElementById('layoutBadge').textContent = layout.replace('-',' ').toUpperCase();
+
+  // Size canvas to slot (scaled for display)
+  const area = document.querySelector('.canvas-area');
+  const maxW = area.clientWidth - 32;
+  const maxH = area.clientHeight - 32;
+  const scale = Math.min(Math.min(maxW / slot.w, maxH / slot.h), 2);
+  canvas.width  = slot.w;
+  canvas.height = slot.h;
+  canvas.style.width  = Math.round(slot.w * scale) + 'px';
+  canvas.style.height = Math.round(slot.h * scale) + 'px';
+
+  const ctx = canvas.getContext('2d');
+  ctx.fillStyle = '#000';
+  ctx.fillRect(0, 0, slot.w, slot.h);
+
+  const act = {
+    minutes:   simState.elapsedMinutes,
+    avgHr:     simState.avgHr,
+    currentHr: simState.currentHr,
+    age:       simState.age,
+  };
+
+  if (layout === 'chart-rect')   renderChartRect(ctx, slot.w, slot.h, act, simState);
+  else if (layout === 'chart-round') renderChartRound(ctx, slot.w, slot.h, act, simState);
+  else if (layout === 'standard' || layout === 'standard-round') renderStandard(ctx, slot.w, slot.h, act, simState);
+  else renderCompact(ctx, slot.w, slot.h, act, simState);
+}
+
+// ═══════════════════════════════════════════════════════════
+// MODULE 5: STATE + UI WIRING
+// ═══════════════════════════════════════════════════════════
+const simState = {
+  elapsedMinutes: 45, avgHr: 148, currentHr: 152, age: 35,
+  device: 'edge840', fieldLayout: 1,
+  primaryMetric: 0, compactMain: 0, compactSecondary: 1,
+  tierColor: { 100:21, 200:22, 300:18, 450:14, 600:18 },
+  showZone: true, showHrGuidance: true, showTierHeadroom: false,
+  hrAxisLabels: 2, crosshairColor: 2, pointsHighlighted: true,
+  isEndurance: false, guidanceMode: 0, targetPoints: 300,
+  validationMode: false, soundAlerts: true, dataFieldAlerts: true,
+};
+
+// Build birth year options
+(function() {
+  const sel = document.getElementById('s_birthYear');
+  for (let y = 1920; y <= 2015; y++) {
+    const o = document.createElement('option');
+    o.value = y; o.textContent = y;
+    if (y === 1980) { o.selected = true; o.style.color = '#e8a020'; }
+    sel.appendChild(o);
+  }
+  const dayS = document.getElementById('s_birthDay');
+  for (let d = 1; d <= 31; d++) {
+    const o = document.createElement('option');
+    o.value = d; o.textContent = d;
+    if (d === 1) o.selected = true;
+    dayS.appendChild(o);
+  }
+})();
+
+// Build tier colour rows
+(function() {
+  const g = document.getElementById('tierColorGroup');
+  const tiers = [
+    {key:100, label:'100 pts band', def:21},
+    {key:200, label:'200 pts band', def:22},
+    {key:300, label:'300 pts band', def:18},
+    {key:450, label:'450 pts band', def:14},
+    {key:600, label:'600 pts band', def:18},
+  ];
+  const names = ['Off','Pale Yellow','Yellow','Amber','Orange','Red-Orange','Red','Coral','Lt Green','Green','Teal','Blue','Cyan','Gray','Pale Pink','Soft Pink','Mid Pink','Deep Pink','Hot Pink','Crimson','Dark Crimson','Charcoal','Vitality Silver'];
+  tiers.forEach(({key, label, def}) => {
+    const row = document.createElement('div');
+    row.className = 'row';
+    row.innerHTML = `<span class="row-lbl">Colour: ${label}</span>
+      <div class="sel-wrap">
+        <select id="s_tierColor${key}">
+          ${names.map((n,i) => `<option value="${i}"${i===def?' selected':''}>${n}</option>`).join('')}
+        </select>
+      </div>`;
+    g.appendChild(row);
+    document.getElementById('s_tierColor' + key).addEventListener('change', function() {
+      simState.tierColor[key] = +this.value; render();
+    });
+  });
+})();
+
+// Wire simple controls
+function wire(id, prop, convert) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', function() {
+    simState[prop] = convert ? convert(this.value) : (this.type === 'checkbox' ? this.checked : +this.value);
+    // Update field layout options when device changes
+    if (id === 'd_device') updateFieldLayouts();
+    render();
+  });
+}
+
+function updateFieldLayouts() {
+  const dev = DEVICES[simState.device];
+  const sel = document.getElementById('d_fieldLayout');
+  const slots = Object.keys(dev.slots).map(Number).sort();
+  sel.innerHTML = slots.map(n =>
+    `<option value="${n}"${n===1?' selected':''}>${n} field${n>1?'s':''} ${n===1?'(full screen)':''}</option>`
+  ).join('');
+  simState.fieldLayout = 1;
+}
+
+wire('s_primaryMetric',    'primaryMetric');
+wire('s_compactMain',      'compactMain');
+wire('s_compactSecondary', 'compactSecondary');
+wire('s_showZone',         'showZone');
+wire('s_hrAxisLabels',     'hrAxisLabels');
+wire('s_pointsHighlighted','pointsHighlighted');
+wire('s_crosshairColor',   'crosshairColor');
+wire('s_isEndurance',      'isEndurance');
+wire('s_guidanceMode',     'guidanceMode');
+wire('s_targetPoints',     'targetPoints');
+wire('s_showHrGuidance',   'showHrGuidance');
+wire('s_showTierHeadroom', 'showTierHeadroom');
+wire('s_validationMode',   'validationMode');
+wire('s_soundAlerts',      'soundAlerts');
+wire('s_dataFieldAlerts',  'dataFieldAlerts');
+wire('d_device',           'device', v => v);
+wire('d_fieldLayout',      'fieldLayout');
+
+// Sliders
+function wireSlider(sliderId, valId, prop, suffix) {
+  const sl = document.getElementById(sliderId);
+  const vd = document.getElementById(valId);
+  sl.addEventListener('input', function() {
+    simState[prop] = +this.value;
+    vd.textContent = this.value;
+    render();
+  });
+}
+wireSlider('sl_minutes',   'v_minutes',   'elapsedMinutes');
+wireSlider('sl_avgHr',     'v_avgHr',     'avgHr');
+wireSlider('sl_currentHr', 'v_currentHr', 'currentHr');
+wireSlider('sl_age',       'v_age',       'age');
+
+// Re-render on resize
+window.addEventListener('resize', render);
+
+// Initial render
+render();
+</script>
+</body>
+</html>

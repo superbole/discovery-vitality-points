@@ -600,7 +600,7 @@
 <section id="settings">
   <div class="section-number">Section 5</div>
   <h2 class="section-title">Settings reference</h2>
-  <p>Access settings in the <strong>Garmin Connect app</strong> on your phone: navigate to your device → Data Fields → select the field → Settings. Or on the simulator via Object Emulator → Settings.</p>
+  <p>Access settings in the <strong>Garmin Connect app</strong> on your phone: navigate to your device → Data Fields → select the field → Settings. Or on the simulator via Object Emulator → Settings. <a href="settings-mockup.html" target="_blank">View an interactive mockup of the settings page →</a></p>
 
   <h3 id="settings-age">Age &amp; profile</h3>
   <p>Age drives the maximum HR calculation (220 − age), which sets all zone thresholds. Getting this right matters — an incorrect age will cause all zones to be slightly off.</p>
@@ -613,12 +613,8 @@
         <td>Whether age is read automatically from your Garmin user profile (<em>User Profile</em>) or entered manually. <strong>User Profile is recommended</strong> — it updates automatically on your birthday.</td>
       </tr>
       <tr>
-        <td><div class="setting-name">Birth Year / Month / Day</div><div class="default">Default: 1980-01-01</div></td>
-        <td>Your date of birth, used when Age Source is set to <em>Manual</em>. Age is calculated from today's date, so it increments correctly on your birthday.</td>
-      </tr>
-      <tr>
-        <td><div class="setting-name">Manual Age</div><div class="default">Default: 49</div></td>
-        <td>An alternative to date of birth — enter your age in years directly. Only used if Age Source is <em>Manual</em>. Use Birth Year/Month/Day instead if precision matters.</td>
+        <td><div class="setting-name">Birth Year / Month / Day</div><div class="default">Default: 1 Jan 1980 ⚠</div></td>
+        <td>Your date of birth, used when Age Source is set to <em>Manual</em>, or as a fallback if your Garmin profile has no date of birth set. Age is calculated from today's date, so it increments correctly on your birthday. <strong>Important: the default is 1 January 1980 — please set this before your first activity or your heart rate zones will be wrong.</strong></td>
       </tr>
     </tbody>
   </table>

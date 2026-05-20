@@ -16,8 +16,8 @@
     <string id="SettingAgeSourceProfileNoDob">Profile (no DOB set)</string>
     <string id="SettingManualAge">Manual Age (Years)</string>
     <string id="SettingBirthYear">Birth Year</string>
-    <string id="SettingBirthMonth">Birth Month (1-12)</string>
-    <string id="SettingBirthDay">Birth Day (1-31)</string>
+    <string id="SettingBirthMonth">Birth Month</string>
+    <string id="SettingBirthDay">Birth Day</string>
     <string id="SettingIsEndurance">Endurance Athlete</string>
     <string id="SettingGuidanceMode">Guidance Mode</string>
     <string id="SettingGuidanceModeNextTier">Next Tier</string>
@@ -49,6 +49,7 @@
     <string id="SettingShowHrGuidanceHelp">HR targets in guidance lines</string>
     <string id="SettingSoundAlertsHelp">Beeps when points change</string>
     <string id="SettingDataFieldAlertsHelp">Full-screen tier change notice</string>
+    <string id="SettingGcHintTitleBirthDate">Age check</string>
     <string id="SettingGcHintTitleEndurance">Endurance</string>
     <string id="SettingGcHintTitleShowZone">Zone row</string>
     <string id="SettingGcHintTitleShowHrAxis">HR axis</string>

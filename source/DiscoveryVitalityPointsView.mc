@@ -1897,16 +1897,25 @@ class DiscoveryVitalityPointsView extends WatchUi.DataField {
         var winStart = mChartWindowStart;
         var winRangeF = (maxMinutes - winStart).toFloat();
         if (winRangeF < 1.0) { winRangeF = 1.0; }
-        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
-        // Vertical line at current elapsed time
         var clampedMin = mMinutes;
         if (clampedMin < winStart) { clampedMin = winStart; }
         if (clampedMin > maxMinutes) { clampedMin = maxMinutes; }
         var vx = (chartLeft + (((clampedMin - winStart).toFloat() / winRangeF) * chartWidth)).toNumber();
+        var hy = (mAvgHR != null && mAvgHR > 0)
+            ? mapHeartRateToChartY(mAvgHR, chartTop, chartBottom, mMaxHr)
+            : -1;
+        // Dark halo at ±1 px — ensures visibility against both light and dark cells
+        dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_TRANSPARENT);
+        drawDashedVLine(dc, vx - 1, chartTop, chartBottom);
+        drawDashedVLine(dc, vx + 1, chartTop, chartBottom);
+        if (hy >= 0) {
+            drawDashedHLine(dc, chartLeft, chartRight, hy - 1);
+            drawDashedHLine(dc, chartLeft, chartRight, hy + 1);
+        }
+        // Centre line in the user's chosen colour
+        dc.setColor(color, Graphics.COLOR_TRANSPARENT);
         drawDashedVLine(dc, vx, chartTop, chartBottom);
-        // Horizontal line at current avg HR
-        if (mAvgHR != null && mAvgHR > 0) {
-            var hy = mapHeartRateToChartY(mAvgHR, chartTop, chartBottom, mMaxHr);
+        if (hy >= 0) {
             drawDashedHLine(dc, chartLeft, chartRight, hy);
         }
     }
@@ -1953,7 +1962,7 @@ class DiscoveryVitalityPointsView extends WatchUi.DataField {
     }
 
     private function drawRoundChartLayout(dc as Graphics.Dc, width as Number, height as Number, foregroundColor as Graphics.ColorValue) as Void {
-        var edgePad = 8;
+        var edgePad = 24;
         var detailFont = Graphics.FONT_TINY;
         var hdrNumFont = Graphics.FONT_NUMBER_MEDIUM;
         var hdrH = dc.getFontHeight(hdrNumFont);
@@ -1962,13 +1971,14 @@ class DiscoveryVitalityPointsView extends WatchUi.DataField {
         var guideFont = pickChartGuidanceFontVsAxis(detailFont);
         var microFont = Graphics.FONT_XTINY;
         var guideH = measureGuidanceBandHeight(dc, guidanceText, guideFont, headroomLine, microFont);
+        guideFont = Graphics.FONT_MEDIUM; // bump one notch for rendering only — chartTop unaffected
 
         var firstRowBottom = edgePad + hdrH + 4;
         var minTopAfterGuidance = firstRowBottom + (guideH > 0 ? guideH : 0);
         var chartTop = minTopAfterGuidance + 4;
 
-        var xAxisPad = dc.getFontHeight(detailFont) + (height < 200 ? 6 : 12);
-        var chartBottomPad = getChartBottomPad(height < 200 ? 8 : 20) + xAxisPad;
+        var xAxisPad = dc.getFontHeight(detailFont) + (height < 200 ? 6 : 8);
+        var chartBottomPad = getChartBottomPad(height < 200 ? 4 : 8) + xAxisPad;
         var chartBottom = height - chartBottomPad;
 
         var minMatrixH = (height < 200) ? 40 : 48;
@@ -2003,8 +2013,8 @@ class DiscoveryVitalityPointsView extends WatchUi.DataField {
             }
         }
 
-        var cL = getChartLeft() + 14;
-        var cR = getChartRight(width) - 14;
+        var cL = getChartLeft() + 4;
+        var cR = getChartRight(width) - 18;
         drawMatrixCells(dc, cL, cR, chartTop, chartBottom);
         drawMatrixGridAndLabels(dc, cL, cR, chartTop, chartBottom, detailFont, true);
         drawYAxisLabels(dc, chartTop, (chartBottom - chartTop).toNumber(), 4, detailFont, foregroundColor, mMaxHr, cL - 2);

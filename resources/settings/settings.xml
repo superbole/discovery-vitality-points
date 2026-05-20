@@ -35,6 +35,160 @@
             <listEntry value="1">@Strings.SettingAgeSourceManual</listEntry>
         </settingConfig>
     </setting>
+    <setting propertyKey="@Properties.BirthYear" title="@Strings.SettingBirthYear">
+        <settingConfig type="list">
+            <listEntry value="1920">1920</listEntry>
+            <listEntry value="1921">1921</listEntry>
+            <listEntry value="1922">1922</listEntry>
+            <listEntry value="1923">1923</listEntry>
+            <listEntry value="1924">1924</listEntry>
+            <listEntry value="1925">1925</listEntry>
+            <listEntry value="1926">1926</listEntry>
+            <listEntry value="1927">1927</listEntry>
+            <listEntry value="1928">1928</listEntry>
+            <listEntry value="1929">1929</listEntry>
+            <listEntry value="1930">1930</listEntry>
+            <listEntry value="1931">1931</listEntry>
+            <listEntry value="1932">1932</listEntry>
+            <listEntry value="1933">1933</listEntry>
+            <listEntry value="1934">1934</listEntry>
+            <listEntry value="1935">1935</listEntry>
+            <listEntry value="1936">1936</listEntry>
+            <listEntry value="1937">1937</listEntry>
+            <listEntry value="1938">1938</listEntry>
+            <listEntry value="1939">1939</listEntry>
+            <listEntry value="1940">1940</listEntry>
+            <listEntry value="1941">1941</listEntry>
+            <listEntry value="1942">1942</listEntry>
+            <listEntry value="1943">1943</listEntry>
+            <listEntry value="1944">1944</listEntry>
+            <listEntry value="1945">1945</listEntry>
+            <listEntry value="1946">1946</listEntry>
+            <listEntry value="1947">1947</listEntry>
+            <listEntry value="1948">1948</listEntry>
+            <listEntry value="1949">1949</listEntry>
+            <listEntry value="1950">1950</listEntry>
+            <listEntry value="1951">1951</listEntry>
+            <listEntry value="1952">1952</listEntry>
+            <listEntry value="1953">1953</listEntry>
+            <listEntry value="1954">1954</listEntry>
+            <listEntry value="1955">1955</listEntry>
+            <listEntry value="1956">1956</listEntry>
+            <listEntry value="1957">1957</listEntry>
+            <listEntry value="1958">1958</listEntry>
+            <listEntry value="1959">1959</listEntry>
+            <listEntry value="1960">1960</listEntry>
+            <listEntry value="1961">1961</listEntry>
+            <listEntry value="1962">1962</listEntry>
+            <listEntry value="1963">1963</listEntry>
+            <listEntry value="1964">1964</listEntry>
+            <listEntry value="1965">1965</listEntry>
+            <listEntry value="1966">1966</listEntry>
+            <listEntry value="1967">1967</listEntry>
+            <listEntry value="1968">1968</listEntry>
+            <listEntry value="1969">1969</listEntry>
+            <listEntry value="1970">1970</listEntry>
+            <listEntry value="1971">1971</listEntry>
+            <listEntry value="1972">1972</listEntry>
+            <listEntry value="1973">1973</listEntry>
+            <listEntry value="1974">1974</listEntry>
+            <listEntry value="1975">1975</listEntry>
+            <listEntry value="1976">1976</listEntry>
+            <listEntry value="1977">1977</listEntry>
+            <listEntry value="1978">1978</listEntry>
+            <listEntry value="1979">1979</listEntry>
+            <listEntry value="1980">1980</listEntry>
+            <listEntry value="1981">1981</listEntry>
+            <listEntry value="1982">1982</listEntry>
+            <listEntry value="1983">1983</listEntry>
+            <listEntry value="1984">1984</listEntry>
+            <listEntry value="1985">1985</listEntry>
+            <listEntry value="1986">1986</listEntry>
+            <listEntry value="1987">1987</listEntry>
+            <listEntry value="1988">1988</listEntry>
+            <listEntry value="1989">1989</listEntry>
+            <listEntry value="1990">1990</listEntry>
+            <listEntry value="1991">1991</listEntry>
+            <listEntry value="1992">1992</listEntry>
+            <listEntry value="1993">1993</listEntry>
+            <listEntry value="1994">1994</listEntry>
+            <listEntry value="1995">1995</listEntry>
+            <listEntry value="1996">1996</listEntry>
+            <listEntry value="1997">1997</listEntry>
+            <listEntry value="1998">1998</listEntry>
+            <listEntry value="1999">1999</listEntry>
+            <listEntry value="2000">2000</listEntry>
+            <listEntry value="2001">2001</listEntry>
+            <listEntry value="2002">2002</listEntry>
+            <listEntry value="2003">2003</listEntry>
+            <listEntry value="2004">2004</listEntry>
+            <listEntry value="2005">2005</listEntry>
+            <listEntry value="2006">2006</listEntry>
+            <listEntry value="2007">2007</listEntry>
+            <listEntry value="2008">2008</listEntry>
+            <listEntry value="2009">2009</listEntry>
+            <listEntry value="2010">2010</listEntry>
+            <listEntry value="2011">2011</listEntry>
+            <listEntry value="2012">2012</listEntry>
+            <listEntry value="2013">2013</listEntry>
+            <listEntry value="2014">2014</listEntry>
+            <listEntry value="2015">2015</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.BirthMonth" title="@Strings.SettingBirthMonth">
+        <settingConfig type="list">
+            <listEntry value="1">January</listEntry>
+            <listEntry value="2">February</listEntry>
+            <listEntry value="3">March</listEntry>
+            <listEntry value="4">April</listEntry>
+            <listEntry value="5">May</listEntry>
+            <listEntry value="6">June</listEntry>
+            <listEntry value="7">July</listEntry>
+            <listEntry value="8">August</listEntry>
+            <listEntry value="9">September</listEntry>
+            <listEntry value="10">October</listEntry>
+            <listEntry value="11">November</listEntry>
+            <listEntry value="12">December</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.BirthDay" title="@Strings.SettingBirthDay">
+        <settingConfig type="list">
+            <listEntry value="1">1</listEntry>
+            <listEntry value="2">2</listEntry>
+            <listEntry value="3">3</listEntry>
+            <listEntry value="4">4</listEntry>
+            <listEntry value="5">5</listEntry>
+            <listEntry value="6">6</listEntry>
+            <listEntry value="7">7</listEntry>
+            <listEntry value="8">8</listEntry>
+            <listEntry value="9">9</listEntry>
+            <listEntry value="10">10</listEntry>
+            <listEntry value="11">11</listEntry>
+            <listEntry value="12">12</listEntry>
+            <listEntry value="13">13</listEntry>
+            <listEntry value="14">14</listEntry>
+            <listEntry value="15">15</listEntry>
+            <listEntry value="16">16</listEntry>
+            <listEntry value="17">17</listEntry>
+            <listEntry value="18">18</listEntry>
+            <listEntry value="19">19</listEntry>
+            <listEntry value="20">20</listEntry>
+            <listEntry value="21">21</listEntry>
+            <listEntry value="22">22</listEntry>
+            <listEntry value="23">23</listEntry>
+            <listEntry value="24">24</listEntry>
+            <listEntry value="25">25</listEntry>
+            <listEntry value="26">26</listEntry>
+            <listEntry value="27">27</listEntry>
+            <listEntry value="28">28</listEntry>
+            <listEntry value="29">29</listEntry>
+            <listEntry value="30">30</listEntry>
+            <listEntry value="31">31</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.HintBirthDate" title="@Strings.SettingGcHintTitleBirthDate">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="256" />
+    </setting>
     <setting propertyKey="@Properties.IsEndurance" title="@Strings.SettingIsEndurance">
         <settingConfig type="boolean" />
     </setting>
@@ -226,7 +380,7 @@
         <settingConfig type="boolean" />
     </setting>
     <setting propertyKey="@Properties.HintValidationMode" title="@Strings.SettingGcHintTitleValidation">
-        <settingConfig type="alphaNumeric" readonly="true" maxLength="128" />
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="256" />
     </setting>
     <setting propertyKey="@Properties.ShowHrGuidance" title="@Strings.SettingShowHrGuidance">
         <settingConfig type="boolean" />

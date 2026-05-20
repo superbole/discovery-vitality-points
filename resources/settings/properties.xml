@@ -10,6 +10,7 @@
     <property id="BirthMonth" type="number">1</property>
     <property id="BirthDay" type="number">1</property>
     <property id="ManualAge" type="number">49</property>
+    <property id="HintBirthDate" type="string">Your date of birth is used when Age Source is Manual, or as a fallback if your Garmin profile has no date of birth. Default is 1 Jan 1980 — please update before your first activity.</property>
     <property id="IsEndurance" type="boolean">false</property>
     <property id="HintIsEndurance" type="string">Registration required: https://discovery.co.za/vitality/endurance-high-performance-events</property>
     <property id="GuidanceMode" type="number">0</property>
