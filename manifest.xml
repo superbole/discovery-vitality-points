@@ -3,29 +3,64 @@
 <iq:manifest version="3" xmlns:iq="http://www.garmin.com/xml/connectiq">
     <!-- Beta listing (previous manifest app id): b73c377c-25e0-44c1-88e6-8a222c5cd3d1 -->
     <!-- Production listing (previous manifest app id): edcf489e-4750-4640-a733-b0cb43ebca50 -->
-    <iq:application
-        id="b73c377c-25e0-44c1-88e6-8a222c5cd3d1"
-        type="datafield"
-        name="@Strings.AppName"
-        entry="DiscoveryVitalityPointsApp"
-        launcherIcon="@Drawables.LauncherIcon"
-        minApiLevel="3.2.0">
+    <iq:application id="b73c377c-25e0-44c1-88e6-8a222c5cd3d1" type="datafield" name="@Strings.AppName" entry="DiscoveryVitalityPointsApp" launcherIcon="@Drawables.LauncherIcon" minApiLevel="3.2.0">
         <iq:products>
-            <iq:product id="fr745"/>
-            <iq:product id="fenix5xplus"/>
-            <iq:product id="edge530"/>
-            <iq:product id="edge840"/>
-            <iq:product id="edge850"/>
+            <!-- ── Edge cycling computers (rect) ── -->
+            <!-- ── Forerunner (round) ── -->
+            <iq:product id="edge1030"/>
+            <iq:product id="edge1030bontrager"/>
+            <iq:product id="edge1030plus"/>
             <iq:product id="edge1040"/>
             <iq:product id="edge1050"/>
+            <iq:product id="edge130plus"/>
+            <iq:product id="edge530"/>
             <iq:product id="edge540"/>
             <iq:product id="edge550"/>
+            <iq:product id="edge830"/>
+            <iq:product id="edge840"/>
+            <iq:product id="edge850"/>
+            <iq:product id="edgeexplore2"/>
             <iq:product id="edgemtb"/>
+            <iq:product id="enduro"/>
+            <iq:product id="enduro3"/>
+            <iq:product id="fenix5xplus"/>
+            <iq:product id="fenix7"/>
+            <iq:product id="fenix7s"/>
+            <iq:product id="fenix7x"/>
+            <iq:product id="fr165"/>
+            <iq:product id="fr165m"/>
+            <iq:product id="fr245"/>
+            <iq:product id="fr245m"/>
+            <iq:product id="fr255"/>
+            <iq:product id="fr255m"/>
+            <iq:product id="fr255s"/>
+            <iq:product id="fr255sm"/>
+            <iq:product id="fr265"/>
+            <iq:product id="fr265s"/>
+            <iq:product id="fr55"/>
+            <iq:product id="fr645m"/>
+            <iq:product id="fr745"/>
+            <iq:product id="fr945"/>
+            <iq:product id="fr945lte"/>
+            <iq:product id="fr955"/>
+            <iq:product id="fr965"/>
+            <iq:product id="fr970"/>
+            <iq:product id="venu"/>
+            <iq:product id="venu2"/>
+            <iq:product id="venu2plus"/>
+            <iq:product id="venu2s"/>
+            <iq:product id="venu3"/>
+            <iq:product id="venu3s"/>
+            <iq:product id="venud"/>
+            <iq:product id="vivoactive4"/>
+            <iq:product id="vivoactive4s"/>
+            <iq:product id="vivoactive5"/>
+            <iq:product id="vivoactive6"/>
         </iq:products>
         <iq:permissions>
-            <iq:uses-permission id="UserProfile"/>
             <iq:uses-permission id="DataFieldAlert"/>
             <iq:uses-permission id="FitContributor"/>
+            <iq:uses-permission id="UserProfile"/>
         </iq:permissions>
         <iq:languages>
             <iq:language>eng</iq:language>

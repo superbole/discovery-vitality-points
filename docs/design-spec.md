@@ -10,7 +10,7 @@ Authoritative reference for the five layout designs.
 | # | Name | Trigger | Key slots |
 |---|------|---------|-----------|
 | 1 | CHART-RECT  | `rect && w>=220 && h>=150` | Edge 840/530: 1-Field (246×322), 2-Fields (246×160) |
-| 2 | CHART-ROUND | `round && w>=220 && h>=150` | FR745 1-Field (240×240), Fenix 5X+ 1-Field (240×240) |
+| 2 | CHART-ROUND | `round && w>=200 && h>=150` | FR745 1-Field (240×240), Fenix 5X+ 1-Field (240×240), FR55 1-Field (208×208), Fenix3/5S 1-Field (218×218) |
 | 3 | STANDARD    | `w>=200 && h>=100`          | Edge 840/530: 3-Fields B (246×126-129), 3-Fields A (246×106) · FR745/Fenix: 2-Fields (240×119) |
 | 4 | COMPACT     | `w>=130 && h>=50` (and not STANDARD) | Edge 840/530: 4-Fields A (246×79), strips (246×62) · FR745/Fenix: 3-Fields strips (240×68-86) |
 | 5 | TILE        | `w<130`                     | Edge 840/530: half-wide (122×62) · FR745: half-wide (119×67) · Fenix: quarter tiles (119×119) |

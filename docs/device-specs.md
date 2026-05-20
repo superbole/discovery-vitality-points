@@ -174,11 +174,17 @@ entry before deploying.
 isRound      = System.getDeviceSettings().screenShape == System.SCREEN_SHAPE_ROUND
 
 CHART-RECT   = !isRound && width >= 220 && height >= 150
-CHART-ROUND  =  isRound && width >= 220 && height >= 150
+CHART-ROUND  =  isRound && width >= 200 && height >= 150   ← w>=200 (not 220) — covers 218px devices
 STANDARD     = width >= 200 && height >= 100   (and not CHART)
 COMPACT      = width >= 130                    (and not CHART, not STANDARD)
 TILE         = width <  130                    (shares COMPACT code path)
 ```
+
+> **Why w>=200 for CHART-ROUND?** Several common round devices have a full-screen slot
+> of exactly 218×218 px (Fenix 3/3HR, Fenix 5S, FR255S, FR255SM, VivoActive 4S) or
+> 208×208 px (FR55). Without this correction their only full-screen slot falls into
+> STANDARD instead of the full chart view. The narrower CHART-RECT threshold (w>=220)
+> stays unchanged because there are no rectangle devices with a near-220px full-screen slot.
 
 ### Round-display top-vs-bottom field handling
 
@@ -204,6 +210,43 @@ with one code path — no separate variant needed.
 | Round display chart header at `(8,8)` and `(w-8,10)` — clipped on round | Fixed (done by developer) |
 | Left-aligned guidance at `x=8` clipped on top/bottom edge round slots | To fix: centre all text on round displays |
 | Old CMPCT/STRIP/HALF classes now replaced by COMPACT/TILE | Pending implementation |
+| Small round full-screen (218px): fell into STANDARD under old w>=220 CHART-ROUND rule | Fixed by lowering threshold to w>=200 |
+
+---
+
+## Recommended devices to add to manifest.xml
+
+All devices below have been screened against the 5-tier layout thresholds and require
+no additional layout work. Group them in `manifest.xml` as they share the same layout paths.
+
+### Round 240 px class (CHART-ROUND + STD + CMPCT/TILE — same as fr745/fenix5xplus)
+```
+fr745, fr935, fr945, fr945lte, fr955, fr965, fr970
+fr265, fr265s, fr255, fr255m, fr245, fr245m, fr165, fr165m, fr645, fr645m
+fenix7, fenix7s, fenix7x, fenix8solar, enduro, enduro3
+venu, venu2, venu2s, venu2plus, venud
+vivoactive4, vivoactive6
+```
+
+### Round 218 px class (needs w>=200 CHART-ROUND threshold — see above)
+```
+fr55, fr255s, fr255sm, fenix3, fenix3_hr, fenix5s, vivoactive4s
+```
+
+### Round 390–454 px class (Venu 3, VivoActive 5 — large round, all tiers work cleanly)
+```
+venu3, venu3s, vivoactive5
+```
+
+### Rect cycling — identical to edge840 geometry
+```
+edge530   (already in manifest)
+```
+
+### Devices to skip (incompatible or irrelevant)
+Aviation (approach, d2), diving (descent), golf (s40/s60/s62/approach_s70), handhelds
+(gpsmap/montana/oregon/rino), instinct (semi-octagon), legacy FR series (fr10/15/25/30),
+old semi-round (fr230/235/630/735/230/235), venusq variants, Lily series (no CIQ data fields).
 
 ---
 
@@ -212,4 +255,6 @@ with one code path — no separate variant needed.
 1. **Add `edge530` to `manifest.xml`** ✅ Done (per developer).
 2. **Fix round-display chart header** ✅ Done (per developer).
 3. **Implement 5-tier layout** — see `design-spec.md` for per-design content spec.
-4. **Investigate Lily 2 Active** — confirm device ID and CIQ data-field support before adding.
+4. **Use `CHART-ROUND: w>=200` threshold** (not w>=220) to properly serve 218px round devices.
+5. **Add recommended device list above to `manifest.xml`** after layout implementation is tested.
+6. **Lily 2 Active** — NOT in SDK 9.1.0 device list; likely no CIQ data field support. Skip.

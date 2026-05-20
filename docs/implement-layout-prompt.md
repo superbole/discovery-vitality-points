@@ -43,11 +43,15 @@ Detect shape using the already-stored `mIsRound`.
 
 ```
 CHART-RECT   = !mIsRound && width >= 220 && height >= 150
-CHART-ROUND  =  mIsRound && width >= 220 && height >= 150
+CHART-ROUND  =  mIsRound && width >= 200 && height >= 150   ← note: 200 not 220
 STANDARD     = width >= 200 && height >= 100  (and not chart)
 COMPACT      = width >= 130                   (and not chart, not standard)
 TILE         = width < 130
 ```
+
+> CHART-ROUND uses `w>=200` (not 220) because common round devices like Fenix 3/5S,
+> FR55, and FR255S have full-screen slots of only 208–218 px wide. With w>=220 their
+> full-screen slot falls into STANDARD instead of the full matrix chart.
 
 COMPACT and TILE share one code path — width determines guidance verbosity,
 height gates the HR header row.

@@ -346,7 +346,7 @@ class DiscoveryVitalityPointsView extends WatchUi.DataField {
             drawLargeChartLayout(dc, width, height, foregroundColor);
             return;
         }
-        if (mIsRound && width >= 220 && height >= 150) {
+        if (mIsRound && width >= 200 && height >= 150) {  // 200 covers 208px fr55, 218px fenix5s etc.
             drawRoundChartLayout(dc, width, height, foregroundColor);
             return;
         }
