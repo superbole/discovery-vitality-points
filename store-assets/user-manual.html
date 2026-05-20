@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Discovery Vitality Points — User Manual</title>
+<style>
+  :root {
+    --pink:       #E91E8C;
+    --pink-soft:  #F8BBD0;
+    --pink-pale:  #FCE4F1;
+    --crimson:    #880E4F;
+    --dark:       #0d0610;
+    --dark2:      #1a0a14;
+    --white:      #ffffff;
+    --off-white:  #f9f5f7;
+    --text:       #1a0a14;
+    --text-muted: #5a3a4a;
+    --border:     #e8d0dc;
+    --radius:     8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text);
+    background: var(--off-white);
+  }
+
+  /* ── Cover page ── */
+  .cover {
+    background: var(--dark);
+    color: var(--white);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+    page-break-after: always;
+  }
+  .cover-dot-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 18px;
+    margin-bottom: 48px;
+    width: 180px;
+  }
+  .dot {
+    border-radius: 50%;
+    aspect-ratio: 1;
+  }
+  .cover h1 { font-size: 42px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
+  .cover h1 span { color: var(--pink); }
+  .cover .subtitle { font-size: 18px; color: rgba(255,255,255,0.6); margin-bottom: 16px; }
+  .cover .version { font-size: 13px; color: rgba(255,255,255,0.35); letter-spacing: 2px; text-transform: uppercase; margin-top: 48px; }
+  .cover .divider { width: 60px; height: 2px; background: var(--pink); margin: 24px auto; opacity: 0.5; }
+
+  /* ── Layout ── */
+  .container { max-width: 760px; margin: 0 auto; padding: 48px 32px; }
+
+  /* ── TOC ── */
+  .toc { background: white; border-radius: var(--radius); border: 1px solid var(--border); padding: 32px; margin-bottom: 48px; page-break-after: always; }
+  .toc h2 { font-size: 20px; font-weight: 600; margin-bottom: 20px; color: var(--crimson); }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin-bottom: 8px; }
+  .toc a { color: var(--pink); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+  .toc .toc-section { font-weight: 600; margin-top: 12px; }
+  .toc .toc-sub { color: var(--text-muted); font-size: 14px; padding-left: 16px; }
+
+  /* ── Sections ── */
+  section { margin-bottom: 56px; }
+  section:not(:last-child) { border-bottom: 1px solid var(--border); padding-bottom: 56px; }
+
+  h2.section-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--crimson);
+    margin-bottom: 6px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--pink);
+    display: inline-block;
+  }
+  .section-number {
+    color: var(--pink);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  h3 { font-size: 18px; font-weight: 600; color: var(--dark2); margin: 28px 0 10px; }
+  h4 { font-size: 15px; font-weight: 600; color: var(--crimson); margin: 20px 0 6px; }
+  p { margin-bottom: 14px; }
+
+  /* ── Screenshot placeholder ── */
+  .screenshot {
+    background: var(--dark2);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin: 24px 0;
+    border: 1px solid #3a1a2a;
+  }
+  .screenshot img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .screenshot-placeholder {
+    background: var(--dark2);
+    border-radius: var(--radius);
+    border: 2px dashed #3a2a34;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255,255,255,0.25);
+    font-size: 13px;
+    margin: 24px 0;
+    text-align: center;
+    padding: 16px;
+  }
+  .screenshot-caption {
+    font-size: 13px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: -12px;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+
+  /* ── Annotated chart diagram ── */
+  .diagram-wrap { margin: 28px 0; }
+
+  /* ── Info boxes ── */
+  .callout {
+    border-radius: var(--radius);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-left: 4px solid;
+  }
+  .callout.tip    { background: #fff0f7; border-color: var(--pink); }
+  .callout.note   { background: #f0f4ff; border-color: #5c7aff; }
+  .callout.warn   { background: #fffbf0; border-color: #e6a817; }
+  .callout-title  { font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 6px; }
+  .callout.tip  .callout-title  { color: var(--pink); }
+  .callout.note .callout-title  { color: #3a5acc; }
+  .callout.warn .callout-title  { color: #b07d10; }
+
+  /* ── Settings table ── */
+  .settings-table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 14px; }
+  .settings-table th {
+    background: var(--dark2);
+    color: var(--white);
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 13px;
+  }
+  .settings-table td { padding: 10px 14px; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .settings-table tr:last-child td { border-bottom: none; }
+  .settings-table tr:nth-child(even) td { background: #fdf4f8; }
+  .settings-table .setting-name { font-weight: 600; color: var(--crimson); white-space: nowrap; }
+  .settings-table .default { font-size: 12px; color: var(--text-muted); margin-top: 3px; }
+  .tag {
+    display: inline-block;
+    background: var(--pink-pale);
+    color: var(--crimson);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .tag.endurance { background: #e8f5e9; color: #2e7d32; }
+
+  /* ── Points tier colour swatches ── */
+  .tier-row { display: flex; align-items: center; gap: 12px; margin: 8px 0; }
+  .swatch { width: 36px; height: 36px; border-radius: 6px; border: 1px solid rgba(0,0,0,0.1); flex-shrink: 0; }
+  .tier-label { font-weight: 600; font-size: 14px; }
+  .tier-desc { font-size: 13px; color: var(--text-muted); }
+
+  /* ── Layout diagram (SVG inline) ── */
+  svg.diagram { display: block; max-width: 100%; margin: 24px auto; }
+
+  /* ── Supported devices grid ── */
+  .devices { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px; margin: 16px 0; }
+  .device-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .device-card .device-type { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2px; }
+
+  /* ── Footer ── */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.4);
+    text-align: center;
+    padding: 32px;
+    font-size: 13px;
+    margin-top: 80px;
+  }
+  footer strong { color: var(--pink); }
+
+  /* ── Print styles ── */
+  @media print {
+    body { background: white; font-size: 13px; }
+    .cover { min-height: auto; padding: 80px 40px; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toc { border: 1px solid #ddd; page-break-after: always; }
+    section { page-break-inside: avoid; }
+    h2.section-title { page-break-after: avoid; }
+    h3 { page-break-after: avoid; }
+    .screenshot-placeholder { border: 1px dashed #ccc; background: #f9f9f9; color: #999; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .callout { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .settings-table th { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    footer { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    a { color: inherit; text-decoration: none; }
+    .no-print { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════════════════
+     COVER
+     ════════════════════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-dot-grid">
+    <!-- Row 0: Vigorous -->
+    <div class="dot" style="background:#E91E8C;opacity:0.2;width:28px;height:28px;"></div>
+    <div class="dot" style="background:#E91E8C;opacity:0.45;width:28px;height:28px;"></div>
+    <div class="dot" style="background:#E91E8C;opacity:1;width:36px;height:36px;margin:-4px;"></div>
+    <div class="dot" style="background:#E91E8C;opacity:0.2;width:28px;height:28px;"></div>
+    <!-- Row 1: Moderate -->
+    <div class="dot" style="background:#F8BBD0;opacity:0.3;width:28px;height:28px;"></div>
+    <div class="dot" style="background:#F8BBD0;opacity:0.55;width:28px;height:28px;"></div>
+    <div class="dot" style="background:#F8BBD0;opacity:0.85;width:28px;height:28px;"></div>
+    <div class="dot" style="background:#F8BBD0;opacity:0.85;width:28px;height:28px;"></div>
+    <!-- Row 2: Light -->
+    <div class="dot" style="background:#FCE4F1;opacity:0.2;width:24px;height:24px;"></div>
+    <div class="dot" style="background:#FCE4F1;opacity:0.35;width:24px;height:24px;"></div>
+    <div class="dot" style="background:#FCE4F1;opacity:0.55;width:24px;height:24px;"></div>
+    <div class="dot" style="background:#FCE4F1;opacity:0.65;width:24px;height:24px;"></div>
+    <!-- Row 3: Easy -->
+    <div class="dot" style="background:#ffffff;opacity:0.1;width:20px;height:20px;"></div>
+    <div class="dot" style="background:#ffffff;opacity:0.1;width:20px;height:20px;"></div>
+    <div class="dot" style="background:#ffffff;opacity:0.1;width:20px;height:20px;"></div>
+    <div class="dot" style="background:#ffffff;opacity:0.1;width:20px;height:20px;"></div>
+  </div>
+
+  <h1>Discovery<br><span>Vitality Points</span></h1>
+  <p class="subtitle">Garmin Connect IQ Data Field</p>
+  <div class="divider"></div>
+  <p style="color:rgba(255,255,255,0.5);font-size:15px;max-width:420px;">Real-time Vitality fitness points prediction — while you're riding or running.</p>
+  <p class="version">User Manual · V1.0</p>
+</div>
+
+<div class="container">
+
+<!-- ════════════════════════════════════════════════════
+     TABLE OF CONTENTS
+     ════════════════════════════════════════════════════ -->
+<div class="toc" id="toc">
+  <h2>Contents</h2>
+  <ol>
+    <li class="toc-section"><a href="#overview">Overview</a></li>
+    <li class="toc-section"><a href="#how-points-work">How Vitality points work</a></li>
+    <li class="toc-section"><a href="#layouts">Display layouts</a></li>
+    <ul style="list-style:none;padding-left:16px;margin:4px 0 8px;">
+      <li class="toc-sub"><a href="#chart-layout">Chart layout (large slots)</a></li>
+      <li class="toc-sub"><a href="#standard-layout">Standard layout (medium slots)</a></li>
+      <li class="toc-sub"><a href="#compact-layout">Compact / tile layout (small slots)</a></li>
+    </ul>
+    <li class="toc-section"><a href="#reading-the-chart">Reading the chart</a></li>
+    <li class="toc-section"><a href="#settings">Settings reference</a></li>
+    <ul style="list-style:none;padding-left:16px;margin:4px 0 8px;">
+      <li class="toc-sub"><a href="#settings-age">Age &amp; profile</a></li>
+      <li class="toc-sub"><a href="#settings-display">Display</a></li>
+      <li class="toc-sub"><a href="#settings-guidance">Points &amp; guidance</a></li>
+      <li class="toc-sub"><a href="#settings-chart">Chart appearance</a></li>
+      <li class="toc-sub"><a href="#settings-alerts">Alerts</a></li>
+      <li class="toc-sub"><a href="#settings-developer">Developer</a></li>
+    </ul>
+    <li class="toc-section"><a href="#tier-colours">Tier colour system</a></li>
+    <li class="toc-section"><a href="#devices">Supported devices</a></li>
+    <li class="toc-section"><a href="#disclaimer">Disclaimer</a></li>
+  </ol>
+</div>
+
+
+<!-- ════════════════════════════════════════════════════
+     1. OVERVIEW
+     ════════════════════════════════════════════════════ -->
+<section id="overview">
+  <div class="section-number">Section 1</div>
+  <h2 class="section-title">Overview</h2>
+
+  <p>Discovery Vitality Points is a Garmin Connect IQ data field that estimates your Discovery Vitality fitness points in real time — while your activity is still in progress. It shows you exactly which points tier you have locked in, and precisely what you need to do to reach the next one.</p>
+
+  <p>The points model follows Discovery's published heart rate zone and time-band rules. Your age (read from your Garmin profile or entered manually) determines your maximum heart rate, which in turn sets the thresholds for each HR zone.</p>
+
+  <div class="callout note">
+    <div class="callout-title">How to install</div>
+    Search for <strong>Discovery Vitality Points</strong> in the Garmin Connect IQ Store (via the Connect IQ app on your phone, or at apps.garmin.com). Add it to your device, then add it as a data field on any activity profile in the Garmin Connect app.
+  </div>
+
+  <h3>What you see at a glance</h3>
+  <p>The data field always shows three things:</p>
+  <ul style="padding-left:20px;margin-bottom:14px;">
+    <li style="margin-bottom:6px;"><strong>Current predicted points</strong> — your estimated tier right now, based on elapsed time and average heart rate.</li>
+    <li style="margin-bottom:6px;"><strong>Guidance</strong> — what you need to reach the next tier: how many more minutes at your current intensity, or how many bpm above your current average.</li>
+    <li><strong>Heart rate</strong> — current HR and session average, always visible.</li>
+  </ul>
+  <p>On larger display slots, these are shown in a full activity chart. On smaller slots, two large numbers plus a guidance line are shown instead.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     2. HOW POINTS WORK
+     ════════════════════════════════════════════════════ -->
+<section id="how-points-work">
+  <div class="section-number">Section 2</div>
+  <h2 class="section-title">How Vitality points work</h2>
+
+  <p>Discovery awards fitness points based on two factors: <strong>how hard you exercised</strong> (heart rate zone) and <strong>how long you exercised</strong> (duration). The matrix below shows the points tiers.</p>
+
+  <!-- Points matrix diagram -->
+  <svg class="diagram" viewBox="0 0 580 260" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="580" height="260" rx="8" fill="#0d0610"/>
+
+    <!-- Column headers -->
+    <text x="155" y="28" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-size="12" font-weight="600">15 min</text>
+    <text x="270" y="28" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-size="12" font-weight="600">30 min</text>
+    <text x="385" y="28" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-size="12" font-weight="600">60 min</text>
+    <text x="500" y="28" text-anchor="middle" fill="rgba(255,255,255,0.45)" font-family="sans-serif" font-size="12" font-weight="600">90 min+</text>
+
+    <!-- Row labels -->
+    <text x="82" y="78" text-anchor="middle" fill="#E91E8C" font-family="sans-serif" font-size="12" font-weight="700">VIGOROUS</text>
+    <text x="82" y="130" text-anchor="middle" fill="#F8BBD0" font-family="sans-serif" font-size="12" font-weight="700">MODERATE</text>
+    <text x="82" y="183" text-anchor="middle" fill="#FCE4F1" font-family="sans-serif" font-size="12" font-weight="700">LIGHT</text>
+    <text x="82" y="235" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="sans-serif" font-size="12" font-weight="700">EASY</text>
+
+    <!-- Cells: Vigorous row -->
+    <rect x="110" y="40" width="90" height="52" rx="4" fill="#FCE4F1" opacity="0.9"/>
+    <text x="155" y="72" text-anchor="middle" fill="#880E4F" font-family="sans-serif" font-size="18" font-weight="700">100</text>
+
+    <rect x="225" y="40" width="90" height="52" rx="4" fill="#F8BBD0" opacity="0.9"/>
+    <text x="270" y="72" text-anchor="middle" fill="#880E4F" font-family="sans-serif" font-size="18" font-weight="700">200</text>
+
+    <rect x="340" y="40" width="90" height="52" rx="4" fill="#E91E8C"/>
+    <text x="385" y="72" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="700">300</text>
+
+    <rect x="455" y="40" width="90" height="52" rx="4" fill="#E91E8C"/>
+    <text x="500" y="72" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="700">300</text>
+
+    <!-- Cells: Moderate row -->
+    <rect x="110" y="103" width="90" height="52" rx="4" fill="rgba(255,255,255,0.05)"/>
+    <text x="155" y="135" text-anchor="middle" fill="rgba(255,255,255,0.2)" font-family="sans-serif" font-size="18" font-weight="700">—</text>
+
+    <rect x="225" y="103" width="90" height="52" rx="4" fill="#FCE4F1" opacity="0.9"/>
+    <text x="270" y="135" text-anchor="middle" fill="#880E4F" font-family="sans-serif" font-size="18" font-weight="700">100</text>
+
+    <rect x="340" y="103" width="90" height="52" rx="4" fill="#F8BBD0" opacity="0.9"/>
+    <text x="385" y="135" text-anchor="middle" fill="#880E4F" font-family="sans-serif" font-size="18" font-weight="700">200</text>
+
+    <rect x="455" y="103" width="90" height="52" rx="4" fill="#E91E8C"/>
+    <text x="500" y="135" text-anchor="middle" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="700">300</text>
+
+    <!-- Cells: Light row -->
+    <rect x="110" y="157" width="90" height="52" rx="4" fill="rgba(255,255,255,0.04)"/>
+    <text x="155" y="188" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-family="sans-serif" font-size="18" font-weight="700">—</text>
+    <rect x="225" y="157" width="90" height="52" rx="4" fill="rgba(255,255,255,0.04)"/>
+    <text x="270" y="188" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-family="sans-serif" font-size="18" font-weight="700">—</text>
+    <rect x="340" y="157" width="90" height="52" rx="4" fill="rgba(255,255,255,0.04)"/>
+    <text x="385" y="188" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-family="sans-serif" font-size="18" font-weight="700">—</text>
+    <rect x="455" y="157" width="90" height="52" rx="4" fill="rgba(255,255,255,0.04)"/>
+    <text x="500" y="188" text-anchor="middle" fill="rgba(255,255,255,0.15)" font-family="sans-serif" font-size="18" font-weight="700">—</text>
+
+    <!-- Cells: Easy row -->
+    <rect x="110" y="210" width="90" height="40" rx="4" fill="rgba(255,255,255,0.03)"/>
+    <rect x="225" y="210" width="90" height="40" rx="4" fill="rgba(255,255,255,0.03)"/>
+    <rect x="340" y="210" width="90" height="40" rx="4" fill="rgba(255,255,255,0.03)"/>
+    <rect x="455" y="210" width="90" height="40" rx="4" fill="rgba(255,255,255,0.03)"/>
+  </svg>
+  <p class="screenshot-caption">Standard points matrix — HR zone vs. duration. Hot pink = 300 points (goal tier).</p>
+
+  <h3>Heart rate zones</h3>
+  <p>Your maximum heart rate is calculated as <strong>220 − age</strong>. The four zones are:</p>
+
+  <table class="settings-table">
+    <thead><tr><th>Zone</th><th>HR range</th><th>Typical feel</th></tr></thead>
+    <tbody>
+      <tr><td class="setting-name" style="color:#E91E8C;">Vigorous</td><td>≥ 70% max HR</td><td>Hard effort — you can speak in short phrases only</td></tr>
+      <tr><td class="setting-name" style="color:#880E4F;">Moderate</td><td>60–70% max HR</td><td>Sustained effort — comfortably hard</td></tr>
+      <tr><td class="setting-name" style="color:#c48faa;">Light</td><td>50–60% max HR</td><td>Easy effort — can hold a full conversation</td></tr>
+      <tr><td class="setting-name" style="color:var(--text-muted);">Easy</td><td>&lt; 50% max HR</td><td>Very light activity — warm-up or cool-down pace</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">Tip — average HR is what counts</div>
+    Discovery awards points based on your <strong>average</strong> heart rate over the session, not your current HR. You can start a ride at an easy pace — as long as your average climbs into the target zone by the time you finish, you earn the points.
+  </div>
+
+  <h3>Endurance &amp; High Performance tiers</h3>
+  <p>Members registered on Discovery's Endurance &amp; High Performance programme can earn extended tiers of 450 and 600 points. Enable the <strong>Endurance Athlete</strong> setting to unlock these tiers in the data field.</p>
+
+  <table class="settings-table" style="margin-top:12px;">
+    <thead><tr><th>Points</th><th>Zone required</th><th>Duration required</th><th style="width:100px;"></th></tr></thead>
+    <tbody>
+      <tr><td>100</td><td>Vigorous 15 min <em>or</em> Moderate 30 min</td><td>—</td><td><span class="tag">Standard</span></td></tr>
+      <tr><td>200</td><td>Vigorous 30 min <em>or</em> Moderate 60 min</td><td>—</td><td><span class="tag">Standard</span></td></tr>
+      <tr><td>300</td><td>Vigorous 60 min+ <em>or</em> Moderate 90 min+</td><td>—</td><td><span class="tag">Standard</span></td></tr>
+      <tr><td>450</td><td>Extended duration at Vigorous/Moderate</td><td>—</td><td><span class="tag endurance">Endurance</span></td></tr>
+      <tr><td>600</td><td>Extended duration at Vigorous/Moderate</td><td>—</td><td><span class="tag endurance">Endurance</span></td></tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     3. DISPLAY LAYOUTS
+     ════════════════════════════════════════════════════ -->
+<section id="layouts">
+  <div class="section-number">Section 3</div>
+  <h2 class="section-title">Display layouts</h2>
+
+  <p>The data field automatically selects the appropriate layout based on the size of the slot you've assigned it to. You don't need to configure this — it adapts automatically.</p>
+
+  <h3 id="chart-layout">Chart layout — large slots</h3>
+  <p>Triggered on full-screen or large data field slots (roughly 220 × 150 pixels or larger). This is the primary layout and shows the most information.</p>
+
+  <div class="screenshot-placeholder">📸 Screenshot: Edge 840 full-screen chart layout, 300 pts green cell<br><small>Add screenshot: store-assets/screenshots/chart-rect-300.png</small></div>
+  <p class="screenshot-caption">Chart layout on Edge 840 — full zone × time grid with trend line.</p>
+
+  <h3 id="standard-layout">Standard layout — medium slots</h3>
+  <p>Triggered on medium slots (200–220 × 100–150 pixels). Shows a zoomed view of the matrix centred on your current zone row, with partial rows above and below for context.</p>
+
+  <div class="screenshot-placeholder">📸 Screenshot: Edge 840 3-field slot, standard layout<br><small>Add screenshot: store-assets/screenshots/standard-layout.png</small></div>
+  <p class="screenshot-caption">Standard layout — current zone row fills the centre, with partial rows above and below.</p>
+
+  <h3 id="compact-layout">Compact / tile layout — small slots</h3>
+  <p>Triggered on small slots (under 200 × 100 pixels). The chart is replaced with two large configurable numbers and a guidance line. The entire background fills with your current points colour, making your tier immediately recognisable at a glance.</p>
+
+  <div class="screenshot-placeholder">📸 Screenshot: Edge 840 4-field slot, compact layout<br><small>Add screenshot: store-assets/screenshots/compact-layout.png</small></div>
+  <p class="screenshot-caption">Compact layout — hot pink background means 300 points. Two large numbers plus guidance below.</p>
+
+  <div class="callout tip">
+    <div class="callout-title">Tip — compact layout background colour</div>
+    The compact layout's background colour matches your current points tier — pale pink for 100 pts, soft pink for 200 pts, hot pink for 300 pts. This is intentional: you can tell your tier at a glance without reading the number, even in bright sunlight.
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     4. READING THE CHART
+     ════════════════════════════════════════════════════ -->
+<section id="reading-the-chart">
+  <div class="section-number">Section 4</div>
+  <h2 class="section-title">Reading the chart</h2>
+
+  <p>The chart layout is the heart of the data field. Here's what each element means.</p>
+
+  <!-- Annotated diagram -->
+  <svg class="diagram" viewBox="0 0 620 400" xmlns="http://www.w3.org/2000/svg">
+    <rect width="620" height="400" rx="8" fill="#0d0610"/>
+
+    <!-- ── Simulated device screen area ── -->
+    <!-- Header area -->
+    <rect x="20" y="20" width="240" height="30" rx="4" fill="#1a0814"/>
+    <!-- Heart icon -->
+    <text x="32" y="41" fill="#E91E8C" font-family="sans-serif" font-size="16">♥</text>
+    <text x="50" y="41" fill="white" font-family="sans-serif" font-size="16" font-weight="700">162</text>
+    <text x="180" y="41" text-anchor="end" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="14">Avg</text>
+    <text x="255" y="41" text-anchor="end" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="14">158</text>
+
+    <!-- Chart grid -->
+    <!-- Row: Vigorous (top) -->
+    <rect x="38" y="60" width="50" height="52" rx="2" fill="rgba(255,255,255,0.04)"/>
+    <rect x="92" y="60" width="50" height="52" rx="2" fill="rgba(255,255,255,0.04)"/>
+    <rect x="146" y="60" width="50" height="52" rx="2" fill="#E91E8C"/>
+    <text x="171" y="92" text-anchor="middle" fill="white" font-family="sans-serif" font-size="20" font-weight="700">300</text>
+    <rect x="200" y="60" width="56" height="52" rx="2" fill="#E91E8C"/>
+    <!-- Row: Moderate -->
+    <rect x="38" y="116" width="50" height="44" rx="2" fill="rgba(255,255,255,0.04)"/>
+    <rect x="92" y="116" width="50" height="44" rx="2" fill="#FCE4F1" opacity="0.6"/>
+    <rect x="146" y="116" width="50" height="44" rx="2" fill="#F8BBD0" opacity="0.7"/>
+    <rect x="200" y="116" width="56" height="44" rx="2" fill="#E91E8C" opacity="0.7"/>
+    <!-- Row: Light -->
+    <rect x="38" y="164" width="50" height="36" rx="2" fill="rgba(255,255,255,0.03)"/>
+    <rect x="92" y="164" width="50" height="36" rx="2" fill="rgba(255,255,255,0.03)"/>
+    <rect x="146" y="164" width="50" height="36" rx="2" fill="#FCE4F1" opacity="0.3"/>
+    <rect x="200" y="164" width="56" height="36" rx="2" fill="#FCE4F1" opacity="0.45"/>
+    <!-- Row: Easy -->
+    <rect x="38" y="204" width="50" height="28" rx="2" fill="rgba(255,255,255,0.02)"/>
+    <rect x="92" y="204" width="50" height="28" rx="2" fill="rgba(255,255,255,0.02)"/>
+    <rect x="146" y="204" width="50" height="28" rx="2" fill="rgba(255,255,255,0.02)"/>
+    <rect x="200" y="204" width="56" height="28" rx="2" fill="rgba(255,255,255,0.02)"/>
+
+    <!-- Y axis labels -->
+    <text x="34" y="90" text-anchor="end" fill="#E91E8C" font-family="sans-serif" font-size="10" font-weight="700">V</text>
+    <text x="34" y="142" text-anchor="end" fill="#F8BBD0" font-family="sans-serif" font-size="10" font-weight="700">M</text>
+    <text x="34" y="185" text-anchor="end" fill="#FCE4F1" font-family="sans-serif" font-size="10" font-weight="600">L</text>
+    <text x="34" y="222" text-anchor="end" fill="rgba(255,255,255,0.25)" font-family="sans-serif" font-size="10">E</text>
+
+    <!-- X axis labels -->
+    <text x="63" y="244" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="sans-serif" font-size="10">15</text>
+    <text x="117" y="244" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="sans-serif" font-size="10">30</text>
+    <text x="171" y="244" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="sans-serif" font-size="10">60</text>
+    <text x="228" y="244" text-anchor="middle" fill="rgba(255,255,255,0.35)" font-family="sans-serif" font-size="10">90+</text>
+
+    <!-- Crosshair -->
+    <line x1="146" y1="55" x2="146" y2="240" stroke="white" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+    <line x1="25" y1="86" x2="260" y2="86" stroke="white" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+    <!-- Trend line -->
+    <polyline points="63,218 117,170 171,130 200,86" fill="none" stroke="#E91E8C" stroke-width="2" stroke-dasharray="5,4" opacity="0.7"/>
+
+    <!-- Guidance line -->
+    <rect x="20" y="255" width="240" height="22" rx="3" fill="#1a0814"/>
+    <text x="140" y="271" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="sans-serif" font-size="12">▲ 4 bpm  |  18 min at current pace</text>
+
+    <!-- ── Annotation callouts ── -->
+    <!-- 1. Heart rate header -->
+    <line x1="265" y1="35" x2="330" y2="60" stroke="#E91E8C" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+    <rect x="330" y="42" width="160" height="38" rx="5" fill="#1a0814" stroke="#E91E8C" stroke-width="0.8" opacity="0.95"/>
+    <text x="340" y="57" fill="white" font-family="sans-serif" font-size="11" font-weight="600">Heart rate header</text>
+    <text x="340" y="72" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">Current HR left · Avg HR right</text>
+
+    <!-- 2. Active cell + points -->
+    <line x1="196" y1="86" x2="330" y2="110" stroke="#E91E8C" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+    <rect x="330" y="96" width="160" height="52" rx="5" fill="#1a0814" stroke="#E91E8C" stroke-width="0.8" opacity="0.95"/>
+    <text x="340" y="112" fill="white" font-family="sans-serif" font-size="11" font-weight="600">Active cell</text>
+    <text x="340" y="127" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">Current zone × elapsed time.</text>
+    <text x="340" y="140" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">Points shown large in centre.</text>
+
+    <!-- 3. Crosshair -->
+    <line x1="171" y1="60" x2="330" y2="165" stroke="rgba(255,255,255,0.5)" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+    <rect x="330" y="152" width="160" height="52" rx="5" fill="#1a0814" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" opacity="0.95"/>
+    <text x="340" y="168" fill="white" font-family="sans-serif" font-size="11" font-weight="600">Crosshair</text>
+    <text x="340" y="183" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">Marks avg HR (horiz.) and</text>
+    <text x="340" y="196" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">elapsed time (vert.).</text>
+
+    <!-- 4. Trend line -->
+    <line x1="150" y1="140" x2="330" y2="218" stroke="#E91E8C" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+    <rect x="330" y="208" width="160" height="38" rx="5" fill="#1a0814" stroke="#E91E8C" stroke-width="0.8" opacity="0.95"/>
+    <text x="340" y="223" fill="white" font-family="sans-serif" font-size="11" font-weight="600">Trend line</text>
+    <text x="340" y="238" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">Traces average HR over time.</text>
+
+    <!-- 5. Guidance line -->
+    <line x1="265" y1="266" x2="330" y2="275" stroke="rgba(255,255,255,0.4)" stroke-width="1" stroke-dasharray="3,2" opacity="0.6"/>
+    <rect x="330" y="260" width="160" height="52" rx="5" fill="#1a0814" stroke="rgba(255,255,255,0.4)" stroke-width="0.8" opacity="0.95"/>
+    <text x="340" y="276" fill="white" font-family="sans-serif" font-size="11" font-weight="600">Guidance line</text>
+    <text x="340" y="291" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">bpm needed ↑ · minutes to</text>
+    <text x="340" y="304" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">next tier at current pace.</text>
+
+    <!-- 6. Zone labels -->
+    <line x1="25" y1="142" x2="330" y2="328" stroke="#F8BBD0" stroke-width="1" stroke-dasharray="3,2" opacity="0.5"/>
+    <rect x="330" y="318" width="160" height="38" rx="5" fill="#1a0814" stroke="#F8BBD0" stroke-width="0.8" opacity="0.95"/>
+    <text x="340" y="333" fill="white" font-family="sans-serif" font-size="11" font-weight="600">Zone axis labels</text>
+    <text x="340" y="348" fill="rgba(255,255,255,0.55)" font-family="sans-serif" font-size="10">V / M / L / E (configurable).</text>
+  </svg>
+  <p class="screenshot-caption">Annotated chart layout — each element explained.</p>
+
+  <h3>The guidance line</h3>
+  <p>The guidance line is shown below (or inside) the chart and gives you two actionable numbers:</p>
+  <ul style="padding-left:20px;margin-bottom:14px;">
+    <li style="margin-bottom:8px;"><strong>▲ N bpm</strong> — how many bpm your average HR would need to rise to reach the next points tier faster. If you're already at the maximum tier, this is not shown.</li>
+    <li><strong>N min at current pace</strong> — how many more minutes you need to stay at your current average HR to reach the next tier.</li>
+  </ul>
+  <p>In <em>Target Points</em> guidance mode, these are calculated relative to your chosen target rather than the next tier up.</p>
+
+  <div class="callout tip">
+    <div class="callout-title">Example</div>
+    You are 40 minutes in, average HR is 148 bpm (Moderate zone), showing 100 pts.<br>
+    Guidance shows: <strong>▲ 6 bpm | 20 min</strong><br>
+    This means: raise your average by 6 bpm to Vigorous zone and you'll hit 200 pts in 20 more minutes; or stay at Moderate for 20 more minutes and reach 200 pts that way.
+  </div>
+
+  <h3>Tier headroom (optional)</h3>
+  <p>When <strong>Show tier headroom</strong> is enabled, an additional indicator shows how many bpm your average HR can <em>drop</em> before you lose your current tier. This is useful when you want to ease off the pace without risking slipping back to a lower tier.</p>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     5. SETTINGS REFERENCE
+     ════════════════════════════════════════════════════ -->
+<section id="settings">
+  <div class="section-number">Section 5</div>
+  <h2 class="section-title">Settings reference</h2>
+  <p>Access settings in the <strong>Garmin Connect app</strong> on your phone: navigate to your device → Data Fields → select the field → Settings. Or on the simulator via Object Emulator → Settings.</p>
+
+  <h3 id="settings-age">Age &amp; profile</h3>
+  <p>Age drives the maximum HR calculation (220 − age), which sets all zone thresholds. Getting this right matters — an incorrect age will cause all zones to be slightly off.</p>
+
+  <table class="settings-table">
+    <thead><tr><th style="width:160px;">Setting</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="setting-name">Age Source</div><div class="default">Default: User Profile</div></td>
+        <td>Whether age is read automatically from your Garmin user profile (<em>User Profile</em>) or entered manually. <strong>User Profile is recommended</strong> — it updates automatically on your birthday.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Birth Year / Month / Day</div><div class="default">Default: 1980-01-01</div></td>
+        <td>Your date of birth, used when Age Source is set to <em>Manual</em>. Age is calculated from today's date, so it increments correctly on your birthday.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Manual Age</div><div class="default">Default: 49</div></td>
+        <td>An alternative to date of birth — enter your age in years directly. Only used if Age Source is <em>Manual</em>. Use Birth Year/Month/Day instead if precision matters.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="settings-display">Display</h3>
+
+  <table class="settings-table">
+    <thead><tr><th style="width:160px;">Setting</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="setting-name">Primary Display</div><div class="default">Default: Points</div></td>
+        <td>The large central number shown on chart layouts. Options: <em>Points</em>, <em>Average HR</em>, <em>Current HR</em>. Points is recommended — it shows your tier number large and clear.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Compact: left value</div><div class="default">Default: Current HR</div></td>
+        <td>The left large number on compact and tile layouts. Options: <em>Current HR</em>, <em>Average HR</em>, <em>Points</em>.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Compact: right value</div><div class="default">Default: Average HR</div></td>
+        <td>The right large number on compact and tile layouts. Options: <em>Current HR</em>, <em>Average HR</em>, <em>Points</em>.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Show Zone Label</div><div class="default">Default: On</div></td>
+        <td>Shows the current HR zone name (VIGOROUS / MODERATE / LIGHT / EASY) as a text label. Useful on standard-size slots. Turn off to reduce clutter on small screens.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Show HR Guidance</div><div class="default">Default: On</div></td>
+        <td>Includes the bpm target in the guidance line (e.g. <em>▲ 6 bpm</em>). Turn off if you only want the time component.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Show Tier Headroom</div><div class="default">Default: Off</div></td>
+        <td>Adds a downward indicator showing how many bpm your average HR can fall before you drop a tier. On tall layouts this appears as a second line below the main guidance. Useful for recovery rides where you want to ease off without losing points.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="settings-guidance">Points &amp; guidance</h3>
+
+  <table class="settings-table">
+    <thead><tr><th style="width:160px;">Setting</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="setting-name">Guidance Mode</div><div class="default">Default: Next Tier</div></td>
+        <td>
+          <strong>Next Tier</strong> — guidance always shows what you need to reach the next points band above your current one.<br><br>
+          <strong>Target Points</strong> — guidance shows progress toward a specific points goal (set via Target Points below).
+        </td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Target Points</div><div class="default">Default: 300</div></td>
+        <td>The points value to aim for when Guidance Mode is set to <em>Target Points</em>. Options: 100 / 200 / 300 / 450 (Endurance) / 600 (Endurance).</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Endurance Athlete</div><div class="default">Default: Off</div></td>
+        <td>Enables the 450 and 600-point extended tiers for members registered on Discovery's Endurance &amp; High Performance programme. When on, the colour ramp extends to 600 pts, with hot pink reserved for 600 pts (your goal tier).<br><br>Registration required: <em>discovery.co.za/vitality/endurance-high-performance-events</em></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="settings-chart">Chart appearance</h3>
+
+  <table class="settings-table">
+    <thead><tr><th style="width:160px;">Setting</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="setting-name">HR Axis Labels</div><div class="default">Default: Names (V/M/L/E)</div></td>
+        <td>Labels on the vertical (HR zone) axis of the chart.<br>
+          <em>Off</em> — no labels, maximum chart space.<br>
+          <em>Values (bpm)</em> — shows exact bpm thresholds for each zone boundary.<br>
+          <em>Names (V/M/L/E)</em> — shows zone abbreviations. Clean and readable.<br>
+          <em>Both</em> — zone names and bpm values together.
+        </td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Crosshair</div><div class="default">Default: White</div></td>
+        <td>Colour of the dashed crosshair lines that mark your current position in the chart. Options: Off / Black / White / Red / Blue / Yellow / Green. White is the default and works well against all pink cell backgrounds.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Colour: 100 pts band</div><div class="default">Default: Pale Pink</div></td>
+        <td>Fill colour for cells in the 100-point tier of the chart.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Colour: 200 pts band</div><div class="default">Default: Soft Pink</div></td>
+        <td>Fill colour for cells in the 200-point tier of the chart.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Colour: 300 pts band</div><div class="default">Default: Hot Pink</div></td>
+        <td>Fill colour for cells in the 300-point tier (the goal tier for standard athletes).</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Colour: 450 pts band</div><div class="default">Default: Deep Pink <span class="tag endurance">Endurance</span></div></td>
+        <td>Fill colour for the 450-point tier. Only relevant when Endurance Athlete is enabled.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Colour: 600 pts band</div><div class="default">Default: Hot Pink <span class="tag endurance">Endurance</span></div></td>
+        <td>Fill colour for the 600-point goal tier. Only relevant when Endurance Athlete is enabled. Hot pink by default — the goal tier always glows brightest.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="settings-alerts">Alerts</h3>
+
+  <table class="settings-table">
+    <thead><tr><th style="width:160px;">Setting</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="setting-name">Point change tones</div><div class="default">Default: On</div></td>
+        <td>Plays a beep through the device speaker whenever your predicted points tier increases or decreases. Useful if you want audio feedback without looking at the screen.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Point change alerts</div><div class="default">Default: On</div></td>
+        <td>Shows a full-screen overlay message when your points tier changes (e.g. "300 points!"). Requires Activity Alerts to be enabled for this data field in your device settings.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3 id="settings-developer">Developer</h3>
+
+  <table class="settings-table">
+    <thead><tr><th style="width:160px;">Setting</th><th>What it does</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><div class="setting-name">Validation Mode</div><div class="default">Default: Off</div></td>
+        <td>Overlays the layout tier name and debug information on the screen. For development use only. <strong>Leave this off for normal use.</strong></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     6. TIER COLOUR SYSTEM
+     ════════════════════════════════════════════════════ -->
+<section id="tier-colours">
+  <div class="section-number">Section 6</div>
+  <h2 class="section-title">Tier colour system</h2>
+
+  <p>The default colour palette is inspired by Discovery Vitality's branding. Hot pink always means you've reached your goal tier — at a glance, you know you're done.</p>
+
+  <h3>Standard palette (100 / 200 / 300 pts)</h3>
+
+  <div class="tier-row">
+    <div class="swatch" style="background:#FCE4F1;"></div>
+    <div>
+      <div class="tier-label" style="color:#880E4F;">100 pts — Pale Pink</div>
+      <div class="tier-desc">You're earning points. Keep it up or push harder to move up.</div>
+    </div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#F8BBD0;"></div>
+    <div>
+      <div class="tier-label" style="color:#880E4F;">200 pts — Soft Pink</div>
+      <div class="tier-desc">Good effort. One more push to reach the goal tier.</div>
+    </div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#E91E8C;"></div>
+    <div>
+      <div class="tier-label" style="color:#E91E8C;">300 pts — Hot Pink ✓</div>
+      <div class="tier-desc">Goal reached. White text on hot pink — unmistakable.</div>
+    </div>
+  </div>
+
+  <h3 style="margin-top:28px;">Endurance palette (100 / 200 / 300 / 450 / 600 pts)</h3>
+  <p>When Endurance Athlete is enabled, the ramp extends to 600 pts. Hot pink is reserved for 600 pts (the new goal tier), and the lower tiers shift accordingly.</p>
+
+  <div class="tier-row">
+    <div class="swatch" style="background:#FCE4F1;"></div>
+    <div><div class="tier-label" style="color:#880E4F;">100 pts — Pale Pink</div></div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#F8BBD0;"></div>
+    <div><div class="tier-label" style="color:#880E4F;">200 pts — Soft Pink</div></div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#F48AC1;"></div>
+    <div><div class="tier-label" style="color:#880E4F;">300 pts — Mid Pink</div></div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#F06292;"></div>
+    <div><div class="tier-label" style="color:#880E4F;">450 pts — Deep Pink</div></div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#E91E8C;"></div>
+    <div>
+      <div class="tier-label" style="color:#E91E8C;">600 pts — Hot Pink ✓</div>
+      <div class="tier-desc">Goal reached for endurance athletes.</div>
+    </div>
+  </div>
+
+  <div class="callout note" style="margin-top:24px;">
+    <div class="callout-title">Customising colours</div>
+    All five tier colours can be changed individually in settings. Each tier offers 20 colour options ranging from pale yellows through greens, blues, and the full pink/crimson ramp. Mix and match to suit your preference.
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     7. SUPPORTED DEVICES
+     ════════════════════════════════════════════════════ -->
+<section id="devices">
+  <div class="section-number">Section 7</div>
+  <h2 class="section-title">Supported devices</h2>
+
+  <div class="devices">
+    <div class="device-card"><div class="device-type">Edge</div>Edge 530</div>
+    <div class="device-card"><div class="device-type">Edge</div>Edge 540</div>
+    <div class="device-card"><div class="device-type">Edge</div>Edge 550</div>
+    <div class="device-card"><div class="device-type">Edge</div>Edge 840</div>
+    <div class="device-card"><div class="device-type">Edge</div>Edge 850</div>
+    <div class="device-card"><div class="device-type">Edge</div>Edge 1040</div>
+    <div class="device-card"><div class="device-type">Edge</div>Edge 1050</div>
+    <div class="device-card"><div class="device-type">Edge</div>Edge MTB</div>
+    <div class="device-card"><div class="device-type">Forerunner</div>Forerunner 745</div>
+    <div class="device-card"><div class="device-type">Fēnix</div>Fēnix 5X Plus</div>
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title">Adding to your device</div>
+    Install from the Garmin Connect IQ Store, then in the Garmin Connect app go to your device → Activity Profiles → select an activity → Data Screens → add a new screen or edit an existing one → add <em>Discovery Vitality Points</em> as a data field.
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════════════════════════
+     8. DISCLAIMER
+     ════════════════════════════════════════════════════ -->
+<section id="disclaimer">
+  <div class="section-number">Section 8</div>
+  <h2 class="section-title">Disclaimer</h2>
+
+  <div class="callout warn">
+    <div class="callout-title">Important</div>
+    <p style="margin-bottom:8px;">This data field <strong>estimates</strong> Discovery Vitality fitness points using Discovery's published HR-zone and time-band rules. Official Vitality points are awarded by Discovery after your activity syncs to their platform, and the final tally may differ.</p>
+    <p style="margin-bottom:8px;">Common reasons for differences: HR data that doesn't transfer cleanly to Discovery's platform from Garmin Connect or Strava; activities that use HR from a chest strap vs. optical sensor; or minor rule changes by Discovery.</p>
+    <p style="margin-bottom:0;">This app is <strong>not affiliated with or endorsed by Discovery or Garmin.</strong></p>
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<footer>
+  <strong>Discovery Vitality Points</strong> · Garmin Connect IQ Data Field · V1.0<br>
+  Not affiliated with or endorsed by Discovery or Garmin.
+</footer>
+
+</body>
+</html>

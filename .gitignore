@@ -1,0 +1,20 @@
+# Garmin signing key — NEVER commit this
+developer_key.der
+*.der
+*.key
+*.pem
+
+# Personal activity/GPS data
+*.fit
+
+# Build output
+bin/*.prg
+bin/*.iq
+bin/*.debug.xml
+temp/
+
+# OS & editor
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/settings.json

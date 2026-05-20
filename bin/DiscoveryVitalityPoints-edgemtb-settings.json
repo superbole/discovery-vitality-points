@@ -1,0 +1,284 @@
+{
+  "settings" : [ {
+    "key" : "DisclaimerInfo",
+    "valueType" : "string",
+    "defaultValue" : "This data field estimates Discovery Vitality-style points from your Garmin activity only. Official Vitality points are awarded by Discovery and may differ. Garmin Connect or Strava may show HR while Vitality still credits without HR if their import fails. Not affiliated with or endorsed by Discovery or Garmin.",
+    "configTitle" : "SettingDisclaimerTitle",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 512
+  }, {
+    "key" : "PrimaryMetric",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingPrimaryMetric",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingPrimaryMetricPoints",
+      "value" : 0
+    }, {
+      "display" : "SettingPrimaryMetricAvgHr",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "AgeSource",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingAgeSource",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingAgeSourceProfile",
+      "value" : 0
+    }, {
+      "display" : "SettingAgeSourceManual",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "BirthYear",
+    "valueType" : "number",
+    "defaultValue" : 1980,
+    "configTitle" : "SettingBirthYear",
+    "configPrompt" : null,
+    "configType" : "numeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : 1900,
+    "configMax" : 2100,
+    "configMaxLength" : null
+  }, {
+    "key" : "BirthMonth",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "SettingBirthMonth",
+    "configPrompt" : null,
+    "configType" : "numeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : 1,
+    "configMax" : 12,
+    "configMaxLength" : null
+  }, {
+    "key" : "BirthDay",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "SettingBirthDay",
+    "configPrompt" : null,
+    "configType" : "numeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : 1,
+    "configMax" : 31,
+    "configMaxLength" : null
+  }, {
+    "key" : "ManualAge",
+    "valueType" : "number",
+    "defaultValue" : 49,
+    "configTitle" : "SettingManualAge",
+    "configPrompt" : null,
+    "configType" : "numeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : 1,
+    "configMax" : 120,
+    "configMaxLength" : null
+  }, {
+    "key" : "IsEndurance",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "SettingIsEndurance",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "GuidanceMode",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingGuidanceMode",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingGuidanceModeNextTier",
+      "value" : 0
+    }, {
+      "display" : "SettingGuidanceModeTarget",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TargetPoints",
+    "valueType" : "number",
+    "defaultValue" : 300,
+    "configTitle" : "SettingTargetPoints",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal0$",
+      "value" : 100
+    }, {
+      "display" : "$literal1$",
+      "value" : 200
+    }, {
+      "display" : "$literal2$",
+      "value" : 300
+    }, {
+      "display" : "$literal3$",
+      "value" : 450
+    }, {
+      "display" : "$literal4$",
+      "value" : 600
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "ShowZone",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingShowZone",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HideHrGuidance",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "SettingHideHrGuidance",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "SoundAlerts",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingSoundAlerts",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "DataFieldAlerts",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingDataFieldAlerts",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  } ],
+  "supportsLiveValidation" : false,
+  "languages" : {
+    "valyrian" : {
+      "SettingGuidanceMode" : "Guidance Mode",
+      "SettingAgeSource" : "Age Source",
+      "SettingsMenuTitle" : "Vitality Points",
+      "SettingBirthYear" : "Birth Year",
+      "SettingShowZone" : "Show Zone Label",
+      "DisclaimerLine4" : "That can happen if Vitality's import fails.",
+      "DisclaimerLine3" : "Garmin Connect or Strava may show HR while Vitality still credits without HR.",
+      "DisclaimerLine5" : "Not affiliated with or endorsed by Discovery or Garmin.",
+      "DisclaimerLine2" : "Official points are awarded only by Discovery Vitality and may differ.",
+      "AppName" : "Discovery Vitality Points",
+      "DisclaimerLine1" : "This field estimates Discovery Vitality-style points from your Garmin activity.",
+      "SettingBirthDay" : "Birth Day (1-31)",
+      "SettingPrimaryMetricPoints" : "Points",
+      "$literal0$" : "100",
+      "SettingDisclaimerTitle" : "About these points",
+      "$literal2$" : "300",
+      "$literal4$" : "600 (Endurance athletes)",
+      "SettingAgeSourceProfile" : "User Profile",
+      "SettingAgeSourceManual" : "Manual",
+      "SettingGuidanceModeTarget" : "Target Points",
+      "SettingSoundAlerts" : "Point change tones",
+      "SettingManualAge" : "Manual Age (Years)",
+      "SettingIsEndurance" : "Endurance Athlete Mode (opt-in: discovery.co.za/vitality/endurance-high-performance-events)",
+      "SettingPrimaryMetricAvgHr" : "Average HR",
+      "SettingTargetPoints" : "Target Points",
+      "SettingPrimaryMetric" : "Primary Display",
+      "$literal1$" : "200",
+      "$literal3$" : "450 (Endurance athletes)",
+      "SettingDataFieldAlerts" : "Point change full-screen alerts",
+      "SettingGuidanceModeNextTier" : "Next Tier",
+      "SettingBirthMonth" : "Birth Month (1-12)",
+      "SettingHideHrGuidance" : "Hide HR Guidance",
+      "SettingDisclaimerMenu" : "Disclaimer"
+    }
+  }
+}

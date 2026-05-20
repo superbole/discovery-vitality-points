@@ -1,0 +1,25 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "monkeyc",
+      "request": "launch",
+      "name": "Monkey C: Edge 840 (Discovery Vitality Points)",
+      "prg": "${workspaceFolder}/bin/DiscoveryVitalityPoints.prg",
+      "prgDebugXml": "${workspaceFolder}/bin/DiscoveryVitalityPoints.prg.debug.xml",
+      "device": "edge840",
+      "stopAtLaunch": false,
+      "preLaunchTask": "Build Connect IQ (edge840)"
+    },
+    {
+      "type": "monkeyc",
+      "request": "launch",
+      "name": "Monkey C: Forerunner 745 (Discovery Vitality Points)",
+      "prg": "${workspaceFolder}/bin/DiscoveryVitalityPoints.prg",
+      "prgDebugXml": "${workspaceFolder}/bin/DiscoveryVitalityPoints.prg.debug.xml",
+      "device": "fr745",
+      "stopAtLaunch": false,
+      "preLaunchTask": "Build Connect IQ (fr745)"
+    }
+  ]
+}

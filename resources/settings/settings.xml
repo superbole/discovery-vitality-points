@@ -1,0 +1,255 @@
+<settings>
+    <setting propertyKey="@Properties.DisclaimerPara1" title="@Strings.SettingDisclaimerTitle">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="256" />
+    </setting>
+    <setting propertyKey="@Properties.DisclaimerPara2" title="@Strings.SettingDisclaimerTitle2">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="256" />
+    </setting>
+    <setting propertyKey="@Properties.DisclaimerPara3" title="@Strings.SettingDisclaimerTitle3">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="256" />
+    </setting>
+    <setting propertyKey="@Properties.PrimaryMetric" title="@Strings.SettingPrimaryMetric">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.SettingPrimaryMetricPoints</listEntry>
+            <listEntry value="1">@Strings.SettingPrimaryMetricAvgHr</listEntry>
+            <listEntry value="2">@Strings.SettingPrimaryMetricCurrentHr</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.CompactMainMetric" title="@Strings.SettingCompactMainMetric">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.SettingCompactMetricHr</listEntry>
+            <listEntry value="1">@Strings.SettingCompactMetricAvg</listEntry>
+            <listEntry value="2">@Strings.SettingCompactMetricPoints</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.CompactSecondaryMetric" title="@Strings.SettingCompactSecondaryMetric">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.SettingCompactMetricHr</listEntry>
+            <listEntry value="1">@Strings.SettingCompactMetricAvg</listEntry>
+            <listEntry value="2">@Strings.SettingCompactMetricPoints</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.AgeSource" title="@Strings.SettingAgeSource">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.SettingAgeSourceProfile</listEntry>
+            <listEntry value="1">@Strings.SettingAgeSourceManual</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.IsEndurance" title="@Strings.SettingIsEndurance">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintIsEndurance" title="@Strings.SettingGcHintTitleEndurance">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="256" />
+    </setting>
+    <setting propertyKey="@Properties.GuidanceMode" title="@Strings.SettingGuidanceMode">
+        <settingConfig type="list">
+            <listEntry value="0">@Strings.SettingGuidanceModeNextTier</listEntry>
+            <listEntry value="1">@Strings.SettingGuidanceModeTarget</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TargetPoints" title="@Strings.SettingTargetPoints">
+        <settingConfig type="list">
+            <listEntry value="100">100</listEntry>
+            <listEntry value="200">200</listEntry>
+            <listEntry value="300">300</listEntry>
+            <listEntry value="450">450 (Endurance athletes)</listEntry>
+            <listEntry value="600">600 (Endurance athletes)</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.ShowZone" title="@Strings.SettingShowZone">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintShowZone" title="@Strings.SettingGcHintTitleShowZone">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="128" />
+    </setting>
+    <setting propertyKey="@Properties.HrAxisLabels" title="@Strings.SettingHrAxisLabels">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Values (bpm)</listEntry>
+            <listEntry value="2">Names (V/M/L/E)</listEntry>
+            <listEntry value="3">Both</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.PointsHighlighted" title="@Strings.SettingPointsHighlighted">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintPointsHighlighted" title="@Strings.SettingGcHintTitlePointsHighlighted">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="128" />
+    </setting>
+    <setting propertyKey="@Properties.CrosshairColor" title="@Strings.SettingCrosshairColor">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Black</listEntry>
+            <listEntry value="2">White</listEntry>
+            <listEntry value="3">Red</listEntry>
+            <listEntry value="4">Blue</listEntry>
+            <listEntry value="5">Yellow</listEntry>
+            <listEntry value="6">Green</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TierColor100" title="@Strings.SettingTierColor100">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Pale Yellow</listEntry>
+            <listEntry value="2">Yellow</listEntry>
+            <listEntry value="3">Amber</listEntry>
+            <listEntry value="4">Orange</listEntry>
+            <listEntry value="5">Red-Orange</listEntry>
+            <listEntry value="6">Red</listEntry>
+            <listEntry value="7">Coral</listEntry>
+            <listEntry value="8">Lt Green</listEntry>
+            <listEntry value="9">Green</listEntry>
+            <listEntry value="10">Teal</listEntry>
+            <listEntry value="11">Blue</listEntry>
+            <listEntry value="12">Cyan</listEntry>
+            <listEntry value="13">Gray</listEntry>
+            <listEntry value="14">Pale Pink</listEntry>
+            <listEntry value="15">Soft Pink</listEntry>
+            <listEntry value="16">Mid Pink</listEntry>
+            <listEntry value="17">Deep Pink</listEntry>
+            <listEntry value="18">Hot Pink</listEntry>
+            <listEntry value="19">Crimson</listEntry>
+            <listEntry value="20">Dark Crimson</listEntry>
+            <listEntry value="21">Charcoal</listEntry>
+            <listEntry value="22">Vitality Silver</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TierColor200" title="@Strings.SettingTierColor200">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Pale Yellow</listEntry>
+            <listEntry value="2">Yellow</listEntry>
+            <listEntry value="3">Amber</listEntry>
+            <listEntry value="4">Orange</listEntry>
+            <listEntry value="5">Red-Orange</listEntry>
+            <listEntry value="6">Red</listEntry>
+            <listEntry value="7">Coral</listEntry>
+            <listEntry value="8">Lt Green</listEntry>
+            <listEntry value="9">Green</listEntry>
+            <listEntry value="10">Teal</listEntry>
+            <listEntry value="11">Blue</listEntry>
+            <listEntry value="12">Cyan</listEntry>
+            <listEntry value="13">Gray</listEntry>
+            <listEntry value="14">Pale Pink</listEntry>
+            <listEntry value="15">Soft Pink</listEntry>
+            <listEntry value="16">Mid Pink</listEntry>
+            <listEntry value="17">Deep Pink</listEntry>
+            <listEntry value="18">Hot Pink</listEntry>
+            <listEntry value="19">Crimson</listEntry>
+            <listEntry value="20">Dark Crimson</listEntry>
+            <listEntry value="21">Charcoal</listEntry>
+            <listEntry value="22">Vitality Silver</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TierColor300" title="@Strings.SettingTierColor300">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Pale Yellow</listEntry>
+            <listEntry value="2">Yellow</listEntry>
+            <listEntry value="3">Amber</listEntry>
+            <listEntry value="4">Orange</listEntry>
+            <listEntry value="5">Red-Orange</listEntry>
+            <listEntry value="6">Red</listEntry>
+            <listEntry value="7">Coral</listEntry>
+            <listEntry value="8">Lt Green</listEntry>
+            <listEntry value="9">Green</listEntry>
+            <listEntry value="10">Teal</listEntry>
+            <listEntry value="11">Blue</listEntry>
+            <listEntry value="12">Cyan</listEntry>
+            <listEntry value="13">Gray</listEntry>
+            <listEntry value="14">Pale Pink</listEntry>
+            <listEntry value="15">Soft Pink</listEntry>
+            <listEntry value="16">Mid Pink</listEntry>
+            <listEntry value="17">Deep Pink</listEntry>
+            <listEntry value="18">Hot Pink</listEntry>
+            <listEntry value="19">Crimson</listEntry>
+            <listEntry value="20">Dark Crimson</listEntry>
+            <listEntry value="21">Charcoal</listEntry>
+            <listEntry value="22">Vitality Silver</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TierColor450" title="@Strings.SettingTierColor450">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Pale Yellow</listEntry>
+            <listEntry value="2">Yellow</listEntry>
+            <listEntry value="3">Amber</listEntry>
+            <listEntry value="4">Orange</listEntry>
+            <listEntry value="5">Red-Orange</listEntry>
+            <listEntry value="6">Red</listEntry>
+            <listEntry value="7">Coral</listEntry>
+            <listEntry value="8">Lt Green</listEntry>
+            <listEntry value="9">Green</listEntry>
+            <listEntry value="10">Teal</listEntry>
+            <listEntry value="11">Blue</listEntry>
+            <listEntry value="12">Cyan</listEntry>
+            <listEntry value="13">Gray</listEntry>
+            <listEntry value="14">Pale Pink</listEntry>
+            <listEntry value="15">Soft Pink</listEntry>
+            <listEntry value="16">Mid Pink</listEntry>
+            <listEntry value="17">Deep Pink</listEntry>
+            <listEntry value="18">Hot Pink</listEntry>
+            <listEntry value="19">Crimson</listEntry>
+            <listEntry value="20">Dark Crimson</listEntry>
+            <listEntry value="21">Charcoal</listEntry>
+            <listEntry value="22">Vitality Silver</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.TierColor600" title="@Strings.SettingTierColor600">
+        <settingConfig type="list">
+            <listEntry value="0">Off</listEntry>
+            <listEntry value="1">Pale Yellow</listEntry>
+            <listEntry value="2">Yellow</listEntry>
+            <listEntry value="3">Amber</listEntry>
+            <listEntry value="4">Orange</listEntry>
+            <listEntry value="5">Red-Orange</listEntry>
+            <listEntry value="6">Red</listEntry>
+            <listEntry value="7">Coral</listEntry>
+            <listEntry value="8">Lt Green</listEntry>
+            <listEntry value="9">Green</listEntry>
+            <listEntry value="10">Teal</listEntry>
+            <listEntry value="11">Blue</listEntry>
+            <listEntry value="12">Cyan</listEntry>
+            <listEntry value="13">Gray</listEntry>
+            <listEntry value="14">Pale Pink</listEntry>
+            <listEntry value="15">Soft Pink</listEntry>
+            <listEntry value="16">Mid Pink</listEntry>
+            <listEntry value="17">Deep Pink</listEntry>
+            <listEntry value="18">Hot Pink</listEntry>
+            <listEntry value="19">Crimson</listEntry>
+            <listEntry value="20">Dark Crimson</listEntry>
+            <listEntry value="21">Charcoal</listEntry>
+            <listEntry value="22">Vitality Silver</listEntry>
+        </settingConfig>
+    </setting>
+    <setting propertyKey="@Properties.ValidationMode" title="@Strings.SettingValidationMode">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintValidationMode" title="@Strings.SettingGcHintTitleValidation">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="128" />
+    </setting>
+    <setting propertyKey="@Properties.ShowHrGuidance" title="@Strings.SettingShowHrGuidance">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintShowHrGuidance" title="@Strings.SettingGcHintTitleShowHr">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="128" />
+    </setting>
+    <setting propertyKey="@Properties.ShowTierHeadroom" title="@Strings.SettingShowTierHeadroom">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintShowTierHeadroom" title="@Strings.SettingGcHintTitleHeadroom">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="256" />
+    </setting>
+    <setting propertyKey="@Properties.SoundAlerts" title="@Strings.SettingSoundAlerts">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintSoundAlerts" title="@Strings.SettingGcHintTitleSound">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="128" />
+    </setting>
+    <setting propertyKey="@Properties.DataFieldAlerts" title="@Strings.SettingDataFieldAlerts">
+        <settingConfig type="boolean" />
+    </setting>
+    <setting propertyKey="@Properties.HintDataFieldAlerts" title="@Strings.SettingGcHintTitleDataField">
+        <settingConfig type="alphaNumeric" readonly="true" maxLength="128" />
+    </setting>
+</settings>

@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Compact Layout Mockups</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f3f3f3;
+      color: #222;
+      margin: 16px;
+    }
+    h2 {
+      margin: 10px 0 6px;
+      font-size: 16px;
+    }
+    .card {
+      background: #fff;
+      border: 1px solid #ddd;
+      padding: 10px;
+      margin-bottom: 14px;
+      display: inline-block;
+    }
+    .note {
+      font-size: 12px;
+      color: #555;
+      margin-top: 6px;
+      max-width: 520px;
+    }
+    svg {
+      display: block;
+      background: #fafafa;
+      border: 1px solid #bbb;
+    }
+  </style>
+</head>
+<body>
+  <h2>Half-Width Single-Height Cell</h2>
+  <div class="card">
+    <svg width="320" height="160" viewBox="0 0 320 160" aria-label="Half-width compact cell mockup">
+      <rect x="1" y="1" width="318" height="158" fill="#ffffff" stroke="#666666" stroke-width="2" />
+
+      <text x="160" y="22" text-anchor="middle" font-size="12" fill="#555">Zone / pts (optional)</text>
+
+      <text x="160" y="80" text-anchor="middle" font-size="54" font-weight="700" fill="#111">136</text>
+
+      <line x1="12" y1="128" x2="308" y2="128" stroke="#ddd" stroke-width="1" />
+      <text x="160" y="146" text-anchor="middle" font-size="18" font-weight="600" fill="#222">To100 3m(+5)</text>
+    </svg>
+    <div class="note">
+      Guidance line shown at a hard max of 15 characters.
+    </div>
+  </div>
+
+  <h2>Tiny Tile (Zoomed Matrix)</h2>
+  <div class="card">
+    <svg width="320" height="220" viewBox="0 0 320 220" aria-label="Tiny tile zoomed matrix mockup">
+      <rect x="1" y="1" width="318" height="218" fill="#ffffff" stroke="#666666" stroke-width="2" />
+
+      <!-- Plot frame -->
+      <rect x="40" y="26" width="256" height="156" fill="#fefefe" stroke="#999" stroke-width="1" />
+
+      <!-- 3-row zoom around current matrix row -->
+      <rect x="40" y="48" width="256" height="3" fill="#a6e3a1" />
+      <rect x="40" y="51" width="256" height="106" fill="#eac38f" />
+      <rect x="40" y="157" width="256" height="3" fill="#a6e3a1" />
+
+      <!-- Column boundaries for context -->
+      <line x1="40" y1="26" x2="40" y2="182" stroke="#777" stroke-width="1" />
+      <line x1="125" y1="26" x2="125" y2="182" stroke="#777" stroke-width="1" />
+      <line x1="210" y1="26" x2="210" y2="182" stroke="#777" stroke-width="1" />
+      <line x1="296" y1="26" x2="296" y2="182" stroke="#777" stroke-width="1" />
+
+      <!-- Subdued current HR in center cell -->
+      <text x="168" y="113" text-anchor="middle" font-size="34" font-weight="700" fill="#333" opacity="0.72">136</text>
+
+      <!-- Trace and average-HR endpoint -->
+      <polyline points="44,126 60,120 79,116 94,112 108,106 122,103 136,99 151,96 164,93 177,90 190,86 205,83"
+                fill="none" stroke="#ffc1c8" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round" opacity="0.55"/>
+      <polyline points="44,126 60,120 79,116 94,112 108,106 122,103 136,99 151,96 164,93 177,90 190,86 205,83"
+                fill="none" stroke="#c1121f" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="205" cy="83" r="5.4" fill="#d90429" stroke="#ffffff" stroke-width="1.1"/>
+
+      <!-- HR labels aligned to row boundaries -->
+      <text x="8" y="51" font-size="11" fill="#333">150</text>
+      <text x="8" y="104" font-size="11" fill="#333">135</text>
+      <text x="8" y="160" font-size="11" fill="#333">120</text>
+
+      <!-- Minute labels at column boundaries -->
+      <line x1="40" y1="182" x2="40" y2="186" stroke="#666" />
+      <line x1="125" y1="182" x2="125" y2="186" stroke="#666" />
+      <line x1="210" y1="182" x2="210" y2="186" stroke="#666" />
+      <line x1="296" y1="182" x2="296" y2="186" stroke="#666" />
+      <text x="40" y="201" font-size="11" text-anchor="middle" fill="#333">15</text>
+      <text x="125" y="201" font-size="11" text-anchor="middle" fill="#333">30</text>
+      <text x="210" y="201" font-size="11" text-anchor="middle" fill="#333">60</text>
+      <text x="296" y="201" font-size="11" text-anchor="middle" fill="#333">90+</text>
+    </svg>
+    <div class="note">
+      Zoomed current-cell concept: current HR value centered (subdued), thin neighboring rows, and avg-HR represented by trace endpoint dot.
+    </div>
+  </div>
+
+  <h2>Current Full Matrix (Reference Mockup)</h2>
+  <div class="card">
+    <svg width="520" height="300" viewBox="0 0 520 300" aria-label="Current full matrix reference mockup">
+      <rect x="1" y="1" width="518" height="298" fill="#ffffff" stroke="#666666" stroke-width="2" />
+
+      <!-- Header -->
+      <text x="20" y="22" font-size="12" fill="#222">HR now</text>
+      <text x="20" y="50" font-size="34" font-weight="700" fill="#111">136</text>
+      <text x="500" y="22" text-anchor="end" font-size="12" fill="#222">Avg HR 119</text>
+      <text x="500" y="50" text-anchor="end" font-size="16" font-weight="700" fill="#333">137 pts</text>
+
+      <!-- Matrix area -->
+      <rect x="64" y="66" width="438" height="184" fill="#fbfbfb" stroke="#8b8b8b" stroke-width="1" />
+
+      <!-- Discrete matrix cells only where points > 0 -->
+      <!-- Row 1 -->
+      <rect x="137" y="66" width="73" height="46" fill="#f8f0c4" />
+      <rect x="210" y="66" width="73" height="46" fill="#eadb9a" />
+      <rect x="283" y="66" width="73" height="46" fill="#f6c48f" />
+      <rect x="356" y="66" width="73" height="46" fill="#ef8a8a" />
+      <rect x="429" y="66" width="73" height="46" fill="#b39ddb" />
+      <!-- Row 2 -->
+      <rect x="137" y="112" width="73" height="46" fill="#f8f0c4" />
+      <rect x="210" y="112" width="73" height="46" fill="#eadb9a" />
+      <rect x="283" y="112" width="73" height="46" fill="#f6c48f" />
+      <rect x="356" y="112" width="73" height="46" fill="#ef8a8a" />
+      <rect x="429" y="112" width="73" height="46" fill="#b39ddb" />
+      <!-- Row 3 -->
+      <rect x="137" y="158" width="73" height="46" fill="#f8f0c4" />
+      <rect x="210" y="158" width="73" height="46" fill="#eadb9a" />
+      <rect x="283" y="158" width="73" height="46" fill="#f6c48f" />
+      <rect x="356" y="158" width="73" height="46" fill="#ef8a8a" />
+      <rect x="429" y="158" width="73" height="46" fill="#b39ddb" />
+      <!-- Row 4 -->
+      <rect x="137" y="204" width="73" height="46" fill="#f8f0c4" />
+      <rect x="210" y="204" width="73" height="46" fill="#eadb9a" />
+      <rect x="283" y="204" width="73" height="46" fill="#f6c48f" />
+      <rect x="356" y="204" width="73" height="46" fill="#ef8a8a" />
+      <rect x="429" y="204" width="73" height="46" fill="#b39ddb" />
+
+      <!-- Subtle grid on top -->
+      <line x1="64" y1="66" x2="502" y2="66" stroke="#777" stroke-width="1" />
+      <line x1="64" y1="112" x2="502" y2="112" stroke="#777" stroke-width="1" />
+      <line x1="64" y1="158" x2="502" y2="158" stroke="#777" stroke-width="1" />
+      <line x1="64" y1="204" x2="502" y2="204" stroke="#777" stroke-width="1" />
+      <line x1="64" y1="250" x2="502" y2="250" stroke="#777" stroke-width="1" />
+      <line x1="64" y1="66" x2="64" y2="250" stroke="#777" stroke-width="1" />
+      <line x1="137" y1="66" x2="137" y2="250" stroke="#777" stroke-width="1" />
+      <line x1="210" y1="66" x2="210" y2="250" stroke="#777" stroke-width="1" />
+      <line x1="283" y1="66" x2="283" y2="250" stroke="#777" stroke-width="1" />
+      <line x1="356" y1="66" x2="356" y2="250" stroke="#777" stroke-width="1" />
+      <line x1="429" y1="66" x2="429" y2="250" stroke="#777" stroke-width="1" />
+      <line x1="502" y1="66" x2="502" y2="250" stroke="#777" stroke-width="1" />
+
+      <!-- Left row labels -->
+      <text x="12" y="94" font-size="12" fill="#222">Vig</text>
+      <text x="12" y="140" font-size="12" fill="#222">Mod</text>
+      <text x="12" y="186" font-size="12" fill="#222">Light</text>
+      <text x="12" y="232" font-size="12" fill="#222">Easy</text>
+
+      <!-- Red trace line and endpoint -->
+      <polyline points="70,218 96,214 126,206 154,194 182,178 212,165 242,154 272,146 304,136 336,126 368,118 400,108 432,98 464,90 496,84"
+                fill="none" stroke="#ff9aa2" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" opacity="0.4"/>
+      <polyline points="70,218 96,214 126,206 154,194 182,178 212,165 242,154 272,146 304,136 336,126 368,118 400,108 432,98 464,90 496,84"
+                fill="none" stroke="#d90429" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="496" cy="84" r="5.5" fill="#d90429" stroke="#ffffff" stroke-width="1.2"/>
+
+      <!-- Bottom minute labels (boundary labels with final plus band) -->
+      <text x="137" y="270" text-anchor="middle" font-size="11" fill="#333">15</text>
+      <text x="210" y="270" text-anchor="middle" font-size="11" fill="#333">30</text>
+      <text x="283" y="270" text-anchor="middle" font-size="11" fill="#333">60</text>
+      <text x="356" y="270" text-anchor="middle" font-size="11" fill="#333">90</text>
+      <text x="429" y="270" text-anchor="middle" font-size="11" fill="#333">120</text>
+      <text x="466" y="270" text-anchor="middle" font-size="11" fill="#333">120+</text>
+    </svg>
+    <div class="note">
+      Updated to match current behavior more closely: neutral background, discrete colored cells, subtle grid, boundary minute labels, and red trace overlay.
+    </div>
+  </div>
+
+  <h2>Tiny Tile Scenarios (Stacked)</h2>
+  <div class="card">
+    <div class="note">Each row is one scenario from the list (time + avg HR), rendered in tiny-tile style.</div>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 1 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">20m, avg 115 (Light 15-29, 0 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#b7f0b7" />
+      <rect x="40" y="42" width="256" height="52" fill="#f1f1f1" />
+      <rect x="40" y="94" width="256" height="3" fill="#f1f1f1" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,88 72,84 98,82 124,80 150,79 176,77 202,75 228,72 252,69 276,67" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,88 72,84 98,82 124,80 150,79 176,77 202,75 228,72 252,69 276,67" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="67" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 2 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">35m, avg 115 (Light 30-59, 100 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#b7f0b7" />
+      <rect x="40" y="42" width="256" height="52" fill="#e9db9a" />
+      <rect x="40" y="94" width="256" height="3" fill="#f1f1f1" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,88 72,83 98,80 124,78 150,76 176,74 202,72 228,70 252,68 276,66" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,88 72,83 98,80 124,78 150,76 176,74 202,72 228,70 252,68 276,66" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="66" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 3 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">74m, avg 118 (Light 60-89, 200 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#b7f0b7" />
+      <rect x="40" y="42" width="256" height="52" fill="#f2c78a" />
+      <rect x="40" y="94" width="256" height="3" fill="#f1f1f1" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,90 72,86 98,85 124,84 150,82 176,80 202,79 228,77 252,75 276,73" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,90 72,86 98,85 124,84 150,82 176,80 202,79 228,77 252,75 276,73" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="73" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 4 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">95m, avg 112 (Light 90+, 300 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#b7f0b7" />
+      <rect x="40" y="42" width="256" height="52" fill="#b7f0b7" />
+      <rect x="40" y="94" width="256" height="3" fill="#f1f1f1" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,92 72,89 98,86 124,84 150,82 176,80 202,79 228,78 252,77 276,76" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,92 72,89 98,86 124,84 150,82 176,80 202,79 228,78 252,77 276,76" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="76" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 5 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">20m, avg 125 (Mod 15-29, 100 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#b7f0b7" />
+      <rect x="40" y="42" width="256" height="52" fill="#e9db9a" />
+      <rect x="40" y="94" width="256" height="3" fill="#e9db9a" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,86 72,82 98,78 124,75 150,72 176,69 202,66 228,64 252,62 276,60" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,86 72,82 98,78 124,75 150,72 176,69 202,66 228,64 252,62 276,60" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="60" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 6 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">40m, avg 125 (Mod 30-59, 200 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#b7f0b7" />
+      <rect x="40" y="42" width="256" height="52" fill="#f2c78a" />
+      <rect x="40" y="94" width="256" height="3" fill="#e9db9a" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,84 72,80 98,76 124,73 150,70 176,67 202,64 228,61 252,59 276,57" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,84 72,80 98,76 124,73 150,70 176,67 202,64 228,61 252,59 276,57" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="57" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 7 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">70m, avg 125 (Mod 60-89, 300 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#b7f0b7" />
+      <rect x="40" y="42" width="256" height="52" fill="#b7f0b7" />
+      <rect x="40" y="94" width="256" height="3" fill="#e9db9a" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,82 72,78 98,74 124,70 150,67 176,64 202,61 228,58 252,56 276,54" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,82 72,78 98,74 124,70 150,67 176,64 202,61 228,58 252,56 276,54" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="54" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 8 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">20m, avg 140 (Vig 15-29, 100 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#f1f1f1" />
+      <rect x="40" y="42" width="256" height="52" fill="#e9db9a" />
+      <rect x="40" y="94" width="256" height="3" fill="#e9db9a" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,74 72,70 98,66 124,62 150,58 176,54 202,50 228,47 252,44 276,41" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,74 72,70 98,66 124,62 150,58 176,54 202,50 228,47 252,44 276,41" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="41" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 9 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">35m, avg 140 (Vig 30+, 300 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#f1f1f1" />
+      <rect x="40" y="42" width="256" height="52" fill="#b7f0b7" />
+      <rect x="40" y="94" width="256" height="3" fill="#e9db9a" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,70 72,66 98,62 124,57 150,53 176,50 202,46 228,43 252,40 276,37" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,70 72,66 98,62 124,57 150,53 176,50 202,46 228,43 252,40 276,37" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="37" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="128" viewBox="0 0 320 128" aria-label="Scenario 10 tiny tile">
+      <rect x="1" y="1" width="318" height="126" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">70m, avg 95 (Easy, 0 pts)</text>
+      <rect x="40" y="26" width="256" height="84" fill="#fefefe" stroke="#999" />
+      <rect x="40" y="39" width="256" height="3" fill="#f1f1f1" />
+      <rect x="40" y="42" width="256" height="52" fill="#f1f1f1" />
+      <rect x="40" y="94" width="256" height="3" fill="#f1f1f1" />
+      <text x="168" y="76" text-anchor="middle" font-size="24" fill="#444" opacity="0.72">136</text>
+      <polyline points="46,102 72,100 98,99 124,97 150,96 176,95 202,94 228,93 252,92 276,91" fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="46,102 72,100 98,99 124,97 150,96 176,95 202,94 228,93 252,92 276,91" fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="276" cy="91" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+  </div>
+
+  <h2>Tiny Tile 2x3 Neighborhood (With Right Sliver)</h2>
+  <div class="card">
+    <div class="note">Each example shows current matrix cell plus row-above/row-below and the next-time-band sliver on the right.</div>
+
+    <svg width="320" height="132" viewBox="0 0 320 132" aria-label="2x3 neighborhood scenario light 200 to 300">
+      <rect x="1" y="1" width="318" height="130" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">74m avg118: Light 200, next band 300</text>
+      <rect x="44" y="24" width="252" height="88" fill="#fefefe" stroke="#999" />
+
+      <!-- Center column (current time band), equal sliver thickness -->
+      <rect x="44" y="24" width="228" height="24" fill="#b7f0b7" />   <!-- above row (Mod 300) -->
+      <rect x="44" y="48" width="228" height="40" fill="#f2c78a" />   <!-- current row (Light 200) -->
+      <rect x="44" y="88" width="228" height="24" fill="#f1f1f1" />   <!-- below row (Easy 0) -->
+
+      <!-- Right sliver column (next time band), equal sliver thickness -->
+      <rect x="272" y="24" width="24" height="24" fill="#b7f0b7" />   <!-- above next -->
+      <rect x="272" y="48" width="24" height="40" fill="#b7f0b7" />   <!-- current next -->
+      <rect x="272" y="88" width="24" height="24" fill="#f1f1f1" />   <!-- below next -->
+
+      <line x1="272" y1="24" x2="272" y2="112" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="48" x2="296" y2="48" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="88" x2="296" y2="88" stroke="#777" stroke-width="1" />
+      <text x="158" y="76" text-anchor="middle" font-size="24" fill="#333" opacity="0.72">136</text>
+      <text x="272" y="121" text-anchor="middle" font-size="10" fill="#444">90</text>
+      <text x="30" y="49" text-anchor="end" font-size="10" fill="#444">119</text>
+      <text x="30" y="89" text-anchor="end" font-size="10" fill="#444">102</text>
+
+      <polyline points="50,90 74,88 98,87 120,86 142,84 164,82 186,80 208,77 232,74 268,73"
+                fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="50,90 74,88 98,87 120,86 142,84 164,82 186,80 208,77 232,74 268,73"
+                fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="268" cy="73" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="132" viewBox="0 0 320 132" aria-label="2x3 neighborhood scenario mod 200 to 300">
+      <rect x="1" y="1" width="318" height="130" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">40m avg125: Mod 200, next band 300</text>
+      <rect x="44" y="24" width="252" height="88" fill="#fefefe" stroke="#999" />
+
+      <rect x="44" y="24" width="228" height="24" fill="#b7f0b7" />   <!-- above row (Vig 300) -->
+      <rect x="44" y="48" width="228" height="40" fill="#f2c78a" />   <!-- current row (Mod 200) -->
+      <rect x="44" y="88" width="228" height="24" fill="#e9db9a" />   <!-- below row (Light 100) -->
+
+      <rect x="272" y="24" width="24" height="24" fill="#b7f0b7" />   <!-- above next -->
+      <rect x="272" y="48" width="24" height="40" fill="#b7f0b7" />   <!-- current next -->
+      <rect x="272" y="88" width="24" height="24" fill="#f2c78a" />   <!-- below next -->
+
+      <line x1="272" y1="24" x2="272" y2="112" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="48" x2="296" y2="48" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="88" x2="296" y2="88" stroke="#777" stroke-width="1" />
+      <text x="158" y="76" text-anchor="middle" font-size="24" fill="#333" opacity="0.72">136</text>
+      <text x="272" y="121" text-anchor="middle" font-size="10" fill="#444">60</text>
+      <text x="30" y="49" text-anchor="end" font-size="10" fill="#444">136</text>
+      <text x="30" y="89" text-anchor="end" font-size="10" fill="#444">119</text>
+
+      <polyline points="50,86 74,84 98,82 120,80 142,78 164,75 186,72 208,69 232,67 268,66"
+                fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="50,86 74,84 98,82 120,80 142,78 164,75 186,72 208,69 232,67 268,66"
+                fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="268" cy="66" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="132" viewBox="0 0 320 132" aria-label="2x3 neighborhood scenario vig 100 to 300">
+      <rect x="1" y="1" width="318" height="130" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">20m avg140: Vig 100, next band 300</text>
+      <rect x="44" y="24" width="252" height="88" fill="#fefefe" stroke="#999" />
+
+      <rect x="44" y="24" width="228" height="24" fill="#f1f1f1" />   <!-- above row (none) -->
+      <rect x="44" y="48" width="228" height="40" fill="#e9db9a" />   <!-- current row (Vig 100) -->
+      <rect x="44" y="88" width="228" height="24" fill="#e9db9a" />   <!-- below row (Mod 100) -->
+
+      <rect x="272" y="24" width="24" height="24" fill="#f1f1f1" />   <!-- above next -->
+      <rect x="272" y="48" width="24" height="40" fill="#b7f0b7" />   <!-- current next -->
+      <rect x="272" y="88" width="24" height="24" fill="#f2c78a" />   <!-- below next -->
+
+      <line x1="272" y1="24" x2="272" y2="112" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="48" x2="296" y2="48" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="88" x2="296" y2="88" stroke="#777" stroke-width="1" />
+      <text x="158" y="76" text-anchor="middle" font-size="24" fill="#333" opacity="0.72">136</text>
+      <text x="272" y="121" text-anchor="middle" font-size="10" fill="#444">30</text>
+      <text x="30" y="49" text-anchor="end" font-size="10" fill="#444">155</text>
+      <text x="30" y="89" text-anchor="end" font-size="10" fill="#444">136</text>
+
+      <polyline points="50,76 74,72 98,69 120,66 142,62 164,58 186,54 208,50 232,48 268,47"
+                fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="50,76 74,72 98,69 120,66 142,62 164,58 186,54 208,50 232,48 268,47"
+                fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="268" cy="47" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+
+    <svg width="320" height="132" viewBox="0 0 320 132" aria-label="2x3 neighborhood scenario easy zero">
+      <rect x="1" y="1" width="318" height="130" fill="#fff" stroke="#666" stroke-width="2" />
+      <text x="8" y="14" font-size="11" fill="#222">70m avg95: Easy 0, next band 0</text>
+      <rect x="44" y="24" width="252" height="88" fill="#fefefe" stroke="#999" />
+
+      <rect x="44" y="24" width="228" height="24" fill="#f2c78a" />   <!-- above row (Light 200) -->
+      <rect x="44" y="48" width="228" height="40" fill="#f1f1f1" />   <!-- current row (Easy 0) -->
+      <rect x="44" y="88" width="228" height="24" fill="#f1f1f1" />   <!-- below row (none) -->
+
+      <rect x="272" y="24" width="24" height="24" fill="#b7f0b7" />   <!-- above next -->
+      <rect x="272" y="48" width="24" height="40" fill="#f1f1f1" />   <!-- current next -->
+      <rect x="272" y="88" width="24" height="24" fill="#f1f1f1" />   <!-- below next -->
+
+      <line x1="272" y1="24" x2="272" y2="112" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="48" x2="296" y2="48" stroke="#777" stroke-width="1" />
+      <line x1="44" y1="88" x2="296" y2="88" stroke="#777" stroke-width="1" />
+      <text x="158" y="76" text-anchor="middle" font-size="24" fill="#333" opacity="0.72">136</text>
+      <text x="272" y="121" text-anchor="middle" font-size="10" fill="#444">90</text>
+      <text x="30" y="49" text-anchor="end" font-size="10" fill="#444">102</text>
+      <text x="30" y="89" text-anchor="end" font-size="10" fill="#444">0</text>
+
+      <polyline points="50,102 74,101 98,100 120,99 142,98 164,97 186,96 208,95 232,94 268,94"
+                fill="none" stroke="#ffc1c8" stroke-width="5" opacity="0.5"/>
+      <polyline points="50,102 74,101 98,100 120,99 142,98 164,97 186,96 208,95 232,94 268,94"
+                fill="none" stroke="#c1121f" stroke-width="1.8"/>
+      <circle cx="268" cy="94" r="5.2" fill="#d90429" stroke="#fff" stroke-width="1"/>
+    </svg>
+  </div>
+</body>
+</html>

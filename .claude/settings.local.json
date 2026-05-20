@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(grep -E \"\\\\.\\(mc|xml|jungle\\)$\")",
+      "Bash(find \"C:\\\\Users\\\\SheldonBole\\\\Projects\\\\Discovery Vitality Points/resources\" \"C:\\\\Users\\\\SheldonBole\\\\Projects\\\\Discovery Vitality Points/resources-\"* -name \"*.xml\")",
+      "mcp__Claude_in_Chrome__tabs_context_mcp",
+      "WebFetch(domain:developer.garmin.com)",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)\\)\")",
+      "Bash(grep -iE \"^edge840$|^fr745$|^fenix5xplus$|^edge530$|^lily\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d.get\\('dataFields', d.get\\('layouts', d.get\\('screens', {}\\)\\)\\), indent=2\\)\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); keys=list\\(d.keys\\(\\)\\); print\\(keys\\)\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(list\\(d.keys\\(\\)\\)\\)\")",
+      "WebFetch(domain:support.garmin.com)",
+      "Bash(powershell -Command \"& .\\\\build.ps1 -Device edge840 -KeyPath .\\\\developer_key.der 2>&1\")",
+      "Bash(mv \"C:/Users/SheldonBole/Projects/Discovery Vitality Points/source_backup_20260506_161710\" \"C:/Users/SheldonBole/Projects/source_backup_DVP_20260506_161710\" && echo \"Moved\")",
+      "Bash(powershell -Command '& .\\\\build.ps1 -Device __TRACKED_VAR__ -KeyPath .\\\\developer_key.der 2>&1')",
+      "Bash(ls \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Roaming\\\\Garmin\\\\ConnectIQ\\\\Sdks\\\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\\\\bin\" 2>/dev/null | grep -i \"monkey\\\\|simul\")",
+      "PowerShell($sdkBin = \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Roaming\\\\Garmin\\\\ConnectIQ\\\\Sdks\\\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\\\\bin\"; Start-Process -FilePath \\(Join-Path $sdkBin \"simulator.exe\"\\) -WindowStyle Normal; Write-Host \"Simulator launched, waiting 3 seconds...\"; Start-Sleep -Seconds 3; Start-Process -FilePath \\(Join-Path $sdkBin \"monkeydo.bat\"\\) -ArgumentList \"bin\\\\DiscoveryVitalityPoints.prg\",\"fr745\" -WorkingDirectory \"C:\\\\Users\\\\SheldonBole\\\\Projects\\\\Discovery Vitality Points\" -WindowStyle Normal; Write-Host \"PRG loaded\")",
+      "PowerShell(Get-Process -Name \"simulator\" -ErrorAction SilentlyContinue)",
+      "PowerShell(Stop-Process -Force)",
+      "PowerShell(Add-Type -AssemblyName System.Windows.Forms; Add-Type -AssemblyName System.Drawing; $screen = [System.Windows.Forms.Screen]::PrimaryScreen.Bounds; $bmp = New-Object System.Drawing.Bitmap\\($screen.Width, $screen.Height\\); $g = [System.Drawing.Graphics]::FromImage\\($bmp\\); $g.CopyFromScreen\\($screen.Location, [System.Drawing.Point]::Empty, $screen.Size\\); $path = \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Local\\\\Temp\\\\sim_screenshot.png\"; $bmp.Save\\($path, [System.Drawing.Imaging.ImageFormat]::Png\\); $g.Dispose\\(\\); $bmp.Dispose\\(\\); Write-Host \"Saved to $path\")",
+      "PowerShell($sdkRoot = \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Roaming\\\\Garmin\\\\ConnectIQ\\\\Sdks\\\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\"; Test-Path $sdkRoot; Test-Path \"$sdkRoot\\\\bin\"; Get-ChildItem \"$sdkRoot\\\\bin\" -Name | Select-Object -First 20)",
+      "PowerShell($psi = New-Object System.Diagnostics.ProcessStartInfo; $psi.FileName = \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Roaming\\\\Garmin\\\\ConnectIQ\\\\Sdks\\\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\\\\bin\\\\simulator.exe\"; $psi.RedirectStandardOutput = $true; $psi.RedirectStandardError = $true; $psi.UseShellExecute = $false; $p = [System.Diagnostics.Process]::Start\\($psi\\); $out = $p.StandardOutput.ReadToEnd\\(\\); $err = $p.StandardError.ReadToEnd\\(\\); $p.WaitForExit\\(\\); Write-Host \"EXIT: $\\($p.ExitCode\\)\"; Write-Host \"STDOUT: $out\"; Write-Host \"STDERR: $err\")",
+      "PowerShell(Get-Content \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Roaming\\\\Garmin\\\\ConnectIQ\\\\Sdks\\\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\\\\bin\\\\simulator.exe\" -TotalCount 5 -Encoding Byte -ErrorAction SilentlyContinue; $bytes = [System.IO.File]::ReadAllBytes\\(\"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Roaming\\\\Garmin\\\\ConnectIQ\\\\Sdks\\\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\\\\bin\\\\simulator.exe\"\\); [System.Text.Encoding]::UTF8.GetString\\($bytes[0..3]\\))",
+      "PowerShell($sdkBin = \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Roaming\\\\Garmin\\\\ConnectIQ\\\\Sdks\\\\connectiq-sdk-win-9.1.0-2026-03-09-6a872a80b\\\\bin\"; Start-Process -FilePath \"$sdkBin\\\\simulator.exe\"; Start-Sleep -Seconds 5; & \"$sdkBin\\\\monkeydo.bat\" \"C:\\\\Users\\\\SheldonBole\\\\Projects\\\\Discovery Vitality Points\\\\bin\\\\DiscoveryVitalityPoints.prg\" fr745 2>&1)",
+      "Bash(.\\\\build.ps1 -Device edge840 -KeyPath .\\\\developer_key.der)",
+      "PowerShell(cd \"C:\\\\Users\\\\SheldonBole\\\\Projects\\\\Discovery Vitality Points\"; @\\(\"edge840\", \"edge530\", \"fenix5xplus\"\\) | ForEach-Object { $result = .\\\\build.ps1 -Device $_ -KeyPath .\\\\developer_key.der 2>&1; Write-Host \"$_ : $result\" })",
+      "mcp__Claude_in_Chrome__computer",
+      "Bash(for device in edge840 fr745 fenix5xplus edge530; do *)",
+      "Bash(.\\\\build.ps1 -Device fr745 -KeyPath .\\\\developer_key.der)",
+      "Bash(python3 -)",
+      "Skill(update-config)",
+      "Skill(update-config:*)",
+      "Bash(ls \"C:\\\\Users\\\\SheldonBole\\\\AppData\\\\Local\\\\Temp\\\\ciq_sim_screenshot.png\" 2>/dev/null && echo \"exists in temp\" || echo \"not in temp\" *)"
+    ]
+  }
+}

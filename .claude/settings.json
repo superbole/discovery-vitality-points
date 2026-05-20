@@ -1,0 +1,8 @@
+{
+    "permissions": {
+      "allow": [
+        "Write(C:\\Users\\SheldonBole\\Projects\\Discovery Vitality Points\\**)",
+        "Edit(C:\\Users\\SheldonBole\\Projects\\Discovery Vitality Points\\**)"
+      ]
+    }
+  }

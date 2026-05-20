@@ -1,0 +1,32 @@
+<svg width="68" height="68" viewBox="0 0 68 68" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="68" height="68" rx="14" fill="#1a0a14"/>
+
+  <!-- Row 0: Vigorous — hot pink, active cell (col 2) glows brightest -->
+  <circle cx="14" cy="14" r="4"   fill="#E91E8C" opacity="0.22"/>
+  <circle cx="27" cy="14" r="4"   fill="#E91E8C" opacity="0.45"/>
+  <circle cx="40" cy="14" r="5.2" fill="#E91E8C" opacity="1.00"/>
+  <circle cx="53" cy="14" r="4"   fill="#E91E8C" opacity="0.18"/>
+
+  <!-- Row 1: Moderate — soft pink -->
+  <circle cx="14" cy="28" r="4"   fill="#F8BBD0" opacity="0.28"/>
+  <circle cx="27" cy="28" r="4"   fill="#F8BBD0" opacity="0.52"/>
+  <circle cx="40" cy="28" r="4"   fill="#F8BBD0" opacity="0.80"/>
+  <circle cx="53" cy="28" r="4"   fill="#F8BBD0" opacity="0.80"/>
+
+  <!-- Row 2: Light — palest pink, fading right -->
+  <circle cx="14" cy="42" r="3.5" fill="#FCE4F1" opacity="0.18"/>
+  <circle cx="27" cy="42" r="3.5" fill="#FCE4F1" opacity="0.32"/>
+  <circle cx="40" cy="42" r="3.5" fill="#FCE4F1" opacity="0.50"/>
+  <circle cx="53" cy="42" r="3.5" fill="#FCE4F1" opacity="0.65"/>
+
+  <!-- Row 3: Easy — near invisible -->
+  <circle cx="14" cy="56" r="3"   fill="#ffffff" opacity="0.07"/>
+  <circle cx="27" cy="56" r="3"   fill="#ffffff" opacity="0.07"/>
+  <circle cx="40" cy="56" r="3"   fill="#ffffff" opacity="0.07"/>
+  <circle cx="53" cy="56" r="3"   fill="#ffffff" opacity="0.07"/>
+
+  <!-- Subtle crosshair on active cell (col 2 / row 0) -->
+  <line x1="40" y1="7"  x2="40" y2="21" stroke="#E91E8C" stroke-width="1.2" opacity="0.35"/>
+  <line x1="32" y1="14" x2="48" y2="14" stroke="#E91E8C" stroke-width="1.2" opacity="0.35"/>
+</svg>

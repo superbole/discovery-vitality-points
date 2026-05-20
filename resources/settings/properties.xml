@@ -1,0 +1,38 @@
+<properties>
+    <property id="DisclaimerPara1" type="string">This data field estimates Discovery Vitality-style points from your Garmin activity only. Official Vitality points are awarded by Discovery and may differ.</property>
+    <property id="DisclaimerPara2" type="string">Garmin Connect or Strava may show HR while Vitality still credits without HR if their import fails.</property>
+    <property id="DisclaimerPara3" type="string">Not affiliated with or endorsed by Discovery or Garmin.</property>
+    <property id="PrimaryMetric" type="number">0</property>
+    <property id="CompactMainMetric" type="number">0</property>
+    <property id="CompactSecondaryMetric" type="number">1</property>
+    <property id="AgeSource" type="number">0</property>
+    <property id="BirthYear" type="number">1980</property>
+    <property id="BirthMonth" type="number">1</property>
+    <property id="BirthDay" type="number">1</property>
+    <property id="ManualAge" type="number">49</property>
+    <property id="IsEndurance" type="boolean">false</property>
+    <property id="HintIsEndurance" type="string">Registration required: https://discovery.co.za/vitality/endurance-high-performance-events</property>
+    <property id="GuidanceMode" type="number">0</property>
+    <property id="TargetPoints" type="number">300</property>
+    <property id="HintShowZone" type="string">VIGOROUS / MODERATE / etc.</property>
+    <property id="ShowZone" type="boolean">true</property>
+    <property id="HrAxisLabels" type="number">2</property>
+    <property id="CrosshairColor" type="number">2</property>
+    <property id="TierColor100" type="number">21</property>
+    <property id="TierColor200" type="number">22</property>
+    <property id="TierColor300" type="number">18</property>
+    <property id="TierColor450" type="number">14</property>
+    <property id="TierColor600" type="number">18</property>
+    <property id="PointsHighlighted" type="boolean">true</property>
+    <property id="HintPointsHighlighted" type="string">Glow halo behind points number for contrast. Off = subdued, no halo.</property>
+    <property id="HintValidationMode" type="string">When on: layout tier tag and validation overlay. Off for normal use. Same toggle as Validation Mode in Garmin Connect (this data field's settings) or simulator Object Emulator → Settings.</property>
+    <property id="ValidationMode" type="boolean">false</property>
+    <property id="HintShowHrGuidance" type="string">HR targets in guidance lines</property>
+    <property id="ShowHrGuidance" type="boolean">true</property>
+    <property id="HintShowTierHeadroom" type="string">Adds downward headroom (bpm average can drop before current points tier slips). Tall layouts show a second micro line. Pipe uses ↑ for HR to next tier and ↓ for headroom.</property>
+    <property id="ShowTierHeadroom" type="boolean">false</property>
+    <property id="HintSoundAlerts" type="string">Beeps when points change</property>
+    <property id="SoundAlerts" type="boolean">true</property>
+    <property id="HintDataFieldAlerts" type="string">Full-screen tier change notice</property>
+    <property id="DataFieldAlerts" type="boolean">true</property>
+</properties>

@@ -1,0 +1,1017 @@
+{
+  "settings" : [ {
+    "key" : "DisclaimerPara1",
+    "valueType" : "string",
+    "defaultValue" : "This data field estimates Discovery Vitality-style points from your Garmin activity only. Official Vitality points are awarded by Discovery and may differ.",
+    "configTitle" : "SettingDisclaimerTitle",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
+  }, {
+    "key" : "DisclaimerPara2",
+    "valueType" : "string",
+    "defaultValue" : "Garmin Connect or Strava may show HR while Vitality still credits without HR if their import fails.",
+    "configTitle" : "SettingDisclaimerTitle2",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
+  }, {
+    "key" : "DisclaimerPara3",
+    "valueType" : "string",
+    "defaultValue" : "Not affiliated with or endorsed by Discovery or Garmin.",
+    "configTitle" : "SettingDisclaimerTitle3",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
+  }, {
+    "key" : "PrimaryMetric",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingPrimaryMetric",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingPrimaryMetricPoints",
+      "value" : 0
+    }, {
+      "display" : "SettingPrimaryMetricAvgHr",
+      "value" : 1
+    }, {
+      "display" : "SettingPrimaryMetricCurrentHr",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "CompactMainMetric",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingCompactMainMetric",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingCompactMetricHr",
+      "value" : 0
+    }, {
+      "display" : "SettingCompactMetricAvg",
+      "value" : 1
+    }, {
+      "display" : "SettingCompactMetricPoints",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "CompactSecondaryMetric",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "SettingCompactSecondaryMetric",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingCompactMetricHr",
+      "value" : 0
+    }, {
+      "display" : "SettingCompactMetricAvg",
+      "value" : 1
+    }, {
+      "display" : "SettingCompactMetricPoints",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "AgeSource",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingAgeSource",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingAgeSourceProfile",
+      "value" : 0
+    }, {
+      "display" : "SettingAgeSourceManual",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "IsEndurance",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "SettingIsEndurance",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintIsEndurance",
+    "valueType" : "string",
+    "defaultValue" : "Registration required: https://discovery.co.za/vitality/endurance-high-performance-events",
+    "configTitle" : "SettingGcHintTitleEndurance",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
+  }, {
+    "key" : "GuidanceMode",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingGuidanceMode",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingGuidanceModeNextTier",
+      "value" : 0
+    }, {
+      "display" : "SettingGuidanceModeTarget",
+      "value" : 1
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TargetPoints",
+    "valueType" : "number",
+    "defaultValue" : 300,
+    "configTitle" : "SettingTargetPoints",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal0$",
+      "value" : 100
+    }, {
+      "display" : "$literal1$",
+      "value" : 200
+    }, {
+      "display" : "$literal2$",
+      "value" : 300
+    }, {
+      "display" : "$literal3$",
+      "value" : 450
+    }, {
+      "display" : "$literal4$",
+      "value" : 600
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "ShowZone",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingShowZone",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintShowZone",
+    "valueType" : "string",
+    "defaultValue" : "VIGOROUS / MODERATE / etc.",
+    "configTitle" : "SettingGcHintTitleShowZone",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 128
+  }, {
+    "key" : "HrAxisLabels",
+    "valueType" : "number",
+    "defaultValue" : 2,
+    "configTitle" : "SettingHrAxisLabels",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal6$",
+      "value" : 1
+    }, {
+      "display" : "$literal7$",
+      "value" : 2
+    }, {
+      "display" : "$literal8$",
+      "value" : 3
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "PointsHighlighted",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingPointsHighlighted",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintPointsHighlighted",
+    "valueType" : "string",
+    "defaultValue" : "Glow halo behind points number for contrast. Off = subdued, no halo.",
+    "configTitle" : "SettingGcHintTitlePointsHighlighted",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 128
+  }, {
+    "key" : "CrosshairColor",
+    "valueType" : "number",
+    "defaultValue" : 2,
+    "configTitle" : "SettingCrosshairColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal9$",
+      "value" : 1
+    }, {
+      "display" : "$literal10$",
+      "value" : 2
+    }, {
+      "display" : "$literal11$",
+      "value" : 3
+    }, {
+      "display" : "$literal12$",
+      "value" : 4
+    }, {
+      "display" : "$literal13$",
+      "value" : 5
+    }, {
+      "display" : "$literal14$",
+      "value" : 6
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor100",
+    "valueType" : "number",
+    "defaultValue" : 21,
+    "configTitle" : "SettingTierColor100",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal15$",
+      "value" : 1
+    }, {
+      "display" : "$literal13$",
+      "value" : 2
+    }, {
+      "display" : "$literal16$",
+      "value" : 3
+    }, {
+      "display" : "$literal17$",
+      "value" : 4
+    }, {
+      "display" : "$literal18$",
+      "value" : 5
+    }, {
+      "display" : "$literal11$",
+      "value" : 6
+    }, {
+      "display" : "$literal19$",
+      "value" : 7
+    }, {
+      "display" : "$literal20$",
+      "value" : 8
+    }, {
+      "display" : "$literal14$",
+      "value" : 9
+    }, {
+      "display" : "$literal21$",
+      "value" : 10
+    }, {
+      "display" : "$literal12$",
+      "value" : 11
+    }, {
+      "display" : "$literal22$",
+      "value" : 12
+    }, {
+      "display" : "$literal23$",
+      "value" : 13
+    }, {
+      "display" : "$literal24$",
+      "value" : 14
+    }, {
+      "display" : "$literal25$",
+      "value" : 15
+    }, {
+      "display" : "$literal26$",
+      "value" : 16
+    }, {
+      "display" : "$literal27$",
+      "value" : 17
+    }, {
+      "display" : "$literal28$",
+      "value" : 18
+    }, {
+      "display" : "$literal29$",
+      "value" : 19
+    }, {
+      "display" : "$literal30$",
+      "value" : 20
+    }, {
+      "display" : "$literal31$",
+      "value" : 21
+    }, {
+      "display" : "$literal32$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor200",
+    "valueType" : "number",
+    "defaultValue" : 22,
+    "configTitle" : "SettingTierColor200",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal15$",
+      "value" : 1
+    }, {
+      "display" : "$literal13$",
+      "value" : 2
+    }, {
+      "display" : "$literal16$",
+      "value" : 3
+    }, {
+      "display" : "$literal17$",
+      "value" : 4
+    }, {
+      "display" : "$literal18$",
+      "value" : 5
+    }, {
+      "display" : "$literal11$",
+      "value" : 6
+    }, {
+      "display" : "$literal19$",
+      "value" : 7
+    }, {
+      "display" : "$literal20$",
+      "value" : 8
+    }, {
+      "display" : "$literal14$",
+      "value" : 9
+    }, {
+      "display" : "$literal21$",
+      "value" : 10
+    }, {
+      "display" : "$literal12$",
+      "value" : 11
+    }, {
+      "display" : "$literal22$",
+      "value" : 12
+    }, {
+      "display" : "$literal23$",
+      "value" : 13
+    }, {
+      "display" : "$literal24$",
+      "value" : 14
+    }, {
+      "display" : "$literal25$",
+      "value" : 15
+    }, {
+      "display" : "$literal26$",
+      "value" : 16
+    }, {
+      "display" : "$literal27$",
+      "value" : 17
+    }, {
+      "display" : "$literal28$",
+      "value" : 18
+    }, {
+      "display" : "$literal29$",
+      "value" : 19
+    }, {
+      "display" : "$literal30$",
+      "value" : 20
+    }, {
+      "display" : "$literal31$",
+      "value" : 21
+    }, {
+      "display" : "$literal32$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor300",
+    "valueType" : "number",
+    "defaultValue" : 18,
+    "configTitle" : "SettingTierColor300",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal15$",
+      "value" : 1
+    }, {
+      "display" : "$literal13$",
+      "value" : 2
+    }, {
+      "display" : "$literal16$",
+      "value" : 3
+    }, {
+      "display" : "$literal17$",
+      "value" : 4
+    }, {
+      "display" : "$literal18$",
+      "value" : 5
+    }, {
+      "display" : "$literal11$",
+      "value" : 6
+    }, {
+      "display" : "$literal19$",
+      "value" : 7
+    }, {
+      "display" : "$literal20$",
+      "value" : 8
+    }, {
+      "display" : "$literal14$",
+      "value" : 9
+    }, {
+      "display" : "$literal21$",
+      "value" : 10
+    }, {
+      "display" : "$literal12$",
+      "value" : 11
+    }, {
+      "display" : "$literal22$",
+      "value" : 12
+    }, {
+      "display" : "$literal23$",
+      "value" : 13
+    }, {
+      "display" : "$literal24$",
+      "value" : 14
+    }, {
+      "display" : "$literal25$",
+      "value" : 15
+    }, {
+      "display" : "$literal26$",
+      "value" : 16
+    }, {
+      "display" : "$literal27$",
+      "value" : 17
+    }, {
+      "display" : "$literal28$",
+      "value" : 18
+    }, {
+      "display" : "$literal29$",
+      "value" : 19
+    }, {
+      "display" : "$literal30$",
+      "value" : 20
+    }, {
+      "display" : "$literal31$",
+      "value" : 21
+    }, {
+      "display" : "$literal32$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor450",
+    "valueType" : "number",
+    "defaultValue" : 14,
+    "configTitle" : "SettingTierColor450",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal15$",
+      "value" : 1
+    }, {
+      "display" : "$literal13$",
+      "value" : 2
+    }, {
+      "display" : "$literal16$",
+      "value" : 3
+    }, {
+      "display" : "$literal17$",
+      "value" : 4
+    }, {
+      "display" : "$literal18$",
+      "value" : 5
+    }, {
+      "display" : "$literal11$",
+      "value" : 6
+    }, {
+      "display" : "$literal19$",
+      "value" : 7
+    }, {
+      "display" : "$literal20$",
+      "value" : 8
+    }, {
+      "display" : "$literal14$",
+      "value" : 9
+    }, {
+      "display" : "$literal21$",
+      "value" : 10
+    }, {
+      "display" : "$literal12$",
+      "value" : 11
+    }, {
+      "display" : "$literal22$",
+      "value" : 12
+    }, {
+      "display" : "$literal23$",
+      "value" : 13
+    }, {
+      "display" : "$literal24$",
+      "value" : 14
+    }, {
+      "display" : "$literal25$",
+      "value" : 15
+    }, {
+      "display" : "$literal26$",
+      "value" : 16
+    }, {
+      "display" : "$literal27$",
+      "value" : 17
+    }, {
+      "display" : "$literal28$",
+      "value" : 18
+    }, {
+      "display" : "$literal29$",
+      "value" : 19
+    }, {
+      "display" : "$literal30$",
+      "value" : 20
+    }, {
+      "display" : "$literal31$",
+      "value" : 21
+    }, {
+      "display" : "$literal32$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor600",
+    "valueType" : "number",
+    "defaultValue" : 18,
+    "configTitle" : "SettingTierColor600",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal5$",
+      "value" : 0
+    }, {
+      "display" : "$literal15$",
+      "value" : 1
+    }, {
+      "display" : "$literal13$",
+      "value" : 2
+    }, {
+      "display" : "$literal16$",
+      "value" : 3
+    }, {
+      "display" : "$literal17$",
+      "value" : 4
+    }, {
+      "display" : "$literal18$",
+      "value" : 5
+    }, {
+      "display" : "$literal11$",
+      "value" : 6
+    }, {
+      "display" : "$literal19$",
+      "value" : 7
+    }, {
+      "display" : "$literal20$",
+      "value" : 8
+    }, {
+      "display" : "$literal14$",
+      "value" : 9
+    }, {
+      "display" : "$literal21$",
+      "value" : 10
+    }, {
+      "display" : "$literal12$",
+      "value" : 11
+    }, {
+      "display" : "$literal22$",
+      "value" : 12
+    }, {
+      "display" : "$literal23$",
+      "value" : 13
+    }, {
+      "display" : "$literal24$",
+      "value" : 14
+    }, {
+      "display" : "$literal25$",
+      "value" : 15
+    }, {
+      "display" : "$literal26$",
+      "value" : 16
+    }, {
+      "display" : "$literal27$",
+      "value" : 17
+    }, {
+      "display" : "$literal28$",
+      "value" : 18
+    }, {
+      "display" : "$literal29$",
+      "value" : 19
+    }, {
+      "display" : "$literal30$",
+      "value" : 20
+    }, {
+      "display" : "$literal31$",
+      "value" : 21
+    }, {
+      "display" : "$literal32$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "ValidationMode",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "SettingValidationMode",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintValidationMode",
+    "valueType" : "string",
+    "defaultValue" : "When on: layout tier tag and validation overlay. Off for normal use. Same toggle as Validation Mode in Garmin Connect (this data field's settings) or simulator Object Emulator → Settings.",
+    "configTitle" : "SettingGcHintTitleValidation",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 128
+  }, {
+    "key" : "ShowHrGuidance",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingShowHrGuidance",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintShowHrGuidance",
+    "valueType" : "string",
+    "defaultValue" : "HR targets in guidance lines",
+    "configTitle" : "SettingGcHintTitleShowHr",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 128
+  }, {
+    "key" : "ShowTierHeadroom",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "SettingShowTierHeadroom",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintShowTierHeadroom",
+    "valueType" : "string",
+    "defaultValue" : "Adds downward headroom (bpm average can drop before current points tier slips). Tall layouts show a second micro line. Pipe uses ↑ for HR to next tier and ↓ for headroom.",
+    "configTitle" : "SettingGcHintTitleHeadroom",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
+  }, {
+    "key" : "SoundAlerts",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingSoundAlerts",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintSoundAlerts",
+    "valueType" : "string",
+    "defaultValue" : "Beeps when points change",
+    "configTitle" : "SettingGcHintTitleSound",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 128
+  }, {
+    "key" : "DataFieldAlerts",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingDataFieldAlerts",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintDataFieldAlerts",
+    "valueType" : "string",
+    "defaultValue" : "Full-screen tier change notice",
+    "configTitle" : "SettingGcHintTitleDataField",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 128
+  } ],
+  "supportsLiveValidation" : false,
+  "languages" : {
+    "valyrian" : {
+      "SettingGuidanceMode" : "Guidance Mode",
+      "SettingTierColor200" : "Colour: 200 pts band",
+      "DisclaimerLine4" : "That can happen if Vitality's import fails.",
+      "SettingPrimaryMetricCurrentHr" : "Current HR",
+      "DisclaimerLine3" : "Garmin Connect or Strava may show HR while Vitality still credits without HR.",
+      "DisclaimerLine5" : "Not affiliated with or endorsed by Discovery or Garmin.",
+      "SettingTierColor600" : "Colour: 600 pts band",
+      "DisclaimerLine2" : "Official points are awarded only by Discovery Vitality and may differ.",
+      "DisclaimerLine1" : "This field estimates Discovery Vitality-style points from your Garmin activity.",
+      "$literal24$" : "Pale Pink",
+      "$literal4$" : "600 (Endurance athletes)",
+      "SettingShowZoneHelp" : "VIGOROUS / MODERATE / etc.",
+      "SettingTierColor450" : "Colour: 450 pts band",
+      "SettingAgeSourceManual" : "Manual",
+      "$literal12$" : "Blue",
+      "SettingCompactMainMetric" : "Compact / tile: left value",
+      "SettingCompactMetricHr" : "Current HR",
+      "SettingShowHrGuidance" : "Show HR Guidance",
+      "SettingTargetPoints" : "Target Points",
+      "SettingCrosshairColor" : "Crosshair",
+      "$literal3$" : "450 (Endurance athletes)",
+      "$literal19$" : "Coral",
+      "SettingGcHintTitleShowZone" : "Zone row",
+      "$literal11$" : "Red",
+      "$literal23$" : "Gray",
+      "SettingsMenuTitle" : "Vitality Points",
+      "SettingTierColor300" : "Colour: 300 pts band",
+      "SettingBirthDay" : "Birth Day (1-31)",
+      "$literal26$" : "Mid Pink",
+      "SettingPrimaryMetricPoints" : "Points",
+      "$literal14$" : "Green",
+      "SettingIsEnduranceHelp" : "Registration required: https://discovery.co.za/vitality/endurance-high-performance-events",
+      "$literal6$" : "Values (bpm)",
+      "SettingDisclaimerTitle3" : "About these points (3/3)",
+      "$literal30$" : "Dark Crimson",
+      "SettingDisclaimerTitle2" : "About these points (2/3)",
+      "SettingGcHintTitleShowHr" : "HR in guidance",
+      "SettingGuidanceModeTarget" : "Target Points",
+      "SettingCompactMetricPoints" : "Points",
+      "SettingManualAge" : "Manual Age (Years)",
+      "SettingShowHrGuidanceHelp" : "HR targets in guidance lines",
+      "SettingPrimaryMetric" : "Primary Display",
+      "SettingGcHintTitleHeadroom" : "Tier headroom",
+      "SettingSoundAlertsHelp" : "Beeps when points change",
+      "$literal13$" : "Yellow",
+      "$literal25$" : "Soft Pink",
+      "$literal5$" : "Off",
+      "SettingBirthMonth" : "Birth Month (1-12)",
+      "SettingShowTierHeadroom" : "Show tier headroom",
+      "SettingGcHintTitleEndurance" : "Endurance",
+      "SettingAgeSource" : "Age Source",
+      "SettingBirthYear" : "Birth Year",
+      "SettingShowZone" : "Show Zone Label",
+      "SettingGcHintTitleShowHrAxis" : "HR axis",
+      "SettingPointsHighlighted" : "Points number glow",
+      "$literal0$" : "100",
+      "$literal16$" : "Amber",
+      "$literal28$" : "Hot Pink",
+      "SettingAgeSourceProfile" : "User Profile",
+      "GuidanceHeadroomSecondLine" : "You can lose: ",
+      "$literal8$" : "Both",
+      "$literal20$" : "Lt Green",
+      "SettingHrAxisLabels" : "HR Axis Labels",
+      "$literal32$" : "Vitality Silver",
+      "SettingValidationModeHelp" : "When on: tier tag and validation overlay. Off for normal rides. Phone: Garmin Connect → Activities & Apps → Data Fields → this field → Settings. Simulator: Object Emulator → Settings.",
+      "SettingSoundAlerts" : "Point change tones",
+      "SettingCompactSecondaryMetric" : "Compact / tile: right value",
+      "SettingIsEndurance" : "Endurance Athlete",
+      "SettingPrimaryMetricAvgHr" : "Average HR",
+      "$literal15$" : "Pale Yellow",
+      "$literal27$" : "Deep Pink",
+      "SettingDataFieldAlerts" : "Point change alerts",
+      "$literal7$" : "Names (V/M/L/E)",
+      "SettingDisclaimerMenu" : "Disclaimer",
+      "$literal31$" : "Charcoal",
+      "SettingTierColor100" : "Colour: 100 pts band",
+      "SettingGcHintTitleDataField" : "Full-screen",
+      "AppName" : "Discovery Vitality Points",
+      "SettingDisclaimerTitle" : "About these points",
+      "SettingCompactMetricAvg" : "Average HR",
+      "$literal2$" : "300",
+      "$literal18$" : "Red-Orange",
+      "SettingGcHintTitlePointsHighlighted" : "Glow",
+      "SettingDataFieldAlertsHelp" : "Full-screen tier change notice",
+      "$literal22$" : "Cyan",
+      "$literal10$" : "White",
+      "SettingGcHintTitleValidation" : "Validation",
+      "$literal1$" : "200",
+      "SettingGcHintTitleSound" : "Tones",
+      "SettingShowTierHeadroomHelp" : "Pipe: ↑ bpm to reach next tier, ↓ bpm you can ease off before current tier slips. Second line on tall layouts.",
+      "SettingGuidanceModeNextTier" : "Next Tier",
+      "SettingValidationMode" : "Validation Mode",
+      "SettingAgeSourceProfileNoDob" : "Profile (no DOB set)",
+      "$literal17$" : "Orange",
+      "$literal29$" : "Crimson",
+      "$literal9$" : "Black",
+      "$literal21$" : "Teal"
+    }
+  }
+}
