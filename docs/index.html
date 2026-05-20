@@ -459,7 +459,7 @@
 
   <div class="callout tip">
     <div class="callout-title">Tip — compact layout background colour</div>
-    The compact layout's background colour matches your current points tier — pale pink for 100 pts, soft pink for 200 pts, hot pink for 300 pts. This is intentional: you can tell your tier at a glance without reading the number, even in bright sunlight.
+    The compact layout's background colour matches your current points tier — charcoal (device foreground) for 100 pts, Vitality silver for 200 pts, hot pink for 300 pts. This is intentional: you can tell your tier at a glance without reading the number, even in bright sunlight.
   </div>
 </section>
 
@@ -697,11 +697,15 @@
         <td>Colour of the dashed crosshair lines that mark your current position in the chart. Options: Off / Black / White / Red / Blue / Yellow / Green. White is the default and works well against all pink cell backgrounds.</td>
       </tr>
       <tr>
-        <td><div class="setting-name">Colour: 100 pts band</div><div class="default">Default: Pale Pink</div></td>
+        <td><div class="setting-name">Points number glow</div><div class="default">Default: On</div></td>
+        <td>When on, a tight glow halo is drawn behind the points number in a contrasting colour, lifting it off the chart matrix in all conditions. Turn off for a subtler, quieter look.</td>
+      </tr>
+      <tr>
+        <td><div class="setting-name">Colour: 100 pts band</div><div class="default">Default: Charcoal</div></td>
         <td>Fill colour for cells in the 100-point tier of the chart.</td>
       </tr>
       <tr>
-        <td><div class="setting-name">Colour: 200 pts band</div><div class="default">Default: Soft Pink</div></td>
+        <td><div class="setting-name">Colour: 200 pts band</div><div class="default">Default: Vitality Silver</div></td>
         <td>Fill colour for cells in the 200-point tier of the chart.</td>
       </tr>
       <tr>
@@ -709,8 +713,8 @@
         <td>Fill colour for cells in the 300-point tier (the goal tier for standard athletes).</td>
       </tr>
       <tr>
-        <td><div class="setting-name">Colour: 450 pts band</div><div class="default">Default: Deep Pink <span class="tag endurance">Endurance</span></div></td>
-        <td>Fill colour for the 450-point tier. Only relevant when Endurance Athlete is enabled.</td>
+        <td><div class="setting-name">Colour: 450 pts band</div><div class="default">Default: Pale Pink <span class="tag endurance">Endurance</span></div></td>
+        <td>Fill colour for the 450-point stepping-stone tier. Only relevant when Endurance Athlete is enabled.</td>
       </tr>
       <tr>
         <td><div class="setting-name">Colour: 600 pts band</div><div class="default">Default: Hot Pink <span class="tag endurance">Endurance</span></div></td>
@@ -756,50 +760,53 @@
   <div class="section-number">Section 6</div>
   <h2 class="section-title">Tier colour system</h2>
 
-  <p>The default colour palette is inspired by Discovery Vitality's branding. Hot pink always means you've reached your goal tier — at a glance, you know you're done.</p>
+  <p>The default colour palette is inspired by Discovery Vitality's branding. The progression moves from neutral to silver to hot pink — quiet when you're building, unmistakable when you've hit your goal.</p>
 
   <h3>Standard palette (100 / 200 / 300 pts)</h3>
 
   <div class="tier-row">
-    <div class="swatch" style="background:#FCE4F1;"></div>
+    <div class="swatch" style="background:#424242; border-color:#666;"></div>
     <div>
-      <div class="tier-label" style="color:#880E4F;">100 pts — Pale Pink</div>
-      <div class="tier-desc">You're earning points. Keep it up or push harder to move up.</div>
+      <div class="tier-label" style="color:#424242;">100 pts — Charcoal</div>
+      <div class="tier-desc">You're earning points. Device-adaptive: white on dark-theme watches, black on light.</div>
     </div>
   </div>
   <div class="tier-row">
-    <div class="swatch" style="background:#F8BBD0;"></div>
+    <div class="swatch" style="background:#BDBDBD;"></div>
     <div>
-      <div class="tier-label" style="color:#880E4F;">200 pts — Soft Pink</div>
-      <div class="tier-desc">Good effort. One more push to reach the goal tier.</div>
+      <div class="tier-label" style="color:#424242;">200 pts — Vitality Silver</div>
+      <div class="tier-desc">Good effort — halfway there. Dark text on silver for clear readability.</div>
     </div>
   </div>
   <div class="tier-row">
     <div class="swatch" style="background:#E91E8C;"></div>
     <div>
       <div class="tier-label" style="color:#E91E8C;">300 pts — Hot Pink ✓</div>
-      <div class="tier-desc">Goal reached. White text on hot pink — unmistakable.</div>
+      <div class="tier-desc">Goal reached. White text with dark crimson glow — unmistakable.</div>
     </div>
   </div>
 
   <h3 style="margin-top:28px;">Endurance palette (100 / 200 / 300 / 450 / 600 pts)</h3>
-  <p>When Endurance Athlete is enabled, the ramp extends to 600 pts. Hot pink is reserved for 600 pts (the new goal tier), and the lower tiers shift accordingly.</p>
+  <p>When Endurance Athlete is enabled, the ramp extends to 600 pts. Charcoal and silver carry through at the base, a pale pink stepping stone appears at 450, and hot pink is reserved for 600 pts (your goal tier).</p>
 
   <div class="tier-row">
+    <div class="swatch" style="background:#424242; border-color:#666;"></div>
+    <div><div class="tier-label" style="color:#424242;">100 pts — Charcoal</div></div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#BDBDBD;"></div>
+    <div><div class="tier-label" style="color:#424242;">200 pts — Vitality Silver</div></div>
+  </div>
+  <div class="tier-row">
+    <div class="swatch" style="background:#BDBDBD;"></div>
+    <div><div class="tier-label" style="color:#424242;">300 pts — Vitality Silver</div></div>
+  </div>
+  <div class="tier-row">
     <div class="swatch" style="background:#FCE4F1;"></div>
-    <div><div class="tier-label" style="color:#880E4F;">100 pts — Pale Pink</div></div>
-  </div>
-  <div class="tier-row">
-    <div class="swatch" style="background:#F8BBD0;"></div>
-    <div><div class="tier-label" style="color:#880E4F;">200 pts — Soft Pink</div></div>
-  </div>
-  <div class="tier-row">
-    <div class="swatch" style="background:#F48AC1;"></div>
-    <div><div class="tier-label" style="color:#880E4F;">300 pts — Mid Pink</div></div>
-  </div>
-  <div class="tier-row">
-    <div class="swatch" style="background:#F06292;"></div>
-    <div><div class="tier-label" style="color:#880E4F;">450 pts — Deep Pink</div></div>
+    <div>
+      <div class="tier-label" style="color:#880E4F;">450 pts — Pale Pink</div>
+      <div class="tier-desc">Stepping stone — you're close. One more push.</div>
+    </div>
   </div>
   <div class="tier-row">
     <div class="swatch" style="background:#E91E8C;"></div>
