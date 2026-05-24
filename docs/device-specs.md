@@ -59,11 +59,17 @@ least `max(8, round_inset(y))` when `screenShape == SCREEN_SHAPE_ROUND`.
 | 4 Fields B   | 1-2  | 122 |  63 | var | 0   | TILE   | w=122; number + short guidance |
 | 4 Fields B   | 3    | 246 | 126 | 0   | 65  | STD    | |
 | 4 Fields B   | 4    | 246 | 129 | 0   | 193 | STD    | |
-| 5–10 Fields  | full | 246 | 62-66 | var | var | CMPCT | Very thin; number + guidance |
-| 5–10 Fields  | half | 122 | 62-66 | var | var | TILE  | number + short guidance |
+| 5 Fields A   | 1–5  | 246 | 62–66 | 0   | var | CMPCT | All full-width thin strips |
+| 5 Fields B   | 1    | 246 |  63 | 0   |   0 | CMPCT | thin full-width strip |
+| 5 Fields B   | 2    | 246 | 126 | 0   |  65 | STD   | usable medium slot |
+| 5 Fields B   | 3    | 122 |  63 | 0   | 193 | TILE  | half-width |
+| 5 Fields B   | 4    | 122 |  63 | 124 | 193 | TILE  | half-width |
+| 5 Fields B   | 5    | 246 |  64 | 0   | 258 | CMPCT | thin full-width strip |
+| 6–10 Fields  | full | 246 | 62-66 | var | var | CMPCT | Very thin; number + guidance |
+| 6–10 Fields  | half | 122 | 62-66 | var | var | TILE  | number + short guidance |
 
 **Smallest useful slot:** 3 Fields B slot 2 = 246×126 (STD class).  
-**Recommended slot for this data field:** 1 Field, 2 Fields, or 3 Fields B slot 2.
+**Recommended slot for this data field:** 1 Field, 2 Fields, 5 Fields B slot 2.
 
 ---
 

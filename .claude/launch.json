@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "user-manual",
+      "runtimeExecutable": "python",
+      "runtimeArgs": ["-m", "http.server", "7842", "--directory", "store-assets"],
+      "port": 7842
+    }
+  ]
+}

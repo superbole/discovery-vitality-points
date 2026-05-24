@@ -440,22 +440,40 @@
   <p>The data field automatically selects the appropriate layout based on the size of the slot you've assigned it to. You don't need to configure this — it adapts automatically.</p>
 
   <h3 id="chart-layout">Chart layout — large slots</h3>
-  <p>Triggered on full-screen or large data field slots (roughly 220 × 150 pixels or larger). This is the primary layout and shows the most information.</p>
+  <p>Triggered on full-screen or large data field slots (roughly 220 × 150 pixels or larger). This is the primary layout and shows the most information. On rectangular devices (Edge series) the chart fills the whole slot; on round watches (Forerunner, fēnix) it is inscribed within the circular display.</p>
 
-  <div class="screenshot-placeholder">📸 Screenshot: Edge 840 full-screen chart layout, 300 pts green cell<br><small>Add screenshot: store-assets/screenshots/chart-rect-300.png</small></div>
-  <p class="screenshot-caption">Chart layout on Edge 840 — full zone × time grid with trend line.</p>
+  <div class="screenshot">
+    <img src="Screenshots/chart-rect-300.png" alt="Chart layout on Edge 840 — 300 pts locked in">
+  </div>
+  <p class="screenshot-caption">Chart layout on Edge 840 (1-field slot, 246 × 322) — 300 pts locked in. Full zone × time grid with trend line.</p>
+
+  <div class="screenshot">
+    <img src="Screenshots/chart-round-300.png" alt="Chart layout on Forerunner 745 — 300 pts, round display">
+  </div>
+  <p class="screenshot-caption">Chart layout on Forerunner 745 (full-screen, 240 × 240 round) — 300 pts, chart adapted for circular display.</p>
 
   <h3 id="standard-layout">Standard layout — medium slots</h3>
-  <p>Triggered on medium slots (200–220 × 100–150 pixels). Shows a zoomed view of the matrix centred on your current zone row, with partial rows above and below for context.</p>
+  <p>Triggered on medium slots (roughly 200 × 100–150 pixels). Shows a zoomed view of the matrix centred on your current zone row, with partial rows above and below for context.</p>
 
-  <div class="screenshot-placeholder">📸 Screenshot: Edge 840 3-field slot, standard layout<br><small>Add screenshot: store-assets/screenshots/standard-layout.png</small></div>
-  <p class="screenshot-caption">Standard layout — current zone row fills the centre, with partial rows above and below.</p>
+  <div class="screenshot">
+    <img src="Screenshots/standard-5fb-crop.png" alt="Standard layout on Edge 840 5-field B slot 2">
+  </div>
+  <p class="screenshot-caption">Standard layout on Edge 840 (5-field B, slot 2, 246 × 126) — current zone row fills the centre.</p>
 
   <h3 id="compact-layout">Compact / tile layout — small slots</h3>
-  <p>Triggered on small slots (under 200 × 100 pixels). The chart is replaced with two large configurable numbers and a guidance line. The entire background fills with your current points colour, making your tier immediately recognisable at a glance.</p>
+  <p>Triggered on small slots (under 200 × 100 pixels, or narrow half-width tiles). The chart is replaced with two large configurable numbers and a guidance line. The entire background fills with your current points colour, making your tier immediately recognisable at a glance.</p>
 
-  <div class="screenshot-placeholder">📸 Screenshot: Edge 840 4-field slot, compact layout<br><small>Add screenshot: store-assets/screenshots/compact-layout.png</small></div>
-  <p class="screenshot-caption">Compact layout — hot pink background means 300 points. Two large numbers plus guidance below.</p>
+  <div class="screenshot" style="display:flex;gap:16px;padding:16px;justify-content:center;align-items:flex-end;">
+    <div style="flex:0 0 auto;text-align:center;">
+      <img src="Screenshots/compact-5fb.png" alt="Compact layout 246×63" style="display:block;width:246px;height:auto;">
+      <span style="font-size:11px;color:rgba(255,255,255,0.45);">Compact — 246 × 63</span>
+    </div>
+    <div style="flex:0 0 auto;text-align:center;">
+      <img src="Screenshots/tile-5fb.png" alt="Tile layout 122×63" style="display:block;width:122px;height:auto;">
+      <span style="font-size:11px;color:rgba(255,255,255,0.45);">Tile — 122 × 63</span>
+    </div>
+  </div>
+  <p class="screenshot-caption">Compact (246 × 63) and tile (122 × 63) slots on Edge 840 5-field B — background fills with tier colour.</p>
 
   <div class="callout tip">
     <div class="callout-title">Tip — compact layout background colour</div>
