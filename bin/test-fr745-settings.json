@@ -61,6 +61,57 @@
     }, {
       "display" : "SettingPrimaryMetricAvgHr",
       "value" : 1
+    }, {
+      "display" : "SettingPrimaryMetricCurrentHr",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "CompactMainMetric",
+    "valueType" : "number",
+    "defaultValue" : 0,
+    "configTitle" : "SettingCompactMainMetric",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingCompactMetricHr",
+      "value" : 0
+    }, {
+      "display" : "SettingCompactMetricAvg",
+      "value" : 1
+    }, {
+      "display" : "SettingCompactMetricPoints",
+      "value" : 2
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "CompactSecondaryMetric",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "SettingCompactSecondaryMetric",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "SettingCompactMetricHr",
+      "value" : 0
+    }, {
+      "display" : "SettingCompactMetricAvg",
+      "value" : 1
+    }, {
+      "display" : "SettingCompactMetricPoints",
+      "value" : 2
     } ],
     "configMin" : null,
     "configMax" : null,
@@ -86,6 +137,483 @@
     "configMin" : null,
     "configMax" : null,
     "configMaxLength" : null
+  }, {
+    "key" : "BirthYear",
+    "valueType" : "number",
+    "defaultValue" : 1980,
+    "configTitle" : "SettingBirthYear",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal0$",
+      "value" : 1920
+    }, {
+      "display" : "$literal1$",
+      "value" : 1921
+    }, {
+      "display" : "$literal2$",
+      "value" : 1922
+    }, {
+      "display" : "$literal3$",
+      "value" : 1923
+    }, {
+      "display" : "$literal4$",
+      "value" : 1924
+    }, {
+      "display" : "$literal5$",
+      "value" : 1925
+    }, {
+      "display" : "$literal6$",
+      "value" : 1926
+    }, {
+      "display" : "$literal7$",
+      "value" : 1927
+    }, {
+      "display" : "$literal8$",
+      "value" : 1928
+    }, {
+      "display" : "$literal9$",
+      "value" : 1929
+    }, {
+      "display" : "$literal10$",
+      "value" : 1930
+    }, {
+      "display" : "$literal11$",
+      "value" : 1931
+    }, {
+      "display" : "$literal12$",
+      "value" : 1932
+    }, {
+      "display" : "$literal13$",
+      "value" : 1933
+    }, {
+      "display" : "$literal14$",
+      "value" : 1934
+    }, {
+      "display" : "$literal15$",
+      "value" : 1935
+    }, {
+      "display" : "$literal16$",
+      "value" : 1936
+    }, {
+      "display" : "$literal17$",
+      "value" : 1937
+    }, {
+      "display" : "$literal18$",
+      "value" : 1938
+    }, {
+      "display" : "$literal19$",
+      "value" : 1939
+    }, {
+      "display" : "$literal20$",
+      "value" : 1940
+    }, {
+      "display" : "$literal21$",
+      "value" : 1941
+    }, {
+      "display" : "$literal22$",
+      "value" : 1942
+    }, {
+      "display" : "$literal23$",
+      "value" : 1943
+    }, {
+      "display" : "$literal24$",
+      "value" : 1944
+    }, {
+      "display" : "$literal25$",
+      "value" : 1945
+    }, {
+      "display" : "$literal26$",
+      "value" : 1946
+    }, {
+      "display" : "$literal27$",
+      "value" : 1947
+    }, {
+      "display" : "$literal28$",
+      "value" : 1948
+    }, {
+      "display" : "$literal29$",
+      "value" : 1949
+    }, {
+      "display" : "$literal30$",
+      "value" : 1950
+    }, {
+      "display" : "$literal31$",
+      "value" : 1951
+    }, {
+      "display" : "$literal32$",
+      "value" : 1952
+    }, {
+      "display" : "$literal33$",
+      "value" : 1953
+    }, {
+      "display" : "$literal34$",
+      "value" : 1954
+    }, {
+      "display" : "$literal35$",
+      "value" : 1955
+    }, {
+      "display" : "$literal36$",
+      "value" : 1956
+    }, {
+      "display" : "$literal37$",
+      "value" : 1957
+    }, {
+      "display" : "$literal38$",
+      "value" : 1958
+    }, {
+      "display" : "$literal39$",
+      "value" : 1959
+    }, {
+      "display" : "$literal40$",
+      "value" : 1960
+    }, {
+      "display" : "$literal41$",
+      "value" : 1961
+    }, {
+      "display" : "$literal42$",
+      "value" : 1962
+    }, {
+      "display" : "$literal43$",
+      "value" : 1963
+    }, {
+      "display" : "$literal44$",
+      "value" : 1964
+    }, {
+      "display" : "$literal45$",
+      "value" : 1965
+    }, {
+      "display" : "$literal46$",
+      "value" : 1966
+    }, {
+      "display" : "$literal47$",
+      "value" : 1967
+    }, {
+      "display" : "$literal48$",
+      "value" : 1968
+    }, {
+      "display" : "$literal49$",
+      "value" : 1969
+    }, {
+      "display" : "$literal50$",
+      "value" : 1970
+    }, {
+      "display" : "$literal51$",
+      "value" : 1971
+    }, {
+      "display" : "$literal52$",
+      "value" : 1972
+    }, {
+      "display" : "$literal53$",
+      "value" : 1973
+    }, {
+      "display" : "$literal54$",
+      "value" : 1974
+    }, {
+      "display" : "$literal55$",
+      "value" : 1975
+    }, {
+      "display" : "$literal56$",
+      "value" : 1976
+    }, {
+      "display" : "$literal57$",
+      "value" : 1977
+    }, {
+      "display" : "$literal58$",
+      "value" : 1978
+    }, {
+      "display" : "$literal59$",
+      "value" : 1979
+    }, {
+      "display" : "$literal60$",
+      "value" : 1980
+    }, {
+      "display" : "$literal61$",
+      "value" : 1981
+    }, {
+      "display" : "$literal62$",
+      "value" : 1982
+    }, {
+      "display" : "$literal63$",
+      "value" : 1983
+    }, {
+      "display" : "$literal64$",
+      "value" : 1984
+    }, {
+      "display" : "$literal65$",
+      "value" : 1985
+    }, {
+      "display" : "$literal66$",
+      "value" : 1986
+    }, {
+      "display" : "$literal67$",
+      "value" : 1987
+    }, {
+      "display" : "$literal68$",
+      "value" : 1988
+    }, {
+      "display" : "$literal69$",
+      "value" : 1989
+    }, {
+      "display" : "$literal70$",
+      "value" : 1990
+    }, {
+      "display" : "$literal71$",
+      "value" : 1991
+    }, {
+      "display" : "$literal72$",
+      "value" : 1992
+    }, {
+      "display" : "$literal73$",
+      "value" : 1993
+    }, {
+      "display" : "$literal74$",
+      "value" : 1994
+    }, {
+      "display" : "$literal75$",
+      "value" : 1995
+    }, {
+      "display" : "$literal76$",
+      "value" : 1996
+    }, {
+      "display" : "$literal77$",
+      "value" : 1997
+    }, {
+      "display" : "$literal78$",
+      "value" : 1998
+    }, {
+      "display" : "$literal79$",
+      "value" : 1999
+    }, {
+      "display" : "$literal80$",
+      "value" : 2000
+    }, {
+      "display" : "$literal81$",
+      "value" : 2001
+    }, {
+      "display" : "$literal82$",
+      "value" : 2002
+    }, {
+      "display" : "$literal83$",
+      "value" : 2003
+    }, {
+      "display" : "$literal84$",
+      "value" : 2004
+    }, {
+      "display" : "$literal85$",
+      "value" : 2005
+    }, {
+      "display" : "$literal86$",
+      "value" : 2006
+    }, {
+      "display" : "$literal87$",
+      "value" : 2007
+    }, {
+      "display" : "$literal88$",
+      "value" : 2008
+    }, {
+      "display" : "$literal89$",
+      "value" : 2009
+    }, {
+      "display" : "$literal90$",
+      "value" : 2010
+    }, {
+      "display" : "$literal91$",
+      "value" : 2011
+    }, {
+      "display" : "$literal92$",
+      "value" : 2012
+    }, {
+      "display" : "$literal93$",
+      "value" : 2013
+    }, {
+      "display" : "$literal94$",
+      "value" : 2014
+    }, {
+      "display" : "$literal95$",
+      "value" : 2015
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "BirthMonth",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "SettingBirthMonth",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal96$",
+      "value" : 1
+    }, {
+      "display" : "$literal97$",
+      "value" : 2
+    }, {
+      "display" : "$literal98$",
+      "value" : 3
+    }, {
+      "display" : "$literal99$",
+      "value" : 4
+    }, {
+      "display" : "$literal100$",
+      "value" : 5
+    }, {
+      "display" : "$literal101$",
+      "value" : 6
+    }, {
+      "display" : "$literal102$",
+      "value" : 7
+    }, {
+      "display" : "$literal103$",
+      "value" : 8
+    }, {
+      "display" : "$literal104$",
+      "value" : 9
+    }, {
+      "display" : "$literal105$",
+      "value" : 10
+    }, {
+      "display" : "$literal106$",
+      "value" : 11
+    }, {
+      "display" : "$literal107$",
+      "value" : 12
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "BirthDay",
+    "valueType" : "number",
+    "defaultValue" : 1,
+    "configTitle" : "SettingBirthDay",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal108$",
+      "value" : 1
+    }, {
+      "display" : "$literal109$",
+      "value" : 2
+    }, {
+      "display" : "$literal110$",
+      "value" : 3
+    }, {
+      "display" : "$literal111$",
+      "value" : 4
+    }, {
+      "display" : "$literal112$",
+      "value" : 5
+    }, {
+      "display" : "$literal113$",
+      "value" : 6
+    }, {
+      "display" : "$literal114$",
+      "value" : 7
+    }, {
+      "display" : "$literal115$",
+      "value" : 8
+    }, {
+      "display" : "$literal116$",
+      "value" : 9
+    }, {
+      "display" : "$literal117$",
+      "value" : 10
+    }, {
+      "display" : "$literal118$",
+      "value" : 11
+    }, {
+      "display" : "$literal119$",
+      "value" : 12
+    }, {
+      "display" : "$literal120$",
+      "value" : 13
+    }, {
+      "display" : "$literal121$",
+      "value" : 14
+    }, {
+      "display" : "$literal122$",
+      "value" : 15
+    }, {
+      "display" : "$literal123$",
+      "value" : 16
+    }, {
+      "display" : "$literal124$",
+      "value" : 17
+    }, {
+      "display" : "$literal125$",
+      "value" : 18
+    }, {
+      "display" : "$literal126$",
+      "value" : 19
+    }, {
+      "display" : "$literal127$",
+      "value" : 20
+    }, {
+      "display" : "$literal128$",
+      "value" : 21
+    }, {
+      "display" : "$literal129$",
+      "value" : 22
+    }, {
+      "display" : "$literal130$",
+      "value" : 23
+    }, {
+      "display" : "$literal131$",
+      "value" : 24
+    }, {
+      "display" : "$literal132$",
+      "value" : 25
+    }, {
+      "display" : "$literal133$",
+      "value" : 26
+    }, {
+      "display" : "$literal134$",
+      "value" : 27
+    }, {
+      "display" : "$literal135$",
+      "value" : 28
+    }, {
+      "display" : "$literal136$",
+      "value" : 29
+    }, {
+      "display" : "$literal137$",
+      "value" : 30
+    }, {
+      "display" : "$literal138$",
+      "value" : 31
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintBirthDate",
+    "valueType" : "string",
+    "defaultValue" : "Your date of birth is used when Age Source is Manual, or as a fallback if your Garmin profile has no date of birth. Default is 1 Jan 1980 — please update before your first activity.",
+    "configTitle" : "SettingGcHintTitleBirthDate",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
   }, {
     "key" : "IsEndurance",
     "valueType" : "boolean",
@@ -149,19 +677,19 @@
     "configReadonly" : false,
     "configRequired" : false,
     "configOptions" : [ {
-      "display" : "$literal0$",
+      "display" : "$literal139$",
       "value" : 100
     }, {
-      "display" : "$literal1$",
+      "display" : "$literal140$",
       "value" : 200
     }, {
-      "display" : "$literal2$",
+      "display" : "$literal141$",
       "value" : 300
     }, {
-      "display" : "$literal3$",
+      "display" : "$literal142$",
       "value" : 450
     }, {
-      "display" : "$literal4$",
+      "display" : "$literal143$",
       "value" : 600
     } ],
     "configMin" : null,
@@ -198,6 +726,549 @@
     "configMax" : null,
     "configMaxLength" : 128
   }, {
+    "key" : "HrAxisLabels",
+    "valueType" : "number",
+    "defaultValue" : 2,
+    "configTitle" : "SettingHrAxisLabels",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal144$",
+      "value" : 0
+    }, {
+      "display" : "$literal145$",
+      "value" : 1
+    }, {
+      "display" : "$literal146$",
+      "value" : 2
+    }, {
+      "display" : "$literal147$",
+      "value" : 3
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "PointsHighlighted",
+    "valueType" : "boolean",
+    "defaultValue" : true,
+    "configTitle" : "SettingPointsHighlighted",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintPointsHighlighted",
+    "valueType" : "string",
+    "defaultValue" : "Glow halo behind points number for contrast. Off = subdued, no halo.",
+    "configTitle" : "SettingGcHintTitlePointsHighlighted",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 128
+  }, {
+    "key" : "CrosshairColor",
+    "valueType" : "number",
+    "defaultValue" : 2,
+    "configTitle" : "SettingCrosshairColor",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal144$",
+      "value" : 0
+    }, {
+      "display" : "$literal148$",
+      "value" : 1
+    }, {
+      "display" : "$literal149$",
+      "value" : 2
+    }, {
+      "display" : "$literal150$",
+      "value" : 3
+    }, {
+      "display" : "$literal151$",
+      "value" : 4
+    }, {
+      "display" : "$literal152$",
+      "value" : 5
+    }, {
+      "display" : "$literal153$",
+      "value" : 6
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor100",
+    "valueType" : "number",
+    "defaultValue" : 21,
+    "configTitle" : "SettingTierColor100",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal144$",
+      "value" : 0
+    }, {
+      "display" : "$literal154$",
+      "value" : 1
+    }, {
+      "display" : "$literal152$",
+      "value" : 2
+    }, {
+      "display" : "$literal155$",
+      "value" : 3
+    }, {
+      "display" : "$literal156$",
+      "value" : 4
+    }, {
+      "display" : "$literal157$",
+      "value" : 5
+    }, {
+      "display" : "$literal150$",
+      "value" : 6
+    }, {
+      "display" : "$literal158$",
+      "value" : 7
+    }, {
+      "display" : "$literal159$",
+      "value" : 8
+    }, {
+      "display" : "$literal153$",
+      "value" : 9
+    }, {
+      "display" : "$literal160$",
+      "value" : 10
+    }, {
+      "display" : "$literal151$",
+      "value" : 11
+    }, {
+      "display" : "$literal161$",
+      "value" : 12
+    }, {
+      "display" : "$literal162$",
+      "value" : 13
+    }, {
+      "display" : "$literal163$",
+      "value" : 14
+    }, {
+      "display" : "$literal164$",
+      "value" : 15
+    }, {
+      "display" : "$literal165$",
+      "value" : 16
+    }, {
+      "display" : "$literal166$",
+      "value" : 17
+    }, {
+      "display" : "$literal167$",
+      "value" : 18
+    }, {
+      "display" : "$literal168$",
+      "value" : 19
+    }, {
+      "display" : "$literal169$",
+      "value" : 20
+    }, {
+      "display" : "$literal170$",
+      "value" : 21
+    }, {
+      "display" : "$literal171$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor200",
+    "valueType" : "number",
+    "defaultValue" : 22,
+    "configTitle" : "SettingTierColor200",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal144$",
+      "value" : 0
+    }, {
+      "display" : "$literal154$",
+      "value" : 1
+    }, {
+      "display" : "$literal152$",
+      "value" : 2
+    }, {
+      "display" : "$literal155$",
+      "value" : 3
+    }, {
+      "display" : "$literal156$",
+      "value" : 4
+    }, {
+      "display" : "$literal157$",
+      "value" : 5
+    }, {
+      "display" : "$literal150$",
+      "value" : 6
+    }, {
+      "display" : "$literal158$",
+      "value" : 7
+    }, {
+      "display" : "$literal159$",
+      "value" : 8
+    }, {
+      "display" : "$literal153$",
+      "value" : 9
+    }, {
+      "display" : "$literal160$",
+      "value" : 10
+    }, {
+      "display" : "$literal151$",
+      "value" : 11
+    }, {
+      "display" : "$literal161$",
+      "value" : 12
+    }, {
+      "display" : "$literal162$",
+      "value" : 13
+    }, {
+      "display" : "$literal163$",
+      "value" : 14
+    }, {
+      "display" : "$literal164$",
+      "value" : 15
+    }, {
+      "display" : "$literal165$",
+      "value" : 16
+    }, {
+      "display" : "$literal166$",
+      "value" : 17
+    }, {
+      "display" : "$literal167$",
+      "value" : 18
+    }, {
+      "display" : "$literal168$",
+      "value" : 19
+    }, {
+      "display" : "$literal169$",
+      "value" : 20
+    }, {
+      "display" : "$literal170$",
+      "value" : 21
+    }, {
+      "display" : "$literal171$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor300",
+    "valueType" : "number",
+    "defaultValue" : 18,
+    "configTitle" : "SettingTierColor300",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal144$",
+      "value" : 0
+    }, {
+      "display" : "$literal154$",
+      "value" : 1
+    }, {
+      "display" : "$literal152$",
+      "value" : 2
+    }, {
+      "display" : "$literal155$",
+      "value" : 3
+    }, {
+      "display" : "$literal156$",
+      "value" : 4
+    }, {
+      "display" : "$literal157$",
+      "value" : 5
+    }, {
+      "display" : "$literal150$",
+      "value" : 6
+    }, {
+      "display" : "$literal158$",
+      "value" : 7
+    }, {
+      "display" : "$literal159$",
+      "value" : 8
+    }, {
+      "display" : "$literal153$",
+      "value" : 9
+    }, {
+      "display" : "$literal160$",
+      "value" : 10
+    }, {
+      "display" : "$literal151$",
+      "value" : 11
+    }, {
+      "display" : "$literal161$",
+      "value" : 12
+    }, {
+      "display" : "$literal162$",
+      "value" : 13
+    }, {
+      "display" : "$literal163$",
+      "value" : 14
+    }, {
+      "display" : "$literal164$",
+      "value" : 15
+    }, {
+      "display" : "$literal165$",
+      "value" : 16
+    }, {
+      "display" : "$literal166$",
+      "value" : 17
+    }, {
+      "display" : "$literal167$",
+      "value" : 18
+    }, {
+      "display" : "$literal168$",
+      "value" : 19
+    }, {
+      "display" : "$literal169$",
+      "value" : 20
+    }, {
+      "display" : "$literal170$",
+      "value" : 21
+    }, {
+      "display" : "$literal171$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor450",
+    "valueType" : "number",
+    "defaultValue" : 14,
+    "configTitle" : "SettingTierColor450",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal144$",
+      "value" : 0
+    }, {
+      "display" : "$literal154$",
+      "value" : 1
+    }, {
+      "display" : "$literal152$",
+      "value" : 2
+    }, {
+      "display" : "$literal155$",
+      "value" : 3
+    }, {
+      "display" : "$literal156$",
+      "value" : 4
+    }, {
+      "display" : "$literal157$",
+      "value" : 5
+    }, {
+      "display" : "$literal150$",
+      "value" : 6
+    }, {
+      "display" : "$literal158$",
+      "value" : 7
+    }, {
+      "display" : "$literal159$",
+      "value" : 8
+    }, {
+      "display" : "$literal153$",
+      "value" : 9
+    }, {
+      "display" : "$literal160$",
+      "value" : 10
+    }, {
+      "display" : "$literal151$",
+      "value" : 11
+    }, {
+      "display" : "$literal161$",
+      "value" : 12
+    }, {
+      "display" : "$literal162$",
+      "value" : 13
+    }, {
+      "display" : "$literal163$",
+      "value" : 14
+    }, {
+      "display" : "$literal164$",
+      "value" : 15
+    }, {
+      "display" : "$literal165$",
+      "value" : 16
+    }, {
+      "display" : "$literal166$",
+      "value" : 17
+    }, {
+      "display" : "$literal167$",
+      "value" : 18
+    }, {
+      "display" : "$literal168$",
+      "value" : 19
+    }, {
+      "display" : "$literal169$",
+      "value" : 20
+    }, {
+      "display" : "$literal170$",
+      "value" : 21
+    }, {
+      "display" : "$literal171$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "TierColor600",
+    "valueType" : "number",
+    "defaultValue" : 18,
+    "configTitle" : "SettingTierColor600",
+    "configPrompt" : null,
+    "configType" : "list",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : [ {
+      "display" : "$literal144$",
+      "value" : 0
+    }, {
+      "display" : "$literal154$",
+      "value" : 1
+    }, {
+      "display" : "$literal152$",
+      "value" : 2
+    }, {
+      "display" : "$literal155$",
+      "value" : 3
+    }, {
+      "display" : "$literal156$",
+      "value" : 4
+    }, {
+      "display" : "$literal157$",
+      "value" : 5
+    }, {
+      "display" : "$literal150$",
+      "value" : 6
+    }, {
+      "display" : "$literal158$",
+      "value" : 7
+    }, {
+      "display" : "$literal159$",
+      "value" : 8
+    }, {
+      "display" : "$literal153$",
+      "value" : 9
+    }, {
+      "display" : "$literal160$",
+      "value" : 10
+    }, {
+      "display" : "$literal151$",
+      "value" : 11
+    }, {
+      "display" : "$literal161$",
+      "value" : 12
+    }, {
+      "display" : "$literal162$",
+      "value" : 13
+    }, {
+      "display" : "$literal163$",
+      "value" : 14
+    }, {
+      "display" : "$literal164$",
+      "value" : 15
+    }, {
+      "display" : "$literal165$",
+      "value" : 16
+    }, {
+      "display" : "$literal166$",
+      "value" : 17
+    }, {
+      "display" : "$literal167$",
+      "value" : 18
+    }, {
+      "display" : "$literal168$",
+      "value" : 19
+    }, {
+      "display" : "$literal169$",
+      "value" : 20
+    }, {
+      "display" : "$literal170$",
+      "value" : 21
+    }, {
+      "display" : "$literal171$",
+      "value" : 22
+    } ],
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "ValidationMode",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "SettingValidationMode",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintValidationMode",
+    "valueType" : "string",
+    "defaultValue" : "When on: layout tier tag and validation overlay. Off for normal use. Same toggle as Validation Mode in Garmin Connect (this data field's settings) or simulator Object Emulator → Settings.",
+    "configTitle" : "SettingGcHintTitleValidation",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
+  }, {
     "key" : "ShowHrGuidance",
     "valueType" : "boolean",
     "defaultValue" : true,
@@ -227,6 +1298,36 @@
     "configMin" : null,
     "configMax" : null,
     "configMaxLength" : 128
+  }, {
+    "key" : "ShowTierHeadroom",
+    "valueType" : "boolean",
+    "defaultValue" : false,
+    "configTitle" : "SettingShowTierHeadroom",
+    "configPrompt" : null,
+    "configType" : "boolean",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : false,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : null
+  }, {
+    "key" : "HintShowTierHeadroom",
+    "valueType" : "string",
+    "defaultValue" : "Adds downward headroom (bpm average can drop before current points tier slips). Tall layouts show a second micro line. Pipe uses ↑ for HR to next tier and ↓ for headroom.",
+    "configTitle" : "SettingGcHintTitleHeadroom",
+    "configPrompt" : null,
+    "configType" : "alphaNumeric",
+    "configError" : null,
+    "configHelpUrl" : null,
+    "configReadonly" : true,
+    "configRequired" : false,
+    "configOptions" : null,
+    "configMin" : null,
+    "configMax" : null,
+    "configMaxLength" : 256
   }, {
     "key" : "SoundAlerts",
     "valueType" : "boolean",
@@ -292,51 +1393,242 @@
   "languages" : {
     "valyrian" : {
       "SettingGuidanceMode" : "Guidance Mode",
-      "SettingAgeSource" : "Age Source",
-      "SettingsMenuTitle" : "Vitality Points",
-      "SettingBirthYear" : "Birth Year",
-      "SettingShowZone" : "Show Zone Label",
+      "$literal91$" : "2011",
+      "SettingTierColor200" : "Colour: 200 pts band",
       "DisclaimerLine4" : "That can happen if Vitality's import fails.",
       "DisclaimerLine3" : "Garmin Connect or Strava may show HR while Vitality still credits without HR.",
       "DisclaimerLine5" : "Not affiliated with or endorsed by Discovery or Garmin.",
-      "SettingGcHintTitleDataField" : "Full-screen",
       "DisclaimerLine2" : "Official points are awarded only by Discovery Vitality and may differ.",
-      "AppName" : "Discovery Vitality Points",
       "DisclaimerLine1" : "This field estimates Discovery Vitality-style points from your Garmin activity.",
-      "SettingBirthDay" : "Birth Day (1-31)",
-      "SettingPrimaryMetricPoints" : "Points",
-      "$literal0$" : "100",
-      "SettingDisclaimerTitle" : "About these points",
-      "$literal2$" : "300",
-      "SettingIsEnduranceHelp" : "Registration required: https://discovery.co.za/vitality/endurance-high-performance-events",
-      "$literal4$" : "600 (Endurance athletes)",
+      "$literal48$" : "1968",
+      "$literal24$" : "1944",
+      "$literal36$" : "1956",
+      "$literal4$" : "1924",
       "SettingShowZoneHelp" : "VIGOROUS / MODERATE / etc.",
-      "SettingAgeSourceProfile" : "User Profile",
-      "SettingDisclaimerTitle3" : "About these points (3/3)",
-      "SettingAgeSourceManual" : "Manual",
-      "SettingDisclaimerTitle2" : "About these points (2/3)",
-      "SettingDataFieldAlertsHelp" : "Full-screen tier change notice",
-      "SettingGcHintTitleShowHr" : "HR in guidance",
-      "SettingGuidanceModeTarget" : "Target Points",
-      "SettingSoundAlerts" : "Point change tones",
-      "SettingManualAge" : "Manual Age (Years)",
-      "SettingIsEndurance" : "Endurance Athlete",
-      "SettingShowHrGuidanceHelp" : "HR targets in guidance lines",
-      "SettingPrimaryMetricAvgHr" : "Average HR",
-      "SettingShowHrGuidance" : "Show HR Guidance",
+      "SettingTierColor450" : "Colour: 450 pts band",
+      "$literal146$" : "Names (V/M/L/E)",
+      "$literal134$" : "27",
+      "$literal122$" : "15",
+      "$literal110$" : "3",
+      "$literal12$" : "1932",
+      "$literal158$" : "Coral",
+      "SettingCompactMainMetric" : "Compact / tile: left value",
+      "$literal90$" : "2010",
       "SettingTargetPoints" : "Target Points",
-      "SettingPrimaryMetric" : "Primary Display",
-      "$literal1$" : "200",
-      "SettingSoundAlertsHelp" : "Beeps when points change",
-      "SettingGcHintTitleSound" : "Tones",
-      "$literal3$" : "450 (Endurance athletes)",
+      "$literal59$" : "1979",
+      "$literal3$" : "1923",
+      "$literal35$" : "1955",
+      "$literal47$" : "1967",
+      "$literal135$" : "28",
+      "$literal123$" : "16",
+      "$literal111$" : "4",
+      "$literal11$" : "1931",
+      "$literal23$" : "1943",
+      "$literal159$" : "Lt Green",
+      "$literal147$" : "Both",
+      "$literal81$" : "2001",
+      "SettingTierColor300" : "Colour: 300 pts band",
+      "SettingBirthDay" : "Birth Day",
+      "$literal26$" : "1946",
+      "SettingPrimaryMetricPoints" : "Points",
+      "$literal38$" : "1958",
+      "$literal14$" : "1934",
+      "$literal6$" : "1926",
+      "SettingDisclaimerTitle3" : "About these points (3/3)",
+      "$literal124$" : "17",
+      "$literal112$" : "5",
+      "$literal82$" : "2002",
+      "$literal100$" : "May",
+      "SettingDisclaimerTitle2" : "About these points (2/3)",
+      "$literal94$" : "2014",
+      "SettingGcHintTitleShowHr" : "HR in guidance",
+      "$literal148$" : "Black",
+      "SettingGuidanceModeTarget" : "Target Points",
+      "$literal136$" : "29",
+      "SettingCompactMetricPoints" : "Points",
+      "$literal80$" : "2000",
+      "$literal92$" : "2012",
+      "SettingGcHintTitleHeadroom" : "Tier headroom",
+      "$literal37$" : "1957",
+      "$literal49$" : "1969",
+      "$literal13$" : "1933",
+      "$literal25$" : "1945",
+      "$literal5$" : "1925",
+      "SettingBirthMonth" : "Birth Month",
+      "$literal113$" : "6",
+      "$literal101$" : "June",
+      "$literal93$" : "2013",
+      "SettingGcHintTitleEndurance" : "Endurance",
+      "$literal149$" : "White",
+      "$literal137$" : "30",
+      "$literal125$" : "18",
+      "$literal153$" : "Green",
+      "$literal141$" : "300",
+      "SettingAgeSource" : "Age Source",
+      "$literal0$" : "1920",
+      "$literal16$" : "1936",
+      "$literal28$" : "1948",
+      "SettingAgeSourceProfile" : "User Profile",
+      "$literal84$" : "2004",
+      "$literal96$" : "January",
+      "$literal60$" : "1980",
+      "$literal166$" : "Deep Pink",
+      "$literal72$" : "1992",
+      "$literal154$" : "Pale Yellow",
+      "SettingValidationModeHelp" : "When on: tier tag and validation overlay. Off for normal rides. Phone: Garmin Connect → Activities & Apps → Data Fields → this field → Settings. Simulator: Object Emulator → Settings.",
+      "SettingCompactSecondaryMetric" : "Compact / tile: right value",
+      "$literal142$" : "450 (Endurance athletes)",
+      "$literal70$" : "1990",
+      "$literal130$" : "23",
+      "SettingPrimaryMetricAvgHr" : "Average HR",
+      "$literal15$" : "1935",
+      "$literal27$" : "1947",
       "SettingDataFieldAlerts" : "Point change alerts",
-      "SettingGuidanceModeNextTier" : "Next Tier",
-      "SettingBirthMonth" : "Birth Month (1-12)",
+      "$literal39$" : "1959",
+      "$literal95$" : "2015",
+      "$literal167$" : "Hot Pink",
+      "$literal71$" : "1991",
+      "$literal155$" : "Amber",
+      "$literal83$" : "2003",
+      "$literal143$" : "600 (Endurance athletes)",
+      "$literal131$" : "24",
+      "SettingGcHintTitleDataField" : "Full-screen",
+      "$literal2$" : "1922",
+      "$literal18$" : "1938",
+      "$literal62$" : "1982",
+      "$literal168$" : "Crimson",
+      "$literal74$" : "1994",
+      "$literal156$" : "Orange",
+      "SettingGcHintTitlePointsHighlighted" : "Glow",
+      "$literal144$" : "Off",
+      "$literal50$" : "1970",
+      "$literal132$" : "25",
+      "$literal86$" : "2006",
+      "$literal98$" : "March",
+      "$literal120$" : "13",
+      "SettingGcHintTitleValidation" : "Validation",
+      "$literal1$" : "1921",
+      "SettingGcHintTitleSound" : "Tones",
+      "SettingValidationMode" : "Validation Mode",
       "SettingAgeSourceProfileNoDob" : "Profile (no DOB set)",
+      "$literal17$" : "1937",
+      "$literal29$" : "1949",
+      "$literal73$" : "1993",
+      "$literal157$" : "Red-Orange",
+      "$literal85$" : "2005",
+      "$literal145$" : "Values (bpm)",
+      "$literal133$" : "26",
+      "$literal61$" : "1981",
+      "$literal121$" : "14",
+      "$literal97$" : "February",
+      "$literal169$" : "Dark Crimson",
+      "$literal161$" : "Cyan",
+      "SettingPrimaryMetricCurrentHr" : "Current HR",
+      "SettingTierColor600" : "Colour: 600 pts band",
+      "$literal118$" : "11",
+      "$literal40$" : "1960",
+      "$literal52$" : "1972",
+      "SettingAgeSourceManual" : "Manual",
+      "SettingGcHintTitleBirthDate" : "Age check",
+      "$literal88$" : "2008",
+      "$literal106$" : "November",
+      "$literal64$" : "1984",
+      "$literal76$" : "1996",
+      "$literal162$" : "Gray",
+      "$literal150$" : "Red",
+      "SettingCompactMetricHr" : "Current HR",
+      "SettingShowHrGuidance" : "Show HR Guidance",
+      "SettingCrosshairColor" : "Crosshair",
+      "$literal119$" : "12",
+      "$literal107$" : "December",
+      "$literal19$" : "1939",
+      "$literal51$" : "1971",
+      "$literal63$" : "1983",
       "SettingGcHintTitleShowZone" : "Zone row",
+      "$literal99$" : "April",
+      "$literal75$" : "1995",
+      "$literal87$" : "2007",
+      "$literal163$" : "Pale Pink",
+      "$literal151$" : "Blue",
+      "SettingsMenuTitle" : "Vitality Points",
+      "$literal108$" : "1",
+      "SettingIsEnduranceHelp" : "Registration required: https://discovery.co.za/vitality/endurance-high-performance-events",
+      "$literal30$" : "1950",
+      "$literal66$" : "1986",
+      "$literal78$" : "1998",
+      "$literal42$" : "1962",
+      "$literal54$" : "1974",
+      "SettingManualAge" : "Manual Age (Years)",
+      "$literal164$" : "Soft Pink",
+      "$literal152$" : "Yellow",
+      "$literal140$" : "200",
+      "SettingShowHrGuidanceHelp" : "HR targets in guidance lines",
+      "SettingPrimaryMetric" : "Primary Display",
+      "SettingSoundAlertsHelp" : "Beeps when points change",
+      "$literal109$" : "2",
+      "$literal41$" : "1961",
+      "$literal165$" : "Mid Pink",
+      "$literal77$" : "1997",
+      "SettingShowTierHeadroom" : "Show tier headroom",
+      "$literal89$" : "2009",
+      "$literal53$" : "1973",
+      "$literal65$" : "1985",
+      "SettingBirthYear" : "Birth Year",
+      "SettingShowZone" : "Show Zone Label",
+      "SettingGcHintTitleShowHrAxis" : "HR axis",
+      "SettingPointsHighlighted" : "Points number glow",
+      "$literal68$" : "1988",
+      "GuidanceHeadroomSecondLine" : "You can lose: ",
+      "$literal102$" : "July",
+      "$literal8$" : "1928",
+      "$literal44$" : "1964",
+      "$literal56$" : "1976",
+      "$literal138$" : "31",
+      "$literal20$" : "1940",
+      "$literal126$" : "19",
+      "SettingHrAxisLabels" : "HR Axis Labels",
+      "$literal32$" : "1952",
+      "$literal114$" : "7",
+      "$literal170$" : "Charcoal",
+      "SettingSoundAlerts" : "Point change tones",
+      "SettingIsEndurance" : "Endurance Athlete",
+      "$literal79$" : "1999",
+      "$literal7$" : "1927",
+      "$literal55$" : "1975",
+      "$literal139$" : "100",
       "SettingDisclaimerMenu" : "Disclaimer",
-      "SettingGcHintTitleEndurance" : "Endurance"
+      "$literal67$" : "1987",
+      "$literal127$" : "20",
+      "$literal31$" : "1951",
+      "$literal115$" : "8",
+      "$literal43$" : "1963",
+      "$literal103$" : "August",
+      "$literal171$" : "Vitality Silver",
+      "SettingTierColor100" : "Colour: 100 pts band",
+      "AppName" : "Discovery Vitality Points",
+      "SettingDisclaimerTitle" : "About these points",
+      "$literal46$" : "1966",
+      "SettingCompactMetricAvg" : "Average HR",
+      "$literal58$" : "1978",
+      "SettingDataFieldAlertsHelp" : "Full-screen tier change notice",
+      "$literal22$" : "1942",
+      "$literal128$" : "21",
+      "$literal34$" : "1954",
+      "$literal116$" : "9",
+      "$literal104$" : "September",
+      "$literal10$" : "1930",
+      "$literal160$" : "Teal",
+      "SettingShowTierHeadroomHelp" : "Pipe: ↑ bpm to reach next tier, ↓ bpm you can ease off before current tier slips. Second line on tall layouts.",
+      "$literal57$" : "1977",
+      "$literal69$" : "1989",
+      "$literal129$" : "22",
+      "SettingGuidanceModeNextTier" : "Next Tier",
+      "$literal9$" : "1929",
+      "$literal33$" : "1953",
+      "$literal117$" : "10",
+      "$literal45$" : "1965",
+      "$literal105$" : "October",
+      "$literal21$" : "1941"
     }
   }
 }

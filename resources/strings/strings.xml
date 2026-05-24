@@ -1,5 +1,6 @@
 <strings xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://developer.garmin.com/downloads/connect-iq/resources.xsd">
-    <string id="AppName">Discovery Vitality Points</string>
+    <!-- PRODUCTION --> <!-- <string id="AppName">Discovery Vitality Points</string> -->
+    <!-- BETA -->       <string id="AppName">DVP Beta</string>
     <string id="SettingsMenuTitle">Vitality Points</string>
     <string id="SettingPrimaryMetric">Primary Display</string>
     <string id="SettingPrimaryMetricPoints">Points</string>
